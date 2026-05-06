@@ -6,11 +6,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Nama system</title>
+    <title>Company Financial Behavior Analysis & Advisory System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 
 <body class="bg-light">
@@ -19,7 +22,7 @@
 <nav class="navbar navbar-expand-lg bg-white shadow-sm fixed-top">
     <div class="container">
         <a class="navbar-brand fw-bold text-primary fs-4" href="index.jsp">
-            Nama system
+            Company Financial Behavior Analysis & Advisory System
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
@@ -76,7 +79,7 @@
                 </h1>
 
                 <p class="lead text-secondary mb-4">
-                    ()Nama system) helps companies record income and expenses, monitor financial health,
+                    Company Financial Behavior Analysis & Advisory System helps companies record income and expenses, monitor financial health,
                     analyze cashflow trends, and receive advisory suggestions based on business performance.
                 </p>
 
@@ -141,7 +144,7 @@
             <div class="col-lg-8">
 
                 <span class="badge rounded-pill text-bg-primary-subtle text-primary px-3 py-2 mb-3">
-                    Why (Nama software)?
+                    Why Our System?
                 </span>
 
                 <h2 class="fw-bold mb-3">
@@ -167,7 +170,9 @@
             <div class="col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow-sm rounded-4">
                     <div class="card-body p-4">
-                        <div class="fs-1 mb-3">💰</div>
+                        <div class="fs-1 mb-3">
+                        	<i class="bi bi-cash-stack"></i>
+                        </div>
                         <h5 class="fw-bold">Transaction Recording</h5>
                         <p class="text-secondary mb-0">
                             Record and manage income and expenses in a structured financial system.
@@ -179,7 +184,9 @@
             <div class="col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow-sm rounded-4">
                     <div class="card-body p-4">
-                        <div class="fs-1 mb-3">📊</div>
+                        <div class="fs-1 mb-3">
+                        	<i class="bi bi-graph-up-arrow"></i>
+                        </div>
                         <h5 class="fw-bold">Financial Dashboard</h5>
                         <p class="text-secondary mb-0">
                             View revenue, expenses, net profit, and cashflow status using simple visuals.
@@ -191,7 +198,9 @@
             <div class="col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow-sm rounded-4">
                     <div class="card-body p-4">
-                        <div class="fs-1 mb-3">🧾</div>
+                        <div class="fs-1 mb-3">
+                        	<i class="bi bi-receipt"></i>
+                        </div>
                         <h5 class="fw-bold">Invoice Extraction</h5>
                         <p class="text-secondary mb-0">
                             Upload invoices and reduce manual entry through document extraction.
@@ -203,7 +212,9 @@
             <div class="col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow-sm rounded-4">
                     <div class="card-body p-4">
-                        <div class="fs-1 mb-3">🤖</div>
+                        <div class="fs-1 mb-3">
+                        	<i class="bi bi-robot"></i>
+                        </div>
                         <h5 class="fw-bold">AI Advisory</h5>
                         <p class="text-secondary mb-0">
                             Receive financial suggestions based on company spending and profit trends.
@@ -238,7 +249,7 @@
 <!-- Footer -->
 <footer class="py-4 bg-white border-top">
     <div class="container text-center text-secondary">
-        <small>© 2026 LKP RACER GROUP.</small>
+        <small>© 2026 LKP RACER GROUP</small>
     </div>
 </footer>
 
