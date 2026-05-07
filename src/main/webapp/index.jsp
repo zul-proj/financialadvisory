@@ -249,7 +249,7 @@
 <!-- Footer -->
 <footer class="py-4 bg-white border-top">
     <div class="container text-center text-secondary">
-        <small>© 2026 LKP RACER GROUP</small>
+        <small>© 2026 LKP RACER GROUP | Built by me, myself, and I</small>
     </div>
 </footer>
 
