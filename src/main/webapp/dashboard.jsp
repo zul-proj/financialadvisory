@@ -69,7 +69,7 @@
 					<div class="card border-0 shadow-sm rounded-4 mt-3 mt-md-0">
 						<div class="card-body py-2 px-3">
 							<span class="text-secondary">Welcome, </span>
-							<strong>User</strong>
+							<strong>Department Staff</strong>
 						</div>
 					</div>
 				</div>

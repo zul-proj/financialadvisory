@@ -442,7 +442,7 @@
 														<tbody>
 															<tr>
 																<td>Transport to client office</td>
-																<td class="text-center">1 trip</td>
+																<td class="text-center">1</td>
 																<td class="text-end">RM 850.00</td>
 																<td class="text-end fw-bold">RM 850.00</td>
 															</tr>
