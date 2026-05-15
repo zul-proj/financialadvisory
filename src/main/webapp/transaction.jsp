@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib uri="jakarta.tags.core" prefix="c"%>
 <%@ taglib uri="jakarta.tags.fmt" prefix="fmt"%>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,66 +69,73 @@
 					<div>
 						<h1 class="fw-bold mb-1">Transaction Management</h1>
 						<p class="text-secondary mb-0">
-							Record, upload invoice, and manage company income and expenses.
+							Record, upload invoice, and submit company transactions for approval.
 						</p>
 					</div>
 
 					<div class="card border-0 shadow-sm rounded-4 mt-3 mt-md-0">
 						<div class="card-body py-2 px-3">
 							<span class="text-secondary">Welcome, </span>
-
-							<c:choose>
-								<c:when test="${not empty sessionScope.user}">
-									<strong>${sessionScope.user.name}</strong>
-								</c:when>
-								<c:otherwise>
-									<strong>User</strong>
-								</c:otherwise>
-							</c:choose>
+							<strong>Department Staff</strong>
 						</div>
 					</div>
 				</div>
 
 				<!-- Summary Cards -->
 				<section class="row g-4 mb-4">
-					<div class="col-md-4">
+					<div class="col-md-3">
 						<div class="card border-0 shadow-sm rounded-4 h-100">
 							<div class="card-body p-4">
 								<div class="d-flex justify-content-between align-items-center">
-									<div>
-										<p class="text-secondary mb-1">Total Income</p>
-										<h3 class="fw-bold mb-0">RM 67,676,767.00</h3>
-									</div>
+									<p class="text-secondary mb-1">Total Income</p>
 									<i class="bi bi-arrow-down-circle fs-2 text-success"></i>
 								</div>
+
+								<h3 class="fw-bold mb-0">RM 67,676,767.00</h3>
+								<small class="text-success">Approved income records</small>
 							</div>
 						</div>
 					</div>
 
-					<div class="col-md-4">
+					<div class="col-md-3">
 						<div class="card border-0 shadow-sm rounded-4 h-100">
 							<div class="card-body p-4">
 								<div class="d-flex justify-content-between align-items-center">
-									<div>
-										<p class="text-secondary mb-1">Total Expenses</p>
-										<h3 class="fw-bold mb-0">RM 676,767.00</h3>
-									</div>
+									<p class="text-secondary mb-1">Total Expenses</p>
 									<i class="bi bi-arrow-up-circle fs-2 text-danger"></i>
 								</div>
+
+								<h3 class="fw-bold mb-0">RM 676,767.00</h3>
+								<small class="text-danger">Approved expense records</small>
 							</div>
 						</div>
 					</div>
 
-					<div class="col-md-4">
+					<div class="col-md-3">
 						<div class="card border-0 shadow-sm rounded-4 h-100">
 							<div class="card-body p-4">
 								<div class="d-flex justify-content-between align-items-center">
-									<div>
-										<p class="text-secondary mb-1">Net Balance</p>
-										<h3 class="fw-bold mb-0">RM 67,000,000.00</h3>
-									</div>
+									<p class="text-secondary mb-1">Net Balance</p>
 									<i class="bi bi-piggy-bank fs-2 text-primary"></i>
 								</div>
+
+								<h3 class="fw-bold mb-0">RM 67,000,000.00</h3>
+								<small class="text-primary">Based on approved transactions</small>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-3">
+						<div
+							class="card border-0 shadow-sm rounded-4 h-100 border-start border-warning border-5">
+							<div class="card-body p-4">
+								<div class="d-flex justify-content-between align-items-center">
+									<p class="text-secondary mb-1">Pending Approval</p>
+									<i class="bi bi-hourglass-split fs-2 text-warning"></i>
+								</div>
+
+								<h3 class="fw-bold mb-0">3</h3>
+								<small class="text-warning">Waiting for HOD approval</small>
 							</div>
 						</div>
 					</div>
@@ -142,8 +148,14 @@
 							<h5 class="fw-bold mb-0">
 								<i class="bi bi-plus-circle me-2"></i> Add New Transaction
 							</h5>
-							<span class="badge text-bg-primary rounded-pill">Manual Entry</span>
+							<span class="badge text-bg-warning rounded-pill">
+								Pending HOD Approval
+							</span>
 						</div>
+
+						<p class="text-secondary">
+							Transactions submitted by staff will be sent to the Department Manager / HOD for approval.
+						</p>
 
 						<form action="#" method="post">
 							<div class="row g-3">
@@ -172,6 +184,8 @@
 										<option>Salary</option>
 										<option>Marketing</option>
 										<option>Supplies</option>
+										<option>Travel</option>
+										<option>Training</option>
 										<option>Others</option>
 									</select>
 								</div>
@@ -196,6 +210,7 @@
 										<option>Bank Transfer</option>
 										<option>Credit Card</option>
 										<option>Online Payment</option>
+										<option>Invoice</option>
 									</select>
 								</div>
 
@@ -213,7 +228,7 @@
 									</button>
 
 									<button type="submit" class="btn btn-primary rounded-pill px-4">
-										<i class="bi bi-save me-2"></i> Save Transaction
+										<i class="bi bi-send-check me-2"></i> Submit for Approval
 									</button>
 								</div>
 							</div>
@@ -231,6 +246,10 @@
 							</h5>
 							<span class="badge text-bg-primary rounded-pill">Invoice Extraction</span>
 						</div>
+
+						<p class="text-secondary">
+							Uploaded invoice data will be extracted and converted into a transaction before being submitted for HOD approval.
+						</p>
 
 						<form action="#" method="post" enctype="multipart/form-data">
 							<div class="row g-3">
@@ -323,7 +342,7 @@
 									<h5 class="fw-bold mb-0">
 										<i class="bi bi-arrow-left-right me-2"></i> Convert Invoice to Transaction
 									</h5>
-									<span class="badge text-bg-danger rounded-pill">Expense</span>
+									<span class="badge text-bg-warning rounded-pill">Pending Approval</span>
 								</div>
 
 								<form action="#" method="post">
@@ -401,7 +420,7 @@
 											</div>
 
 											<p class="text-secondary mb-3">
-												Review and edit the extracted invoice items before saving them as a transaction.
+												Review and edit the extracted invoice items before submitting for approval.
 											</p>
 
 											<div class="table-responsive">
@@ -509,7 +528,7 @@
 											</button>
 
 											<button type="submit" class="btn btn-success rounded-pill px-4">
-												<i class="bi bi-save me-2"></i> Save as Transaction
+												<i class="bi bi-send-check me-2"></i> Submit Invoice for Approval
 											</button>
 										</div>
 									</div>
@@ -530,7 +549,7 @@
 									placeholder="Search by title, item, reason, or category">
 							</div>
 
-							<div class="col-md-3">
+							<div class="col-md-2">
 								<label class="form-label">Filter Type</label>
 								<select class="form-select rounded-3">
 									<option selected>All Types</option>
@@ -539,7 +558,7 @@
 								</select>
 							</div>
 
-							<div class="col-md-3">
+							<div class="col-md-2">
 								<label class="form-label">Filter Category</label>
 								<select class="form-select rounded-3">
 									<option selected>All Categories</option>
@@ -553,9 +572,19 @@
 								</select>
 							</div>
 
-							<div class="col-md-2">
+							<div class="col-md-3">
+								<label class="form-label">Approval Status</label>
+								<select class="form-select rounded-3">
+									<option selected>All Status</option>
+									<option>Pending Approval</option>
+									<option>Approved</option>
+									<option>Rejected</option>
+								</select>
+							</div>
+
+							<div class="col-md-1">
 								<button class="btn btn-primary w-100 rounded-pill">
-									<i class="bi bi-search me-2"></i> Search
+									<i class="bi bi-search"></i>
 								</button>
 							</div>
 						</div>
@@ -584,6 +613,7 @@
 										<th>Category</th>
 										<th>Payment</th>
 										<th class="text-end">Amount</th>
+										<th>Approval Status</th>
 										<th class="text-center">Action</th>
 									</tr>
 								</thead>
@@ -600,6 +630,9 @@
 										<td>Sales</td>
 										<td>Bank Transfer</td>
 										<td class="text-end text-success fw-bold">RM 764,239.00</td>
+										<td>
+											<span class="badge rounded-pill text-bg-success">Approved</span>
+										</td>
 										<td class="text-center">
 											<button class="btn btn-sm btn-outline-secondary rounded-pill"
 												type="button" data-bs-toggle="collapse"
@@ -618,30 +651,35 @@
 									</tr>
 
 									<tr class="collapse" id="detailsSales1">
-										<td colspan="7">
+										<td colspan="8">
 											<div class="bg-light border rounded-4 p-4">
 												<div
 													class="d-flex justify-content-between align-items-center mb-3">
 													<h6 class="fw-bold mb-0">
 														<i class="bi bi-info-circle me-2"></i> Transaction Details
 													</h6>
-													<span class="badge text-bg-success rounded-pill">Manual Entry</span>
+													<span class="badge text-bg-secondary rounded-pill">Manual Entry</span>
 												</div>
 
 												<div class="row g-3">
-													<div class="col-md-4">
+													<div class="col-md-3">
 														<p class="text-secondary mb-1">Reason</p>
 														<strong>Revenue from product sales</strong>
 													</div>
 
-													<div class="col-md-4">
+													<div class="col-md-3">
 														<p class="text-secondary mb-1">Source</p>
 														<strong>Manual Entry</strong>
 													</div>
 
-													<div class="col-md-4">
+													<div class="col-md-3">
 														<p class="text-secondary mb-1">Description</p>
 														<strong>Payment received from customer for company product sales.</strong>
+													</div>
+
+													<div class="col-md-3">
+														<p class="text-secondary mb-1">Approval Status</p>
+														<strong class="text-success">Approved by HOD</strong>
 													</div>
 												</div>
 											</div>
@@ -658,6 +696,9 @@
 										<td>Rent</td>
 										<td>Bank Transfer</td>
 										<td class="text-end text-danger fw-bold">RM 32,471.00</td>
+										<td>
+											<span class="badge rounded-pill text-bg-warning">Pending Approval</span>
+										</td>
 										<td class="text-center">
 											<button class="btn btn-sm btn-outline-secondary rounded-pill"
 												type="button" data-bs-toggle="collapse"
@@ -676,7 +717,7 @@
 									</tr>
 
 									<tr class="collapse" id="detailsRent1">
-										<td colspan="7">
+										<td colspan="8">
 											<div class="bg-light border rounded-4 p-4">
 												<div
 													class="d-flex justify-content-between align-items-center mb-3">
@@ -687,19 +728,24 @@
 												</div>
 
 												<div class="row g-3 mb-3">
-													<div class="col-md-4">
+													<div class="col-md-3">
 														<p class="text-secondary mb-1">Reason</p>
 														<strong>Monthly office rental payment</strong>
 													</div>
 
-													<div class="col-md-4">
+													<div class="col-md-3">
 														<p class="text-secondary mb-1">Source</p>
 														<strong>Manual Entry</strong>
 													</div>
 
-													<div class="col-md-4">
+													<div class="col-md-3">
 														<p class="text-secondary mb-1">Why money decreased?</p>
 														<strong>Company paid fixed rental cost for office operation.</strong>
+													</div>
+
+													<div class="col-md-3">
+														<p class="text-secondary mb-1">Approval Status</p>
+														<strong class="text-warning">Waiting for HOD approval</strong>
 													</div>
 												</div>
 
@@ -738,6 +784,9 @@
 										<td>Utilities</td>
 										<td>Online Payment</td>
 										<td class="text-end text-danger fw-bold">RM 76,432.00</td>
+										<td>
+											<span class="badge rounded-pill text-bg-danger">Rejected</span>
+										</td>
 										<td class="text-center">
 											<button class="btn btn-sm btn-outline-secondary rounded-pill"
 												type="button" data-bs-toggle="collapse"
@@ -756,7 +805,7 @@
 									</tr>
 
 									<tr class="collapse" id="detailsInternet1">
-										<td colspan="7">
+										<td colspan="8">
 											<div class="bg-light border rounded-4 p-4">
 												<div
 													class="d-flex justify-content-between align-items-center mb-3">
@@ -767,20 +816,29 @@
 												</div>
 
 												<div class="row g-3 mb-3">
-													<div class="col-md-4">
+													<div class="col-md-3">
 														<p class="text-secondary mb-1">Reason</p>
 														<strong>Internet service payment</strong>
 													</div>
 
-													<div class="col-md-4">
+													<div class="col-md-3">
 														<p class="text-secondary mb-1">Source</p>
 														<strong>Manual Entry</strong>
 													</div>
 
-													<div class="col-md-4">
+													<div class="col-md-3">
 														<p class="text-secondary mb-1">Why money decreased?</p>
 														<strong>Company paid monthly internet bill for business operations.</strong>
 													</div>
+
+													<div class="col-md-3">
+														<p class="text-secondary mb-1">Approval Status</p>
+														<strong class="text-danger">Rejected by HOD</strong>
+													</div>
+												</div>
+
+												<div class="alert alert-danger rounded-4 mb-3">
+													<strong>HOD Comment:</strong> Amount needs correction before resubmission.
 												</div>
 
 												<div class="table-responsive">
@@ -818,6 +876,9 @@
 										<td>Marketing</td>
 										<td>Credit Card</td>
 										<td class="text-end text-danger fw-bold">RM 46,832.00</td>
+										<td>
+											<span class="badge rounded-pill text-bg-warning">Pending Approval</span>
+										</td>
 										<td class="text-center">
 											<button class="btn btn-sm btn-outline-secondary rounded-pill"
 												type="button" data-bs-toggle="collapse"
@@ -836,7 +897,7 @@
 									</tr>
 
 									<tr class="collapse" id="detailsMarketing1">
-										<td colspan="7">
+										<td colspan="8">
 											<div class="bg-light border rounded-4 p-4">
 												<div
 													class="d-flex justify-content-between align-items-center mb-3">
@@ -847,19 +908,24 @@
 												</div>
 
 												<div class="row g-3 mb-3">
-													<div class="col-md-4">
+													<div class="col-md-3">
 														<p class="text-secondary mb-1">Reason</p>
 														<strong>Promotional campaign spending</strong>
 													</div>
 
-													<div class="col-md-4">
+													<div class="col-md-3">
 														<p class="text-secondary mb-1">Source</p>
 														<strong>Manual Entry</strong>
 													</div>
 
-													<div class="col-md-4">
+													<div class="col-md-3">
 														<p class="text-secondary mb-1">Why money decreased?</p>
 														<strong>Company paid advertising cost to increase sales reach.</strong>
+													</div>
+
+													<div class="col-md-3">
+														<p class="text-secondary mb-1">Approval Status</p>
+														<strong class="text-warning">Waiting for HOD approval</strong>
 													</div>
 												</div>
 
@@ -898,6 +964,9 @@
 										<td>Supplies</td>
 										<td>Invoice</td>
 										<td class="text-end text-danger fw-bold">RM 477.00</td>
+										<td>
+											<span class="badge rounded-pill text-bg-warning">Pending Approval</span>
+										</td>
 										<td class="text-center">
 											<button class="btn btn-sm btn-outline-secondary rounded-pill"
 												type="button" data-bs-toggle="collapse"
@@ -916,7 +985,7 @@
 									</tr>
 
 									<tr class="collapse" id="detailsInvoice1">
-										<td colspan="7">
+										<td colspan="8">
 											<div class="bg-light border rounded-4 p-4">
 												<div
 													class="d-flex justify-content-between align-items-center mb-3">
@@ -943,9 +1012,13 @@
 													</div>
 
 													<div class="col-md-3">
-														<p class="text-secondary mb-1">Why money decreased?</p>
-														<strong>Company purchased supplies for office operations.</strong>
+														<p class="text-secondary mb-1">Approval Status</p>
+														<strong class="text-warning">Waiting for HOD approval</strong>
 													</div>
+												</div>
+
+												<div class="alert alert-warning rounded-4 mb-3">
+													This invoice transaction has been submitted and is waiting for HOD approval.
 												</div>
 
 												<div class="table-responsive">
