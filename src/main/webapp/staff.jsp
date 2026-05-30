@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Dashboard - Financial Advisory System</title>
+<title>AI Financial Advisory System</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Bootstrap CSS -->
@@ -16,6 +16,9 @@
 <!-- Bootstrap Icons -->
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+<!-- Chatbot Widget CSS -->
+<link rel="stylesheet" href="css/chatbot-widget.css?v=2">
 
 <!-- Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -28,22 +31,22 @@
 
 			<!-- Sidebar -->
 			<aside class="col-12 col-lg-2 text-white p-4"
-				style="background-color: #005EB8;">
+				style="background-color: #0D6EFD;">
 				<h4 class="fw-bold mb-4">
 					<i class="bi bi-wallet2 me-2"></i> Financial Advisory
 				</h4>
 
 				<div class="nav flex-column nav-pills gap-2">
-					<a class="nav-link active text-white bg-primary rounded-3"
-						href="dashboard.jsp">
+					<a class="nav-link active text-white rounded-3" style="background-color: #084298;"
+						href="staff.jsp">
 						<i class="bi bi-speedometer2 me-2"></i> Dashboard
 					</a>
 
-					<a class="nav-link text-white rounded-3" href="transaction.jsp">
+					<a class="nav-link text-white rounded-3" href="staff-transaction.jsp">
 						<i class="bi bi-cash-coin me-2"></i> Transactions
 					</a>
 
-					<a class="nav-link text-white rounded-3" href="aiadvisory.jsp">
+					<a class="nav-link text-white rounded-3" href="staff-aiadvisory.jsp">
 						<i class="bi bi-robot me-2"></i> AI Advisory
 					</a>
 
@@ -60,16 +63,16 @@
 				<div
 					class="d-flex flex-wrap justify-content-between align-items-center mb-4">
 					<div>
-						<h1 class="fw-bold mb-1">Financial Dashboard</h1>
+						<h1 class="fw-bold mb-1">Staff Dashboard</h1>
 						<p class="text-secondary mb-0">
-							Overview of company cashflow and financial performance.
+							View dashboard, manage transactions, and initiate AI advisory.
 						</p>
 					</div>
 
 					<div class="card border-0 shadow-sm rounded-4 mt-3 mt-md-0">
 						<div class="card-body py-2 px-3">
 							<span class="text-secondary">Welcome, </span>
-							<strong>Department Staff</strong>
+							<strong>Staff</strong>
 						</div>
 					</div>
 				</div>
@@ -197,7 +200,7 @@
 								<div
 									class="d-flex justify-content-between align-items-center mb-3">
 									<h5 class="fw-bold mb-0">Recent Transactions</h5>
-									<a href="transaction.jsp" class="text-decoration-none">
+									<a href="staff-transaction.jsp" class="text-decoration-none">
 										View All
 									</a>
 								</div>
@@ -283,7 +286,7 @@
 									profitability.
 								</p>
 
-								<a href="aiadvisory.jsp"
+								<a href="staff-aiadvisory.jsp"
 									class="btn btn-primary w-100 rounded-pill">
 									Open Advisory Chatbot
 								</a>
@@ -296,12 +299,17 @@
 		</div>
 	</div>
 
+	<jsp:include page="chatbot-widget.jsp" />
+
 	<!-- Bootstrap JS -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
-	<!-- Dashboard JS -->
-	<script src="js/dashboard.js"></script>
+	<!-- Staff JS -->
+	<script src="js/staff.js"></script>
+
+	<!-- Chatbot Widget JS -->
+	<script src="js/chatbot-widget.js?v=2"></script>
 
 </body>
 </html>

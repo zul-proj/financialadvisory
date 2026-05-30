@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Transaction Management - Financial Advisory System</title>
+<title>AI Financial Advisory System</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Bootstrap CSS -->
@@ -16,6 +16,9 @@
 <!-- Bootstrap Icons -->
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+<!-- Chatbot Widget CSS -->
+<link rel="stylesheet" href="css/chatbot-widget.css?v=2">
 
 <style>
 	html {
@@ -35,22 +38,22 @@
 
 			<!-- Sidebar -->
 			<aside class="col-12 col-lg-2 text-white p-4"
-				style="background-color: #005EB8;">
+				style="background-color: #0D6EFD;">
 				<h4 class="fw-bold mb-4">
 					<i class="bi bi-wallet2 me-2"></i> Financial Advisory
 				</h4>
 
 				<div class="nav flex-column nav-pills gap-2">
-					<a class="nav-link text-white rounded-3" href="dashboard.jsp">
+					<a class="nav-link text-white rounded-3" href="staff.jsp">
 						<i class="bi bi-speedometer2 me-2"></i> Dashboard
 					</a>
 
-					<a class="nav-link active text-white bg-primary rounded-3"
-						href="transaction.jsp">
+					<a class="nav-link active text-white rounded-3" style="background-color: #084298;"
+						href="staff-transaction.jsp">
 						<i class="bi bi-cash-coin me-2"></i> Transactions
 					</a>
 
-					<a class="nav-link text-white rounded-3" href="aiadvisory.jsp">
+					<a class="nav-link text-white rounded-3" href="staff-aiadvisory.jsp">
 						<i class="bi bi-robot me-2"></i> AI Advisory
 					</a>
 
@@ -76,7 +79,7 @@
 					<div class="card border-0 shadow-sm rounded-4 mt-3 mt-md-0">
 						<div class="card-body py-2 px-3">
 							<span class="text-secondary">Welcome, </span>
-							<strong>Department Staff</strong>
+							<strong>Staff</strong>
 						</div>
 					</div>
 				</div>
@@ -130,12 +133,12 @@
 							class="card border-0 shadow-sm rounded-4 h-100 border-start border-warning border-5">
 							<div class="card-body p-4">
 								<div class="d-flex justify-content-between align-items-center">
-									<p class="text-secondary mb-1">Pending Approval</p>
+									<p class="text-secondary mb-1">Pending Verification</p>
 									<i class="bi bi-hourglass-split fs-2 text-warning"></i>
 								</div>
 
 								<h3 class="fw-bold mb-0">3</h3>
-								<small class="text-warning">Waiting for HOD approval</small>
+								<small class="text-warning">Waiting for Department Manager verification</small>
 							</div>
 						</div>
 					</div>
@@ -149,12 +152,12 @@
 								<i class="bi bi-plus-circle me-2"></i> Add New Transaction
 							</h5>
 							<span class="badge text-bg-warning rounded-pill">
-								Pending HOD Approval
+								Pending Department Manager Verification
 							</span>
 						</div>
 
 						<p class="text-secondary">
-							Transactions submitted by staff will be sent to the Department Manager / HOD for approval.
+							Transactions submitted by staff will be sent to the Department Manager for verification.
 						</p>
 
 						<form action="#" method="post">
@@ -248,7 +251,7 @@
 						</div>
 
 						<p class="text-secondary">
-							Uploaded invoice data will be extracted and converted into a transaction before being submitted for HOD approval.
+							Uploaded invoice data will be extracted and converted into a transaction before being submitted for Department Manager verification.
 						</p>
 
 						<form action="#" method="post" enctype="multipart/form-data">
@@ -342,7 +345,7 @@
 									<h5 class="fw-bold mb-0">
 										<i class="bi bi-arrow-left-right me-2"></i> Convert Invoice to Transaction
 									</h5>
-									<span class="badge text-bg-warning rounded-pill">Pending Approval</span>
+									<span class="badge text-bg-warning rounded-pill">Pending Verification</span>
 								</div>
 
 								<form action="#" method="post">
@@ -576,7 +579,7 @@
 								<label class="form-label">Approval Status</label>
 								<select class="form-select rounded-3">
 									<option selected>All Status</option>
-									<option>Pending Approval</option>
+									<option>Pending Verification</option>
 									<option>Approved</option>
 									<option>Rejected</option>
 								</select>
@@ -679,7 +682,7 @@
 
 													<div class="col-md-3">
 														<p class="text-secondary mb-1">Approval Status</p>
-														<strong class="text-success">Approved by HOD</strong>
+														<strong class="text-success">Verified by Department Manager</strong>
 													</div>
 												</div>
 											</div>
@@ -697,7 +700,7 @@
 										<td>Bank Transfer</td>
 										<td class="text-end text-danger fw-bold">RM 32,471.00</td>
 										<td>
-											<span class="badge rounded-pill text-bg-warning">Pending Approval</span>
+											<span class="badge rounded-pill text-bg-warning">Pending Verification</span>
 										</td>
 										<td class="text-center">
 											<button class="btn btn-sm btn-outline-secondary rounded-pill"
@@ -745,7 +748,7 @@
 
 													<div class="col-md-3">
 														<p class="text-secondary mb-1">Approval Status</p>
-														<strong class="text-warning">Waiting for HOD approval</strong>
+														<strong class="text-warning">Waiting for Department Manager verification</strong>
 													</div>
 												</div>
 
@@ -833,12 +836,12 @@
 
 													<div class="col-md-3">
 														<p class="text-secondary mb-1">Approval Status</p>
-														<strong class="text-danger">Rejected by HOD</strong>
+														<strong class="text-danger">Rejected by Department Manager</strong>
 													</div>
 												</div>
 
 												<div class="alert alert-danger rounded-4 mb-3">
-													<strong>HOD Comment:</strong> Amount needs correction before resubmission.
+													<strong>Department Manager Comment:</strong> Amount needs correction before resubmission.
 												</div>
 
 												<div class="table-responsive">
@@ -877,7 +880,7 @@
 										<td>Credit Card</td>
 										<td class="text-end text-danger fw-bold">RM 46,832.00</td>
 										<td>
-											<span class="badge rounded-pill text-bg-warning">Pending Approval</span>
+											<span class="badge rounded-pill text-bg-warning">Pending Verification</span>
 										</td>
 										<td class="text-center">
 											<button class="btn btn-sm btn-outline-secondary rounded-pill"
@@ -925,7 +928,7 @@
 
 													<div class="col-md-3">
 														<p class="text-secondary mb-1">Approval Status</p>
-														<strong class="text-warning">Waiting for HOD approval</strong>
+														<strong class="text-warning">Waiting for Department Manager verification</strong>
 													</div>
 												</div>
 
@@ -965,7 +968,7 @@
 										<td>Invoice</td>
 										<td class="text-end text-danger fw-bold">RM 477.00</td>
 										<td>
-											<span class="badge rounded-pill text-bg-warning">Pending Approval</span>
+											<span class="badge rounded-pill text-bg-warning">Pending Verification</span>
 										</td>
 										<td class="text-center">
 											<button class="btn btn-sm btn-outline-secondary rounded-pill"
@@ -1013,12 +1016,12 @@
 
 													<div class="col-md-3">
 														<p class="text-secondary mb-1">Approval Status</p>
-														<strong class="text-warning">Waiting for HOD approval</strong>
+														<strong class="text-warning">Waiting for Department Manager verification</strong>
 													</div>
 												</div>
 
 												<div class="alert alert-warning rounded-4 mb-3">
-													This invoice transaction has been submitted and is waiting for HOD approval.
+													This invoice transaction has been submitted and is waiting for Department Manager verification.
 												</div>
 
 												<div class="table-responsive">
@@ -1087,9 +1090,14 @@
 		</div>
 	</div>
 
+	<jsp:include page="chatbot-widget.jsp" />
+
 	<!-- Bootstrap JS -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Chatbot Widget JS -->
+	<script src="js/chatbot-widget.js?v=2"></script>
 
 </body>
 </html>

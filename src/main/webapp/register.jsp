@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Register - Financial Advisory System</title>
+<title>AI Financial Advisory System</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Bootstrap CSS -->
@@ -17,6 +17,9 @@
 <!-- Bootstrap Icons -->
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+<!-- Chatbot Widget CSS -->
+<link rel="stylesheet" href="css/chatbot-widget.css?v=2">
 </head>
 
 <body class="bg-light">
@@ -87,8 +90,9 @@
 										</span>
 										<select class="form-select" name="role" required>
 											<option selected disabled>Select role</option>
+											<option value="financial-manager">Financial Manager</option>
+											<option value="department-manager">Department Manager</option>
 											<option value="staff">Staff</option>
-											<option value="admin">Admin / Manager</option>
 										</select>
 									</div>
 								</div>
@@ -156,9 +160,14 @@
 		</div>
 	</div>
 
+	<jsp:include page="chatbot-widget.jsp" />
+
 	<!-- Bootstrap JS -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Chatbot Widget JS -->
+	<script src="js/chatbot-widget.js?v=2"></script>
 
 </body>
 </html>

@@ -4,55 +4,43 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>AI Advisory - Financial Advisory System</title>
+<title>AI Financial Advisory System</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!-- Bootstrap CSS -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
 	rel="stylesheet">
-
-<!-- Bootstrap Icons -->
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="css/chatbot-widget.css?v=2">
 </head>
 
 <body class="bg-light">
-
 	<div class="container-fluid">
 		<div class="row min-vh-100">
-
-			<!-- Sidebar -->
 			<aside class="col-12 col-lg-2 text-white p-4"
-				style="background-color: #005EB8;">
+				style="background-color: #0F766E;">
 				<h4 class="fw-bold mb-4">
-					<i class="bi bi-wallet2 me-2"></i> Financial Advisory
+					<i class="bi bi-briefcase me-2"></i> Financial Manager
 				</h4>
-
 				<div class="nav flex-column nav-pills gap-2">
-					<a class="nav-link text-white rounded-3" href="dashboard.jsp">
+					<a class="nav-link text-white rounded-3" href="financialmanager.jsp">
 						<i class="bi bi-speedometer2 me-2"></i> Dashboard
 					</a>
-
-					<a class="nav-link text-white rounded-3" href="transaction.jsp">
-						<i class="bi bi-cash-coin me-2"></i> Transactions
+					<a class="nav-link text-white rounded-3"
+						href="financialmanager-statement.jsp">
+						<i class="bi bi-file-earmark-text me-2"></i> Company Statement
 					</a>
-
-					<a class="nav-link active text-white bg-primary rounded-3"
-						href="aiadvisory.jsp">
+					<a class="nav-link active text-white bg-success rounded-3"
+						href="financialmanager-aiadvisory.jsp">
 						<i class="bi bi-robot me-2"></i> AI Advisory
 					</a>
-
 					<a class="nav-link text-danger rounded-3 mt-4" href="index.jsp">
 						<i class="bi bi-box-arrow-right me-2"></i> <b>Logout</b>
 					</a>
 				</div>
 			</aside>
 
-			<!-- Main Content -->
 			<main class="col-12 col-lg-10 p-4">
-
-				<!-- Header -->
 				<div
 					class="d-flex flex-wrap justify-content-between align-items-center mb-4">
 					<div>
@@ -61,11 +49,10 @@
 							Chatbot-based financial suggestion based on company net profit calculation.
 						</p>
 					</div>
-
 					<div class="card border-0 shadow-sm rounded-4 mt-3 mt-md-0">
 						<div class="card-body py-2 px-3">
 							<span class="text-secondary">Welcome, </span>
-							<strong>User</strong>
+							<strong>Financial Manager</strong>
 						</div>
 					</div>
 				</div>
@@ -78,7 +65,7 @@
 								<div class="d-flex justify-content-between align-items-center">
 									<div>
 										<p class="text-secondary mb-1">Total Revenue</p>
-										<h3 class="fw-bold mb-0">RM 24,500.00</h3>
+										<h3 class="fw-bold mb-0">RM 67,676,767.00</h3>
 									</div>
 									<i class="bi bi-graph-up-arrow fs-2 text-success"></i>
 								</div>
@@ -92,7 +79,7 @@
 								<div class="d-flex justify-content-between align-items-center">
 									<div>
 										<p class="text-secondary mb-1">Total Expenses</p>
-										<h3 class="fw-bold mb-0">RM 15,200.00</h3>
+										<h3 class="fw-bold mb-0">RM 676,767.00</h3>
 									</div>
 									<i class="bi bi-wallet2 fs-2 text-danger"></i>
 								</div>
@@ -106,7 +93,7 @@
 								<div class="d-flex justify-content-between align-items-center">
 									<div>
 										<p class="text-secondary mb-1">Net Profit</p>
-										<h3 class="fw-bold text-success mb-0">RM 9,300.00</h3>
+										<h3 class="fw-bold text-success mb-0">RM 67,000,000.00</h3>
 									</div>
 									<i class="bi bi-cash-stack fs-2 text-primary"></i>
 								</div>
@@ -286,8 +273,6 @@
 						</div>
 
 						<div class="bg-light rounded-4 p-3 mb-3" style="min-height: 300px;">
-
-							<!-- Bot Message -->
 							<div class="d-flex mb-3">
 								<div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-2"
 									style="width: 35px; height: 35px;">
@@ -296,21 +281,19 @@
 
 								<div class="bg-white border rounded-4 p-3 shadow-sm">
 									<p class="mb-0">
-										Hi! I can suggest financial actions based on your net profit calculation.
+										Hi! I can suggest financial actions based on your company net profit calculation.
 									</p>
 								</div>
 							</div>
 
-							<!-- User Message -->
 							<div class="d-flex justify-content-end mb-3">
 								<div class="bg-primary text-white rounded-4 p-3 shadow-sm">
 									<p class="mb-0">
-										My net profit is RM 9,300. What should I do?
+										My company net profit is RM 67,000,000. What should I do?
 									</p>
 								</div>
 							</div>
 
-							<!-- Bot Message -->
 							<div class="d-flex mb-3">
 								<div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-2"
 									style="width: 35px; height: 35px;">
@@ -319,12 +302,11 @@
 
 								<div class="bg-white border rounded-4 p-3 shadow-sm">
 									<p class="mb-0">
-										Your net profit is positive. You should continue monitoring expenses
-										and reduce operational costs to improve profitability.
+										Your company net profit is positive. Continue monitoring expenses,
+										review fixed costs, and protect future profitability.
 									</p>
 								</div>
 							</div>
-
 						</div>
 
 						<form action="#" method="post">
@@ -338,17 +320,15 @@
 								</button>
 							</div>
 						</form>
-
 					</div>
 				</section>
-
 			</main>
 		</div>
 	</div>
 
-	<!-- Bootstrap JS -->
+	<jsp:include page="chatbot-widget.jsp" />
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
+	<script src="js/chatbot-widget.js?v=2"></script>
 </body>
 </html>

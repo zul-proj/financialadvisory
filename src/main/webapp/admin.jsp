@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>System Admin - Financial Advisory System</title>
+<title>AI Financial Advisory System</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Bootstrap CSS -->
@@ -17,6 +17,9 @@
 <!-- Bootstrap Icons -->
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+<!-- Chatbot Widget CSS -->
+<link rel="stylesheet" href="css/chatbot-widget.css?v=2">
 
 <style>
 	html {
@@ -47,15 +50,15 @@
 						<i class="bi bi-person-plus me-2"></i> Add User
 					</a>
 
-					<a class="nav-link text-white rounded-3" href="#create-department">
+					<a class="nav-link text-white rounded-3" href="admin-create-department.jsp">
 						<i class="bi bi-building-add me-2"></i> Create Department
 					</a>
 
-					<a class="nav-link text-white rounded-3" href="#user-list">
+					<a class="nav-link text-white rounded-3" href="admin-user-list.jsp">
 						<i class="bi bi-people me-2"></i> User List
 					</a>
 
-					<a class="nav-link text-white rounded-3"  href="#department-list">
+					<a class="nav-link text-white rounded-3"  href="admin-department-list.jsp">
 						<i class="bi bi-building me-2"></i> Department List
 					</a>
 
@@ -96,7 +99,7 @@
 									<i class="bi bi-people fs-3 text-primary"></i>
 								</div>
 
-								<h3 class="fw-bold mb-2">24</h3>
+								<h3 class="fw-bold mb-2">4</h3>
 								<small class="text-secondary">Registered users</small>
 							</div>
 						</div>
@@ -125,7 +128,7 @@
 								</div>
 
 								<h3 class="fw-bold mb-2">4</h3>
-								<small class="text-warning">Admin, Manager, HOD, Staff</small>
+								<small class="text-warning">System Admin, Financial Manager, Department Manager, Staff</small>
 							</div>
 						</div>
 					</div>
@@ -167,9 +170,9 @@
 									<select class="form-select rounded-3" name="role">
 										<option selected disabled>Select user role</option>
 										<option value="system-admin">System Admin</option>
-										<option value="company-admin">Company Admin / Manager</option>
-										<option value="hod">Head of Department</option>
-										<option value="staff">Department Staff</option>
+										<option value="financial-manager">Financial Manager</option>
+										<option value="department-manager">Department Manager</option>
+										<option value="staff">Staff</option>
 									</select>
 								</div>
 
@@ -255,9 +258,9 @@
 								</div>
 
 								<div class="col-md-6">
-									<label class="form-label">Assign HOD</label>
-									<select class="form-select rounded-3" name="hod">
-										<option selected disabled>Select HOD</option>
+									<label class="form-label">Assign Department Manager</label>
+									<select class="form-select rounded-3" name="departmentManager">
+										<option selected disabled>Select Department Manager</option>
 										<option>Sarah Ahmad</option>
 										<option>Mohd Farhan</option>
 										<option>Nur Aisyah</option>
@@ -309,13 +312,45 @@
 									<tr>
 										<th>Department Code</th>
 										<th>Department Name</th>
-										<th>Assigned HOD</th>
+										<th>Assigned Department Manager</th>
 										<th>Status</th>
 										<th class="text-center">Action</th>
 									</tr>
 								</thead>
 
 								<tbody>
+									<tr>
+										<td>
+											<div class="d-flex align-items-center">
+												<div class="bg-danger text-white rounded-circle d-flex align-items-center justify-content-center me-2"
+													style="width: 38px; height: 38px;">
+													<i class="bi bi-shield-lock"></i>
+												</div>
+												<strong>System Admin</strong>
+											</div>
+										</td>
+										<td>admin@example.com</td>
+										<td>
+											<span class="badge text-bg-danger rounded-pill">
+												System Admin
+											</span>
+										</td>
+										<td>Not Applicable</td>
+										<td>
+											<span class="badge text-bg-success rounded-pill">
+												Active
+											</span>
+										</td>
+										<td class="text-center">
+											<button class="btn btn-sm btn-outline-primary rounded-pill">
+												<i class="bi bi-pencil-square"></i>
+											</button>
+											<button class="btn btn-sm btn-outline-danger rounded-pill">
+												<i class="bi bi-trash"></i>
+											</button>
+										</td>
+									</tr>
+
 									<tr>
 										<td>DPT-001</td>
 										<td>Finance</td>
@@ -389,7 +424,7 @@
 										<td>Operations</td>
 										<td>Not Assigned</td>
 										<td>
-											<span class="badge text-bg-warning rounded-pill">Pending HOD</span>
+											<span class="badge text-bg-warning rounded-pill">Pending Department Manager</span>
 										</td>
 										<td class="text-center">
 											<button class="btn btn-sm btn-outline-primary rounded-pill">
@@ -433,9 +468,9 @@
 								<select class="form-select rounded-3">
 									<option selected>All Roles</option>
 									<option>System Admin</option>
-									<option>Company Admin / Manager</option>
-									<option>Head of Department</option>
-									<option>Department Staff</option>
+									<option>Financial Manager</option>
+									<option>Department Manager</option>
+									<option>Staff</option>
 								</select>
 							</div>
 
@@ -486,7 +521,7 @@
 										<td>abu@example.com</td>
 										<td>
 											<span class="badge text-bg-primary rounded-pill">
-												Company Admin / Manager
+												Financial Manager
 											</span>
 										</td>
 										<td>Finance</td>
@@ -518,7 +553,7 @@
 										<td>sarah@example.com</td>
 										<td>
 											<span class="badge text-bg-warning rounded-pill">
-												Head of Department
+												Department Manager
 											</span>
 										</td>
 										<td>Sales</td>
@@ -550,7 +585,7 @@
 										<td>siti@example.com</td>
 										<td>
 											<span class="badge text-bg-secondary rounded-pill">
-												Department Staff
+												Staff
 											</span>
 										</td>
 										<td>Operations</td>
@@ -580,9 +615,14 @@
 		</div>
 	</div>
 
+	<jsp:include page="chatbot-widget.jsp" />
+
 	<!-- Bootstrap JS -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Chatbot Widget JS -->
+	<script src="js/chatbot-widget.js?v=2"></script>
 
 </body>
 </html>

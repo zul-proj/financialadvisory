@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Department Manager - Financial Advisory System</title>
+<title>AI Financial Advisory System</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Bootstrap CSS -->
@@ -15,6 +15,9 @@
 <!-- Bootstrap Icons -->
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+<!-- Chatbot Widget CSS -->
+<link rel="stylesheet" href="css/chatbot-widget.css?v=2">
 
 <!-- Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -37,32 +40,32 @@
 
 			<!-- Sidebar -->
 			<aside class="col-12 col-lg-2 text-white p-4"
-				style="background-color: #005EB8;">
+				style="background-color: #4338CA;">
 				<h4 class="fw-bold mb-4">
 					<i class="bi bi-person-badge me-2"></i> Department Manager
 				</h4>
 
 				<div class="nav flex-column nav-pills gap-2">
-					<a class="nav-link active text-white bg-primary rounded-3"
+					<a class="nav-link active text-white rounded-3" style="background-color: #312E81;"
 						href="departmentmanager.jsp">
 						<i class="bi bi-speedometer2 me-2"></i> Dashboard
 					</a>
 
 					<a class="nav-link text-white rounded-3"
-						href="#department-budget-management">
+						href="departmentmanager-budget.jsp">
 						<i class="bi bi-wallet2 me-2"></i> Budget Management
 					</a>
 
-					<a class="nav-link text-white rounded-3" href="#pending-approval">
-						<i class="bi bi-hourglass-split me-2"></i> Pending Approval
+					<a class="nav-link text-white rounded-3" href="departmentmanager-verification.jsp">
+						<i class="bi bi-hourglass-split me-2"></i> Pending Verification
 					</a>
 
 					<a class="nav-link text-white rounded-3"
-						href="#transaction-history">
+						href="departmentmanager-history.jsp">
 						<i class="bi bi-list-ul me-2"></i> Transaction History
 					</a>
 
-					<a class="nav-link text-white rounded-3" href="#ai-advisory">
+					<a class="nav-link text-white rounded-3" href="departmentmanager-aiadvisory.jsp">
 						<i class="bi bi-robot me-2"></i> AI Advisory
 					</a>
 
@@ -81,7 +84,7 @@
 					<div>
 						<h1 class="fw-bold mb-1">Department Manager Dashboard</h1>
 						<p class="text-secondary mb-0">
-							Review staff transactions, set department budget, and manage approval decisions.
+							Verify staff transactions, set department budget, and view department analytics.
 						</p>
 					</div>
 
@@ -139,7 +142,7 @@
 							class="card border-0 shadow-sm rounded-4 h-100 border-start border-warning border-5">
 							<div class="card-body p-4">
 								<div class="d-flex justify-content-between align-items-center">
-									<p class="text-secondary mb-1">Pending Approval</p>
+									<p class="text-secondary mb-1">Pending Verification</p>
 									<i class="bi bi-hourglass-split fs-3 text-warning"></i>
 								</div>
 								<h3 class="fw-bold mb-2">5</h3>
@@ -338,14 +341,14 @@
 					</div>
 				</section>
 
-				<!-- Pending Approval -->
+				<!-- Pending Verification -->
 				<section class="card border-0 shadow-sm rounded-4 mb-4"
-					id="pending-approval">
+					id="pending-verification">
 					<div class="card-body p-4">
 						<div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
 							<div>
 								<h5 class="fw-bold mb-1">
-									<i class="bi bi-hourglass-split me-2"></i> Pending Transaction Approval
+									<i class="bi bi-hourglass-split me-2"></i> Verify Transaction
 								</h5>
 								<p class="text-secondary mb-0">
 									Review transactions submitted by department staff.
@@ -403,10 +406,10 @@
 											<div class="bg-light border rounded-4 p-4">
 												<div class="d-flex justify-content-between align-items-center mb-3">
 													<h6 class="fw-bold mb-0">
-														<i class="bi bi-info-circle me-2"></i> Approval Details
+														<i class="bi bi-info-circle me-2"></i> Verification Details
 													</h6>
 													<span class="badge text-bg-warning rounded-pill">
-														Waiting for Manager Decision
+														Waiting for Department Manager Decision
 													</span>
 												</div>
 
@@ -422,9 +425,9 @@
 													</div>
 
 													<div class="col-md-4">
-														<p class="text-secondary mb-1">Manager Comment</p>
+														<p class="text-secondary mb-1">Department Manager Comment</p>
 														<input type="text" class="form-control rounded-3"
-															placeholder="Add approval comment">
+															placeholder="Add verification comment">
 													</div>
 												</div>
 
@@ -565,8 +568,8 @@
 										<th>Submitted By</th>
 										<th>Category</th>
 										<th class="text-end">Amount</th>
-										<th>Approval Status</th>
-										<th>Manager Comment</th>
+										<th>Verification Status</th>
+										<th>Department Manager Comment</th>
 									</tr>
 								</thead>
 
@@ -647,7 +650,7 @@
 						<div class="alert alert-primary rounded-4 mb-0">
 							<h6 class="fw-bold mb-2">Recommended Action</h6>
 							<p class="mb-0">
-								Approve only high-priority expenses and review pending transactions based on
+								Verify only high-priority expenses and review pending transactions based on
 								department budget availability and business importance.
 							</p>
 						</div>
@@ -658,9 +661,14 @@
 		</div>
 	</div>
 
+	<jsp:include page="chatbot-widget.jsp" />
+
 	<!-- Bootstrap JS -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Chatbot Widget JS -->
+	<script src="js/chatbot-widget.js?v=2"></script>
 
 	<script>
 		const departmentBudgetChart = document.getElementById("departmentBudgetChart");
