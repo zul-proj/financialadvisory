@@ -18,8 +18,6 @@
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
-<!-- Chatbot Widget CSS -->
-<link rel="stylesheet" href="css/chatbot-widget.css?v=2">
 </head>
 
 <body class="bg-light">
@@ -160,14 +158,9 @@
 		</div>
 	</div>
 
-	<jsp:include page="chatbot-widget.jsp" />
-
 	<!-- Bootstrap JS -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
-	<!-- Chatbot Widget JS -->
-	<script src="js/chatbot-widget.js?v=2"></script>
 
 </body>
 </html>

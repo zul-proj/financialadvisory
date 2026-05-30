@@ -16,9 +16,6 @@
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
-<!-- Chatbot Widget CSS -->
-<link rel="stylesheet" href="css/chatbot-widget.css?v=2">
-
 <style>
 	body {
 		min-height: 100vh;
@@ -207,24 +204,6 @@
 
 						</form>
 
-						<div class="mt-4">
-							<p class="text-secondary small mb-2">Demo role access</p>
-							<div class="d-grid gap-2">
-								<a class="btn btn-outline-danger rounded-pill" href="admin.jsp">
-									<i class="bi bi-shield-lock me-2"></i> System Admin
-								</a>
-								<a class="btn btn-outline-primary rounded-pill" href="financialmanager.jsp">
-									<i class="bi bi-briefcase me-2"></i> Financial Manager
-								</a>
-								<a class="btn btn-outline-warning rounded-pill" href="departmentmanager.jsp">
-									<i class="bi bi-person-badge me-2"></i> Department Manager
-								</a>
-								<a class="btn btn-outline-secondary rounded-pill" href="staff.jsp">
-									<i class="bi bi-person me-2"></i> Staff
-								</a>
-							</div>
-						</div>
-
 						<div class="text-center mt-4">
 							<span class="text-secondary">Don't have an account?</span>
 							<a href="register.jsp" class="text-decoration-none fw-bold">
@@ -258,14 +237,9 @@
 		</div>
 	</div>
 
-	<jsp:include page="chatbot-widget.jsp" />
-
 	<!-- Bootstrap JS -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
-	<!-- Chatbot Widget JS -->
-	<script src="js/chatbot-widget.js?v=2"></script>
 
 </body>
 </html>
