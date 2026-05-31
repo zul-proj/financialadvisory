@@ -27,7 +27,7 @@
 						<i class="bi bi-speedometer2 me-2"></i> Dashboard
 					</a>
 					<a class="nav-link text-white rounded-3"
-						href="financialmanager-aiadvisory.jsp">
+						href="aiadvisory.jsp?role=financialmanager">
 						<i class="bi bi-robot me-2"></i> AI Advisory
 					</a>
 					<a class="nav-link active text-white bg-success rounded-3"

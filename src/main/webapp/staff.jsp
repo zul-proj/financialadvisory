@@ -46,7 +46,7 @@
 						<i class="bi bi-cash-coin me-2"></i> Transactions
 					</a>
 
-					<a class="nav-link text-white rounded-3" href="staff-aiadvisory.jsp">
+					<a class="nav-link text-white rounded-3" href="aiadvisory.jsp?role=staff">
 						<i class="bi bi-robot me-2"></i> AI Advisory
 					</a>
 
@@ -291,7 +291,7 @@
 									profitability.
 								</p>
 
-								<a href="staff-aiadvisory.jsp"
+								<a href="aiadvisory.jsp?role=staff"
 									class="btn btn-primary w-100 rounded-pill">
 									Open Advisory Chatbot
 								</a>

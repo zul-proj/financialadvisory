@@ -52,7 +52,7 @@
 					</a>
 
 					<a class="nav-link text-white rounded-3"
-						href="financialmanager-aiadvisory.jsp">
+						href="aiadvisory.jsp?role=financialmanager">
 						<i class="bi bi-robot me-2"></i> AI Advisory
 					</a>
 

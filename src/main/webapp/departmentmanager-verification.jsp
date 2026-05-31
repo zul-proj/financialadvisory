@@ -36,7 +36,7 @@
 					<a class="nav-link text-white rounded-3" href="departmentmanager-history.jsp">
 						<i class="bi bi-list-ul me-2"></i> Transaction History
 					</a>
-					<a class="nav-link text-white rounded-3" href="departmentmanager-aiadvisory.jsp">
+					<a class="nav-link text-white rounded-3" href="aiadvisory.jsp?role=departmentmanager">
 						<i class="bi bi-robot me-2"></i> AI Advisory
 					</a>
 					<a class="nav-link text-white rounded-3" href="departmentmanager-settings.jsp">
