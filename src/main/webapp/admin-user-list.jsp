@@ -36,6 +36,10 @@
 					<a class="nav-link text-white rounded-3" href="admin-department-list.jsp">
 						<i class="bi bi-building me-2"></i> Department List
 					</a>
+					<a class="nav-link text-white rounded-3" href="admin-settings.jsp">
+						<i class="bi bi-gear me-2"></i> Account Settings
+					</a>
+
 					<a class="nav-link text-danger rounded-3 mt-4" href="index.jsp">
 						<i class="bi bi-box-arrow-right me-2"></i> <b>Logout</b>
 					</a>
@@ -49,6 +53,13 @@
 						<p class="text-secondary mb-0">
 							View and manage users created by the System Admin.
 						</p>
+					</div>
+
+					<div class="card border-0 shadow-sm rounded-4 mt-3 mt-md-0 role-welcome-card">
+						<div class="card-body py-2 px-3">
+							<span class="text-secondary">Welcome, </span>
+							<strong>System Admin</strong>
+						</div>
 					</div>
 				</div>
 
@@ -146,6 +157,8 @@
 			</main>
 		</div>
 	</div>
+
+	<jsp:include page="notification-widget.jsp" />
 
 	<jsp:include page="chatbot-widget.jsp" />
 	<script

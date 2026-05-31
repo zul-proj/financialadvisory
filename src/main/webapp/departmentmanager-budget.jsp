@@ -39,6 +39,10 @@
 					<a class="nav-link text-white rounded-3" href="departmentmanager-aiadvisory.jsp">
 						<i class="bi bi-robot me-2"></i> AI Advisory
 					</a>
+					<a class="nav-link text-white rounded-3" href="departmentmanager-settings.jsp">
+						<i class="bi bi-gear me-2"></i> Account Settings
+					</a>
+
 					<a class="nav-link text-danger rounded-3 mt-4" href="index.jsp">
 						<i class="bi bi-box-arrow-right me-2"></i> <b>Logout</b>
 					</a>
@@ -46,10 +50,21 @@
 			</aside>
 
 			<main class="col-12 col-lg-10 p-4">
-				<h1 class="fw-bold mb-1">Department Budget Management</h1>
-				<p class="text-secondary mb-4">
-					Set and monitor department budget usage.
-				</p>
+				<div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+					<div>
+						<h1 class="fw-bold mb-1">Department Budget Management</h1>
+						<p class="text-secondary mb-0">
+							Set and monitor department budget usage.
+						</p>
+					</div>
+
+					<div class="card border-0 shadow-sm rounded-4 mt-3 mt-md-0 role-welcome-card">
+						<div class="card-body py-2 px-3">
+							<span class="text-secondary">Welcome, </span>
+							<strong>Department Manager</strong>
+						</div>
+					</div>
+				</div>
 
 				<section class="row g-4 mb-4">
 					<div class="col-md-4">
@@ -106,6 +121,8 @@
 			</main>
 		</div>
 	</div>
+
+	<jsp:include page="notification-widget.jsp" />
 
 	<jsp:include page="chatbot-widget.jsp" />
 	<script
