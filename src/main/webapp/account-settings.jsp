@@ -10,7 +10,7 @@
 	String sidebarIcon = "bi-wallet2";
 	String sidebarColor = "#0D6EFD";
 	String activeStyle = "background-color: #084298;";
-	String dashboardHref = "staff.jsp";
+	String dashboardHref = "dashboard.jsp?role=staff";
 	String profileName = "Siti Aminah";
 	String profileSubtitle = "Department Staff";
 	String profileBadge = "Staff Profile";
@@ -39,7 +39,7 @@
 		sidebarIcon = "bi-person-badge";
 		sidebarColor = "#4338CA";
 		activeStyle = "background-color: #312E81;";
-		dashboardHref = "departmentmanager.jsp";
+		dashboardHref = "dashboard.jsp?role=departmentmanager";
 		profileName = "Sarah Ahmad";
 		profileSubtitle = "Sales Department Manager";
 		profileBadge = "Department Profile";
@@ -52,7 +52,7 @@
 		sidebarIcon = "bi-briefcase";
 		sidebarColor = "#0F766E";
 		activeStyle = "background-color: #198754;";
-		dashboardHref = "financialmanager.jsp";
+		dashboardHref = "dashboard.jsp?role=financialmanager";
 		profileName = "Abu Bakar";
 		profileSubtitle = "Financial Manager";
 		profileBadge = "Finance Profile";

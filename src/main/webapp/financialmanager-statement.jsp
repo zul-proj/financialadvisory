@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%
-	response.sendRedirect("financialmanager.jsp#company-statement");
+	response.sendRedirect("dashboard.jsp?role=financialmanager#company-statement");
 	return;
 %>
 
@@ -27,7 +27,7 @@
 					<i class="bi bi-briefcase me-2"></i> Financial Manager
 				</h4>
 				<div class="nav flex-column nav-pills gap-2">
-					<a class="nav-link text-white rounded-3" href="financialmanager.jsp">
+					<a class="nav-link text-white rounded-3" href="dashboard.jsp?role=financialmanager">
 						<i class="bi bi-speedometer2 me-2"></i> Dashboard
 					</a>
 					<a class="nav-link text-white rounded-3"

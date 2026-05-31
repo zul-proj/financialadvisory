@@ -61,7 +61,7 @@
 						<c:choose>
 							<c:when test="${not empty sessionScope.user}">
 								<a class="btn btn-primary rounded-pill px-4"
-									href="staff.jsp">
+									href="dashboard.jsp?role=staff">
 									Dashboard
 								</a>
 							</c:when>

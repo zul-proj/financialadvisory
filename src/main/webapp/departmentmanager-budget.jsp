@@ -23,7 +23,7 @@
 					<i class="bi bi-person-badge me-2"></i> Department Manager
 				</h4>
 				<div class="nav flex-column nav-pills gap-2">
-					<a class="nav-link text-white rounded-3" href="departmentmanager.jsp">
+					<a class="nav-link text-white rounded-3" href="dashboard.jsp?role=departmentmanager">
 						<i class="bi bi-speedometer2 me-2"></i> Dashboard
 					</a>
 					<a class="nav-link active text-white rounded-3"

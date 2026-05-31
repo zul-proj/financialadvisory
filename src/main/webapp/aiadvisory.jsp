@@ -10,7 +10,7 @@
 	String sidebarIcon = "bi-wallet2";
 	String sidebarColor = "#0D6EFD";
 	String activeStyle = "background-color: #084298;";
-	String dashboardHref = "staff.jsp";
+	String dashboardHref = "dashboard.jsp?role=staff";
 	String settingsHref = "account-settings.jsp?role=staff";
 
 	if ("departmentmanager".equals(role)) {
@@ -19,7 +19,7 @@
 		sidebarIcon = "bi-person-badge";
 		sidebarColor = "#4338CA";
 		activeStyle = "background-color: #312E81;";
-		dashboardHref = "departmentmanager.jsp";
+		dashboardHref = "dashboard.jsp?role=departmentmanager";
 		settingsHref = "account-settings.jsp?role=departmentmanager";
 	} else if ("financialmanager".equals(role)) {
 		roleName = "Financial Manager";
@@ -27,7 +27,7 @@
 		sidebarIcon = "bi-briefcase";
 		sidebarColor = "#0F766E";
 		activeStyle = "background-color: #198754;";
-		dashboardHref = "financialmanager.jsp";
+		dashboardHref = "dashboard.jsp?role=financialmanager";
 		settingsHref = "account-settings.jsp?role=financialmanager";
 	} else {
 		role = "staff";

@@ -44,7 +44,7 @@
 				</h4>
 
 				<div class="nav flex-column nav-pills gap-2">
-					<a class="nav-link text-white rounded-3" href="staff.jsp">
+					<a class="nav-link text-white rounded-3" href="dashboard.jsp?role=staff">
 						<i class="bi bi-speedometer2 me-2"></i> Dashboard
 					</a>
 
