@@ -164,59 +164,114 @@
 					</div>
 				</section>
 
-				<section class="card border-0 shadow-sm rounded-4">
-					<div class="card-body p-4">
-						<div class="d-flex justify-content-between align-items-center mb-3">
-							<h5 class="fw-bold mb-0">
-								<i class="bi bi-robot me-2"></i> Chatbot-Based Advisory
-							</h5>
-							<span class="badge text-bg-primary rounded-pill">AI Chatbot</span>
+				<section class="card border-0 shadow-sm rounded-4 overflow-hidden">
+					<div class="row g-0">
+						<div class="col-lg-4 border-end bg-white">
+							<div class="p-4 h-100">
+								<div class="d-flex justify-content-between align-items-center mb-3">
+									<h5 class="fw-bold mb-0">
+										<i class="bi bi-chat-left-text me-2"></i> Previous Chats
+									</h5>
+									<a class="btn btn-sm btn-primary rounded-pill" href="aiadvisory.jsp?role=<%= role %>">
+										<i class="bi bi-plus-lg me-1"></i>New
+									</a>
+								</div>
+
+								<div class="list-group list-group-flush border rounded-3 overflow-hidden">
+									<a href="aiadvisory.jsp?role=<%= role %>&chat=monthly-focus"
+										class="list-group-item list-group-item-action active">
+										<div class="d-flex w-100 justify-content-between gap-3">
+											<strong>Monthly focus</strong>
+											<small>Today</small>
+										</div>
+										<small>Review fixed costs and cashflow position.</small>
+									</a>
+
+									<a href="aiadvisory.jsp?role=<%= role %>&chat=expense-review"
+										class="list-group-item list-group-item-action">
+										<div class="d-flex w-100 justify-content-between gap-3">
+											<strong>Expense review</strong>
+											<small>Yesterday</small>
+										</div>
+										<small>Check high-value operational expenses.</small>
+									</a>
+
+									<a href="aiadvisory.jsp?role=<%= role %>&chat=budget-risk"
+										class="list-group-item list-group-item-action">
+										<div class="d-flex w-100 justify-content-between gap-3">
+											<strong>Budget risk</strong>
+											<small>28 May</small>
+										</div>
+										<small>Assess risk level for recurring costs.</small>
+									</a>
+
+									<a href="aiadvisory.jsp?role=<%= role %>&chat=profit-plan"
+										class="list-group-item list-group-item-action">
+										<div class="d-flex w-100 justify-content-between gap-3">
+											<strong>Profit plan</strong>
+											<small>24 May</small>
+										</div>
+										<small>Identify spending controls for next month.</small>
+									</a>
+								</div>
+							</div>
 						</div>
 
-						<div class="bg-light rounded-4 p-3 mb-3" style="min-height: 300px;">
-							<div class="d-flex mb-3">
-								<div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-2"
-									style="width: 35px; height: 35px;">
-									<i class="bi bi-robot"></i>
+						<div class="col-lg-8 bg-white">
+							<div class="p-4 h-100">
+								<div class="d-flex justify-content-between align-items-center mb-3">
+									<h5 class="fw-bold mb-0">
+										<i class="bi bi-robot me-2"></i> Chatbot-Based Advisory
+									</h5>
+									<span class="badge text-bg-primary rounded-pill">AI Chatbot</span>
 								</div>
-								<div class="bg-white border rounded-4 p-3 shadow-sm">
-									<p class="mb-0">
-										Hi! I can suggest financial actions based on current financial data.
-									</p>
-								</div>
-							</div>
 
-							<div class="d-flex justify-content-end mb-3">
-								<div class="bg-primary text-white rounded-4 p-3 shadow-sm">
-									<p class="mb-0">
-										What should I focus on this month?
-									</p>
-								</div>
-							</div>
+								<div class="bg-light rounded-4 p-3 mb-3" style="min-height: 300px;">
+									<div class="d-flex mb-3">
+										<div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-2"
+											style="width: 35px; height: 35px;">
+											<i class="bi bi-robot"></i>
+										</div>
+										<div class="bg-white border rounded-4 p-3 shadow-sm">
+											<p class="mb-0">
+												Hi! I can suggest financial actions based on current financial data.
+											</p>
+										</div>
+									</div>
 
-							<div class="d-flex mb-3">
-								<div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-2"
-									style="width: 35px; height: 35px;">
-									<i class="bi bi-robot"></i>
+									<div class="d-flex justify-content-end mb-3">
+										<div class="bg-primary text-white rounded-4 p-3 shadow-sm">
+											<p class="mb-0">
+												What should I focus on this month?
+											</p>
+										</div>
+									</div>
+
+									<div class="d-flex mb-3">
+										<div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-2"
+											style="width: 35px; height: 35px;">
+											<i class="bi bi-robot"></i>
+										</div>
+										<div class="bg-white border rounded-4 p-3 shadow-sm">
+											<p class="mb-0">
+												Focus on monitoring fixed costs, reviewing high-value expenses,
+												and protecting positive cashflow.
+											</p>
+										</div>
+									</div>
 								</div>
-								<div class="bg-white border rounded-4 p-3 shadow-sm">
-									<p class="mb-0">
-										Focus on monitoring fixed costs, reviewing high-value expenses,
-										and protecting positive cashflow.
-									</p>
-								</div>
+
+								<form action="#" method="post">
+									<div class="input-group">
+										<input type="text" class="form-control rounded-start-pill"
+											name="question" placeholder="Ask AI for financial suggestion...">
+										<button class="btn btn-primary rounded-end-pill px-4" type="submit">
+											<i class="bi bi-send me-2"></i> Send
+										</button>
+									</div>
+								</form>
 							</div>
 						</div>
-
-						<form action="#" method="post">
-							<div class="input-group">
-								<input type="text" class="form-control rounded-start-pill"
-									name="question" placeholder="Ask AI for financial suggestion...">
-								<button class="btn btn-primary rounded-end-pill px-4" type="submit">
-									<i class="bi bi-send me-2"></i> Send
-								</button>
-							</div>
-						</form>
 					</div>
 				</section>
 			</main>
