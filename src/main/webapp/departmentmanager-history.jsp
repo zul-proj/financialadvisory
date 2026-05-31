@@ -29,12 +29,9 @@
 					<a class="nav-link text-white rounded-3" href="departmentmanager-budget.jsp">
 						<i class="bi bi-wallet2 me-2"></i> Budget Management
 					</a>
-					<a class="nav-link text-white rounded-3" href="departmentmanager-verification.jsp">
-						<i class="bi bi-hourglass-split me-2"></i> Pending Verification
-					</a>
 					<a class="nav-link active text-white rounded-3"
 						style="background-color: #312E81;" href="departmentmanager-history.jsp">
-						<i class="bi bi-list-ul me-2"></i> Transaction History
+						<i class="bi bi-receipt me-2"></i> Transactions
 					</a>
 					<a class="nav-link text-white rounded-3" href="aiadvisory.jsp?role=departmentmanager">
 						<i class="bi bi-robot me-2"></i> AI Advisory
@@ -42,7 +39,6 @@
 					<a class="nav-link text-white rounded-3" href="departmentmanager-settings.jsp">
 						<i class="bi bi-gear me-2"></i> Account Settings
 					</a>
-
 					<a class="nav-link text-danger rounded-3 mt-4" href="index.jsp">
 						<i class="bi bi-box-arrow-right me-2"></i> <b>Logout</b>
 					</a>
@@ -52,9 +48,9 @@
 			<main class="col-12 col-lg-10 p-4">
 				<div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
 					<div>
-						<h1 class="fw-bold mb-1">Transaction History</h1>
+						<h1 class="fw-bold mb-1">Transactions</h1>
 						<p class="text-secondary mb-0">
-							View verified and rejected department transactions.
+							View pending, approved, and rejected department transactions in one listing.
 						</p>
 					</div>
 
@@ -72,34 +68,32 @@
 							<div class="col-md-4">
 								<label class="form-label">Search Transaction</label>
 								<input type="text" class="form-control rounded-3"
-									placeholder="Search by transaction or category">
+									placeholder="Search by transaction, staff, or category">
 							</div>
-
 							<div class="col-md-3">
 								<label class="form-label">Filter Category</label>
 								<select class="form-select rounded-3">
 									<option selected>All Categories</option>
+									<option>Marketing</option>
+									<option>Travel</option>
+									<option>Supplies</option>
 									<option>Training</option>
 									<option>Utilities</option>
-									<option>Marketing</option>
-									<option>Supplies</option>
 								</select>
 							</div>
-
 							<div class="col-md-2">
 								<label class="form-label">Filter Status</label>
 								<select class="form-select rounded-3">
 									<option selected>All Status</option>
-									<option>Verified</option>
+									<option>Pending</option>
+									<option>Approved</option>
 									<option>Rejected</option>
 								</select>
 							</div>
-
 							<div class="col-md-2">
 								<label class="form-label">Transaction Month</label>
 								<input type="month" class="form-control rounded-3">
 							</div>
-
 							<div class="col-md-1 d-flex align-items-end">
 								<button class="btn btn-primary w-100 rounded-pill">
 									<i class="bi bi-search"></i>
@@ -113,28 +107,83 @@
 									<tr>
 										<th>Date</th>
 										<th>Transaction</th>
+										<th>Submitted By</th>
 										<th>Category</th>
 										<th class="text-end">Amount</th>
-										<th>Verification Status</th>
-										<th>Department Manager Comment</th>
+										<th>Status</th>
+										<th class="text-center">Action</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
-										<td>2026-01-05</td>
-										<td>Training Materials</td>
-										<td>Training</td>
-										<td class="text-end">RM 1,200.00</td>
-										<td><span class="badge text-bg-success rounded-pill">Verified</span></td>
-										<td>Approved for staff training.</td>
+										<td>2026-05-14</td>
+										<td>Client Meeting Travel</td>
+										<td>Aiman Hakim</td>
+										<td>Travel</td>
+										<td class="text-end text-danger fw-bold">RM 850.00</td>
+										<td><span class="badge text-bg-warning rounded-pill">Pending</span></td>
+										<td class="text-center">
+											<a class="btn btn-sm btn-outline-primary rounded-pill"
+												href="departmentmanager-transaction-details.jsp?id=travel-001">
+												<i class="bi bi-eye me-1"></i>View Details
+											</a>
+										</td>
 									</tr>
 									<tr>
-										<td>2026-01-08</td>
-										<td>Internet Bill</td>
-										<td>Utilities</td>
-										<td class="text-end">RM 200.00</td>
+										<td>2026-05-13</td>
+										<td>Marketing Material Printing</td>
+										<td>Nur Sofia</td>
+										<td>Marketing</td>
+										<td class="text-end text-danger fw-bold">RM 1,250.00</td>
+										<td><span class="badge text-bg-warning rounded-pill">Pending</span></td>
+										<td class="text-center">
+											<a class="btn btn-sm btn-outline-primary rounded-pill"
+												href="departmentmanager-transaction-details.jsp?id=marketing-001">
+												<i class="bi bi-eye me-1"></i>View Details
+											</a>
+										</td>
+									</tr>
+									<tr>
+										<td>2026-05-10</td>
+										<td>Social Media Advertisement</td>
+										<td>Aiman Hakim</td>
+										<td>Marketing</td>
+										<td class="text-end text-danger fw-bold">RM 4,500.00</td>
+										<td><span class="badge text-bg-success rounded-pill">Approved</span></td>
+										<td class="text-center">
+											<a class="btn btn-sm btn-outline-secondary rounded-pill"
+												href="departmentmanager-transaction-details.jsp?id=marketing-002">
+												<i class="bi bi-eye me-1"></i>View Details
+											</a>
+										</td>
+									</tr>
+									<tr>
+										<td>2026-05-08</td>
+										<td>Office Supplies</td>
+										<td>Nur Sofia</td>
+										<td>Supplies</td>
+										<td class="text-end text-danger fw-bold">RM 750.00</td>
+										<td><span class="badge text-bg-success rounded-pill">Approved</span></td>
+										<td class="text-center">
+											<a class="btn btn-sm btn-outline-secondary rounded-pill"
+												href="departmentmanager-transaction-details.jsp?id=supplies-001">
+												<i class="bi bi-eye me-1"></i>View Details
+											</a>
+										</td>
+									</tr>
+									<tr>
+										<td>2026-05-02</td>
+										<td>Marketing Workshop</td>
+										<td>Aiman Hakim</td>
+										<td>Training</td>
+										<td class="text-end text-danger fw-bold">RM 2,300.00</td>
 										<td><span class="badge text-bg-danger rounded-pill">Rejected</span></td>
-										<td>Amount needs correction.</td>
+										<td class="text-center">
+											<a class="btn btn-sm btn-outline-secondary rounded-pill"
+												href="departmentmanager-transaction-details.jsp?id=training-001">
+												<i class="bi bi-eye me-1"></i>View Details
+											</a>
+										</td>
 									</tr>
 								</tbody>
 							</table>
@@ -146,7 +195,6 @@
 	</div>
 
 	<jsp:include page="notification-widget.jsp" />
-
 	<jsp:include page="chatbot-widget.jsp" />
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>

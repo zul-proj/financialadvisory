@@ -72,11 +72,8 @@
 					<a class="nav-link text-white rounded-3" href="departmentmanager-budget.jsp">
 						<i class="bi bi-wallet2 me-2"></i> Budget Management
 					</a>
-					<a class="nav-link text-white rounded-3" href="departmentmanager-verification.jsp">
-						<i class="bi bi-hourglass-split me-2"></i> Pending Verification
-					</a>
 					<a class="nav-link text-white rounded-3" href="departmentmanager-history.jsp">
-						<i class="bi bi-list-ul me-2"></i> Transaction History
+						<i class="bi bi-receipt me-2"></i> Transactions
 					</a>
 					<% } %>
 

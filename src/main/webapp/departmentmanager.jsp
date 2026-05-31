@@ -56,13 +56,9 @@
 						<i class="bi bi-wallet2 me-2"></i> Budget Management
 					</a>
 
-					<a class="nav-link text-white rounded-3" href="departmentmanager-verification.jsp">
-						<i class="bi bi-hourglass-split me-2"></i> Pending Verification
-					</a>
-
 					<a class="nav-link text-white rounded-3"
 						href="departmentmanager-history.jsp">
-						<i class="bi bi-list-ul me-2"></i> Transaction History
+						<i class="bi bi-receipt me-2"></i> Transactions
 					</a>
 
 					<a class="nav-link text-white rounded-3" href="aiadvisory.jsp?role=departmentmanager">
@@ -428,74 +424,10 @@
 											<span class="badge text-bg-warning rounded-pill">Pending</span>
 										</td>
 										<td class="text-center">
-											<button class="btn btn-sm btn-outline-secondary rounded-pill"
-												type="button" data-bs-toggle="collapse"
-												data-bs-target="#approvalDetails1">
-												<i class="bi bi-eye"></i>
-											</button>
-
-											<button class="btn btn-sm btn-outline-success rounded-pill">
-												<i class="bi bi-check-circle"></i>
-											</button>
-
-											<button class="btn btn-sm btn-outline-danger rounded-pill">
-												<i class="bi bi-x-circle"></i>
-											</button>
-										</td>
-									</tr>
-
-									<tr class="collapse" id="approvalDetails1">
-										<td colspan="7">
-											<div class="bg-light border rounded-4 p-4">
-												<div class="d-flex justify-content-between align-items-center mb-3">
-													<h6 class="fw-bold mb-0">
-														<i class="bi bi-info-circle me-2"></i> Verification Details
-													</h6>
-													<span class="badge text-bg-warning rounded-pill">
-														Waiting for Department Manager Decision
-													</span>
-												</div>
-
-												<div class="row g-3 mb-3">
-													<div class="col-md-4">
-														<p class="text-secondary mb-1">Reason</p>
-														<strong>Travel cost for client meeting and sales discussion.</strong>
-													</div>
-
-													<div class="col-md-4">
-														<p class="text-secondary mb-1">Payment Method</p>
-														<strong>Online Payment</strong>
-													</div>
-
-													<div class="col-md-4">
-														<p class="text-secondary mb-1">Department Manager Comment</p>
-														<input type="text" class="form-control rounded-3"
-															placeholder="Add verification comment">
-													</div>
-												</div>
-
-												<div class="table-responsive">
-													<table class="table table-sm mb-0">
-														<thead>
-															<tr>
-																<th>Item / Purpose</th>
-																<th class="text-center">Quantity</th>
-																<th class="text-end">Unit Price</th>
-																<th class="text-end">Total</th>
-															</tr>
-														</thead>
-
-														<tbody>
-															<tr>
-																<td>Transport to client office</td>
-																<td class="text-center">1</td>
-																<td class="text-end">RM 850.00</td>
-																<td class="text-end fw-bold">RM 850.00</td>
-															</tr>
-														</tbody>
-													</table>
-												</div>
-											</div>
+											<a class="btn btn-sm btn-outline-primary rounded-pill"
+												href="departmentmanager-transaction-details.jsp?id=travel-001">
+												<i class="bi bi-eye me-1"></i>View Details
+											</a>
 										</td>
 									</tr>
 
@@ -509,17 +441,10 @@
 											<span class="badge text-bg-warning rounded-pill">Pending</span>
 										</td>
 										<td class="text-center">
-											<button class="btn btn-sm btn-outline-secondary rounded-pill">
-												<i class="bi bi-eye"></i>
-											</button>
-
-											<button class="btn btn-sm btn-outline-success rounded-pill">
-												<i class="bi bi-check-circle"></i>
-											</button>
-
-											<button class="btn btn-sm btn-outline-danger rounded-pill">
-												<i class="bi bi-x-circle"></i>
-											</button>
+											<a class="btn btn-sm btn-outline-primary rounded-pill"
+												href="departmentmanager-transaction-details.jsp?id=marketing-001">
+												<i class="bi bi-eye me-1"></i>View Details
+											</a>
 										</td>
 									</tr>
 
@@ -533,17 +458,10 @@
 											<span class="badge text-bg-warning rounded-pill">Pending</span>
 										</td>
 										<td class="text-center">
-											<button class="btn btn-sm btn-outline-secondary rounded-pill">
-												<i class="bi bi-eye"></i>
-											</button>
-
-											<button class="btn btn-sm btn-outline-success rounded-pill">
-												<i class="bi bi-check-circle"></i>
-											</button>
-
-											<button class="btn btn-sm btn-outline-danger rounded-pill">
-												<i class="bi bi-x-circle"></i>
-											</button>
+											<a class="btn btn-sm btn-outline-primary rounded-pill"
+												href="departmentmanager-transaction-details.jsp?id=training-002">
+												<i class="bi bi-eye me-1"></i>View Details
+											</a>
 										</td>
 									</tr>
 								</tbody>
@@ -553,13 +471,13 @@
 					</div>
 				</section>
 
-				<!-- Transaction History -->
+				<!-- Transactions -->
 				<section class="card border-0 shadow-sm rounded-4 mb-4"
 					id="transaction-history">
 					<div class="card-body p-4">
 						<div class="d-flex justify-content-between align-items-center mb-3">
 							<h5 class="fw-bold mb-0">
-								<i class="bi bi-list-ul me-2"></i> Department Transaction History
+								<i class="bi bi-list-ul me-2"></i> Department Transactions
 							</h5>
 
 							<a href="#" class="btn btn-outline-primary rounded-pill px-4">

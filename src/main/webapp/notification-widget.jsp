@@ -76,7 +76,7 @@
 		</div>
 
 		<div class="list-group list-group-flush">
-			<a href="departmentmanager-verification.jsp"
+			<a href="departmentmanager-history.jsp"
 				class="list-group-item list-group-item-action p-3 notification-role-item"
 				data-roles="departmentmanager">
 				<div class="d-flex gap-3">
