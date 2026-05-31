@@ -346,6 +346,44 @@
 					</div>
 				</section>
 
+				<!-- Expense Focus Area -->
+				<section class="card border-0 shadow-sm rounded-4 mb-4">
+					<div class="card-body p-4">
+						<div class="d-flex justify-content-between align-items-center mb-3">
+							<h5 class="fw-bold mb-0">
+								<i class="bi bi-pie-chart me-2"></i> Expense Focus Area
+							</h5>
+						</div>
+
+						<div class="row g-3">
+							<div class="col-md-6 col-xl-3">
+								<div class="border rounded-4 p-3 h-100">
+									<p class="text-secondary mb-1">Marketing</p>
+									<strong class="text-danger">High Usage</strong>
+								</div>
+							</div>
+							<div class="col-md-6 col-xl-3">
+								<div class="border rounded-4 p-3 h-100">
+									<p class="text-secondary mb-1">Training</p>
+									<strong class="text-warning">Monitor</strong>
+								</div>
+							</div>
+							<div class="col-md-6 col-xl-3">
+								<div class="border rounded-4 p-3 h-100">
+									<p class="text-secondary mb-1">Supplies</p>
+									<strong class="text-primary">Review</strong>
+								</div>
+							</div>
+							<div class="col-md-6 col-xl-3">
+								<div class="border rounded-4 p-3 h-100">
+									<p class="text-secondary mb-1">Utilities</p>
+									<strong class="text-success">Acceptable</strong>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
 				<!-- Pending Verification -->
 				<section class="card border-0 shadow-sm rounded-4 mb-4"
 					id="pending-verification">

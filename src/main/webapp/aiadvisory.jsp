@@ -140,34 +140,7 @@
 				</section>
 
 				<section class="row g-4 mb-4">
-					<div class="col-lg-6">
-						<div class="card border-0 shadow-sm rounded-4 h-100">
-							<div class="card-body p-4">
-								<h5 class="fw-bold mb-3">
-									<i class="bi bi-pie-chart me-2"></i> Expense Focus Area
-								</h5>
-
-								<div class="d-flex justify-content-between py-3 border-bottom">
-									<span>Rent</span>
-									<strong class="text-danger">High Fixed Cost</strong>
-								</div>
-								<div class="d-flex justify-content-between py-3 border-bottom">
-									<span>Salary</span>
-									<strong class="text-warning">Monitor</strong>
-								</div>
-								<div class="d-flex justify-content-between py-3 border-bottom">
-									<span>Utilities</span>
-									<strong class="text-success">Acceptable</strong>
-								</div>
-								<div class="d-flex justify-content-between py-3">
-									<span>Marketing</span>
-									<strong class="text-primary">Review ROI</strong>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-lg-6">
+					<div class="col-12">
 						<div class="card border-0 shadow-sm rounded-4 h-100">
 							<div class="card-body p-4">
 								<h5 class="fw-bold mb-3">
