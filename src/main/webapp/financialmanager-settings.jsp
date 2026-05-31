@@ -27,10 +27,6 @@
 						<i class="bi bi-speedometer2 me-2"></i> Dashboard
 					</a>
 					<a class="nav-link text-white rounded-3"
-						href="financialmanager-statement.jsp">
-						<i class="bi bi-file-earmark-text me-2"></i> Company Statement
-					</a>
-					<a class="nav-link text-white rounded-3"
 						href="financialmanager-aiadvisory.jsp">
 						<i class="bi bi-robot me-2"></i> AI Advisory
 					</a>

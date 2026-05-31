@@ -178,7 +178,7 @@
 				</div>
 			</a>
 
-			<a href="financialmanager-statement.jsp"
+			<a href="financialmanager.jsp#company-statement"
 				class="list-group-item list-group-item-action p-3 notification-role-item"
 				data-roles="financialmanager">
 				<div class="d-flex gap-3">

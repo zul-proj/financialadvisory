@@ -1,4 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%
+	response.sendRedirect("financialmanager.jsp#company-statement");
+	return;
+%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,10 +29,6 @@
 				<div class="nav flex-column nav-pills gap-2">
 					<a class="nav-link text-white rounded-3" href="financialmanager.jsp">
 						<i class="bi bi-speedometer2 me-2"></i> Dashboard
-					</a>
-					<a class="nav-link active text-white bg-success rounded-3"
-						href="financialmanager-statement.jsp">
-						<i class="bi bi-file-earmark-text me-2"></i> Company Statement
 					</a>
 					<a class="nav-link text-white rounded-3"
 						href="financialmanager-aiadvisory.jsp">
