@@ -11,7 +11,7 @@
 	String sidebarColor = "#0D6EFD";
 	String activeStyle = "background-color: #084298;";
 	String dashboardHref = "staff.jsp";
-	String settingsHref = "staff-user-info.jsp";
+	String settingsHref = "account-settings.jsp?role=staff";
 
 	if ("departmentmanager".equals(role)) {
 		roleName = "Department Manager";
@@ -20,7 +20,7 @@
 		sidebarColor = "#4338CA";
 		activeStyle = "background-color: #312E81;";
 		dashboardHref = "departmentmanager.jsp";
-		settingsHref = "departmentmanager-settings.jsp";
+		settingsHref = "account-settings.jsp?role=departmentmanager";
 	} else if ("financialmanager".equals(role)) {
 		roleName = "Financial Manager";
 		sidebarTitle = "Financial Manager";
@@ -28,7 +28,7 @@
 		sidebarColor = "#0F766E";
 		activeStyle = "background-color: #198754;";
 		dashboardHref = "financialmanager.jsp";
-		settingsHref = "financialmanager-settings.jsp";
+		settingsHref = "account-settings.jsp?role=financialmanager";
 	} else {
 		role = "staff";
 	}

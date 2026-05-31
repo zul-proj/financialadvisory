@@ -263,7 +263,7 @@
 				</div>
 			</a>
 
-			<a href="admin-settings.jsp"
+			<a href="account-settings.jsp?role=admin"
 				class="list-group-item list-group-item-action p-3 notification-role-item"
 				data-roles="admin">
 				<div class="d-flex gap-3">

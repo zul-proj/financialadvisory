@@ -65,7 +65,7 @@
 						<i class="bi bi-robot me-2"></i> AI Advisory
 					</a>
 
-					<a class="nav-link text-white rounded-3" href="departmentmanager-settings.jsp">
+					<a class="nav-link text-white rounded-3" href="account-settings.jsp?role=departmentmanager">
 						<i class="bi bi-gear me-2"></i> Account Settings
 					</a>
 

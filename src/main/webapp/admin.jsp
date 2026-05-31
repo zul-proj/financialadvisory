@@ -53,7 +53,7 @@
 						<i class="bi bi-building me-2"></i> Department List
 					</a>
 
-					<a class="nav-link text-white rounded-3" href="admin-settings.jsp">
+					<a class="nav-link text-white rounded-3" href="account-settings.jsp?role=admin">
 						<i class="bi bi-gear me-2"></i> Account Settings
 					</a>
 
