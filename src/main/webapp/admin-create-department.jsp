@@ -23,14 +23,6 @@
 					<i class="bi bi-shield-lock me-2"></i> System Admin
 				</h4>
 				<div class="nav flex-column nav-pills gap-2">
-					<a class="nav-link text-white rounded-3" href="admin.jsp">
-						<i class="bi bi-person-plus me-2"></i> Add User
-					</a>
-					<a class="nav-link active text-white rounded-3"
-						style="background-color: #ff2c2c;"
-						href="admin-create-department.jsp">
-						<i class="bi bi-building-add me-2"></i> Create Department
-					</a>
 					<a class="nav-link text-white rounded-3" href="admin-user-list.jsp">
 						<i class="bi bi-people me-2"></i> User List
 					</a>

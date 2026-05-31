@@ -126,8 +126,13 @@
 
 										<div class="col-md-6">
 											<label class="form-label">Department</label>
-											<input type="text" class="form-control rounded-3"
-												value="Operations" readonly>
+											<select class="form-select rounded-3" name="department" disabled>
+												<option disabled>Select department</option>
+												<option>Finance</option>
+												<option>Sales</option>
+												<option selected>Operations</option>
+												<option>Information Technology</option>
+											</select>
 										</div>
 
 										<div class="col-md-6">

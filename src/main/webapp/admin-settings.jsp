@@ -23,12 +23,6 @@
 					<i class="bi bi-shield-lock me-2"></i> System Admin
 				</h4>
 				<div class="nav flex-column nav-pills gap-2">
-					<a class="nav-link text-white rounded-3" href="admin.jsp">
-						<i class="bi bi-person-plus me-2"></i> Add User
-					</a>
-					<a class="nav-link text-white rounded-3" href="admin-create-department.jsp">
-						<i class="bi bi-building-add me-2"></i> Create Department
-					</a>
 					<a class="nav-link text-white rounded-3" href="admin-user-list.jsp">
 						<i class="bi bi-people me-2"></i> User List
 					</a>
@@ -79,14 +73,6 @@
 									<div class="d-flex justify-content-between py-2 border-bottom">
 										<span class="text-secondary">Role</span>
 										<strong>System Admin</strong>
-									</div>
-									<div class="d-flex justify-content-between py-2 border-bottom">
-										<span class="text-secondary">Status</span>
-										<strong class="text-success">Active</strong>
-									</div>
-									<div class="d-flex justify-content-between py-2">
-										<span class="text-secondary">Last Login</span>
-										<strong>Today</strong>
 									</div>
 								</div>
 							</div>

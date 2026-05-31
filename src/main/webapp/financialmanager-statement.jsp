@@ -230,9 +230,9 @@
 					</div>
 				</section>
 
-				<!-- Transaction Summary -->
-				<section class="row g-4 mb-4">
-					<div class="col-lg-7">
+				<!-- Transaction Summary and Export Actions -->
+				<section class="row g-4">
+					<div class="col-lg-6">
 						<div class="card border-0 shadow-sm rounded-4 h-100">
 							<div class="card-body p-4">
 								<h5 class="fw-bold mb-3">
@@ -284,60 +284,27 @@
 						</div>
 					</div>
 
-					<div class="col-lg-5">
+					<div class="col-lg-6">
 						<div class="card border-0 shadow-sm rounded-4 h-100">
 							<div class="card-body p-4">
-								<h5 class="fw-bold mb-3">
-									<i class="bi bi-check2-circle me-2"></i> Statement Checklist
-								</h5>
-
-								<div class="d-flex justify-content-between py-3 border-bottom">
-									<span>Revenue calculated</span>
-									<strong class="text-success">Complete</strong>
-								</div>
-
-								<div class="d-flex justify-content-between py-3 border-bottom">
-									<span>Expenses verified</span>
-									<strong class="text-success">Complete</strong>
-								</div>
-
-								<div class="d-flex justify-content-between py-3 border-bottom">
-									<span>Net profit calculated</span>
-									<strong class="text-success">Complete</strong>
-								</div>
-
-								<div class="d-flex justify-content-between py-3">
-									<span>Manager review</span>
-									<strong class="text-warning">Pending Export</strong>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-
-				<!-- Export Actions -->
-				<section class="card border-0 shadow-sm rounded-4">
-					<div class="card-body p-4">
-						<div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
-							<div>
 								<h5 class="fw-bold mb-1">Export Statement</h5>
-								<p class="text-secondary mb-0">
+								<p class="text-secondary mb-4">
 									Download or print the generated company statement for reporting.
 								</p>
-							</div>
 
-							<div class="d-flex flex-wrap gap-2">
-								<button class="btn btn-outline-primary rounded-pill px-4" type="button">
+								<div class="d-grid gap-3">
+									<button class="btn btn-outline-primary rounded-pill px-4" type="button">
 									<i class="bi bi-printer me-2"></i> Print
-								</button>
+									</button>
 
-								<button class="btn btn-outline-success rounded-pill px-4" type="button">
-									<i class="bi bi-file-earmark-spreadsheet me-2"></i> Export Excel
-								</button>
+									<button class="btn btn-outline-success rounded-pill px-4" type="button">
+										<i class="bi bi-file-earmark-spreadsheet me-2"></i> Export Excel
+									</button>
 
-								<button class="btn btn-primary rounded-pill px-4" type="button">
-									<i class="bi bi-file-earmark-pdf me-2"></i> Download PDF
-								</button>
+									<button class="btn btn-primary rounded-pill px-4" type="button">
+										<i class="bi bi-file-earmark-pdf me-2"></i> Download PDF
+									</button>
+								</div>
 							</div>
 						</div>
 					</div>
