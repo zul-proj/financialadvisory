@@ -76,7 +76,7 @@
 		</div>
 
 		<div class="list-group list-group-flush">
-			<a href="departmentmanager-verification.jsp"
+			<a href="departmentmanager-history.jsp"
 				class="list-group-item list-group-item-action p-3 notification-role-item"
 				data-roles="departmentmanager">
 				<div class="d-flex gap-3">
@@ -110,7 +110,7 @@
 				</div>
 			</a>
 
-			<a href="departmentmanager-aiadvisory.jsp"
+			<a href="aiadvisory.jsp?role=departmentmanager"
 				class="list-group-item list-group-item-action p-3 notification-role-item"
 				data-roles="departmentmanager">
 				<div class="d-flex gap-3">
@@ -161,7 +161,7 @@
 				</div>
 			</a>
 
-			<a href="staff-aiadvisory.jsp"
+			<a href="aiadvisory.jsp?role=staff"
 				class="list-group-item list-group-item-action p-3 notification-role-item"
 				data-roles="staff">
 				<div class="d-flex gap-3">
@@ -178,7 +178,7 @@
 				</div>
 			</a>
 
-			<a href="financialmanager-statement.jsp"
+			<a href="dashboard.jsp?role=financialmanager#company-statement"
 				class="list-group-item list-group-item-action p-3 notification-role-item"
 				data-roles="financialmanager">
 				<div class="d-flex gap-3">
@@ -195,7 +195,7 @@
 				</div>
 			</a>
 
-			<a href="financialmanager.jsp"
+			<a href="dashboard.jsp?role=financialmanager"
 				class="list-group-item list-group-item-action p-3 notification-role-item"
 				data-roles="financialmanager">
 				<div class="d-flex gap-3">
@@ -212,7 +212,7 @@
 				</div>
 			</a>
 
-			<a href="financialmanager-aiadvisory.jsp"
+			<a href="aiadvisory.jsp?role=financialmanager"
 				class="list-group-item list-group-item-action p-3 notification-role-item"
 				data-roles="financialmanager">
 				<div class="d-flex gap-3">
@@ -263,7 +263,7 @@
 				</div>
 			</a>
 
-			<a href="admin-settings.jsp"
+			<a href="account-settings.jsp?role=admin"
 				class="list-group-item list-group-item-action p-3 notification-role-item"
 				data-roles="admin">
 				<div class="d-flex gap-3">

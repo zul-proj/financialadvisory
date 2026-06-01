@@ -44,7 +44,7 @@
 				</h4>
 
 				<div class="nav flex-column nav-pills gap-2">
-					<a class="nav-link text-white rounded-3" href="staff.jsp">
+					<a class="nav-link text-white rounded-3" href="dashboard.jsp?role=staff">
 						<i class="bi bi-speedometer2 me-2"></i> Dashboard
 					</a>
 
@@ -53,11 +53,11 @@
 						<i class="bi bi-cash-coin me-2"></i> Transactions
 					</a>
 
-					<a class="nav-link text-white rounded-3" href="staff-aiadvisory.jsp">
+					<a class="nav-link text-white rounded-3" href="aiadvisory.jsp?role=staff">
 						<i class="bi bi-robot me-2"></i> AI Advisory
 					</a>
 
-					<a class="nav-link text-white rounded-3" href="staff-user-info.jsp">
+					<a class="nav-link text-white rounded-3" href="account-settings.jsp?role=staff">
 						<i class="bi bi-gear me-2"></i> Account Settings
 					</a>
 

@@ -23,23 +23,20 @@
 					<i class="bi bi-person-badge me-2"></i> Department Manager
 				</h4>
 				<div class="nav flex-column nav-pills gap-2">
-					<a class="nav-link text-white rounded-3" href="departmentmanager.jsp">
+					<a class="nav-link text-white rounded-3" href="dashboard.jsp?role=departmentmanager">
 						<i class="bi bi-speedometer2 me-2"></i> Dashboard
 					</a>
 					<a class="nav-link active text-white rounded-3"
 						style="background-color: #312E81;" href="departmentmanager-budget.jsp">
 						<i class="bi bi-wallet2 me-2"></i> Budget Management
 					</a>
-					<a class="nav-link text-white rounded-3" href="departmentmanager-verification.jsp">
-						<i class="bi bi-hourglass-split me-2"></i> Pending Verification
-					</a>
 					<a class="nav-link text-white rounded-3" href="departmentmanager-history.jsp">
-						<i class="bi bi-list-ul me-2"></i> Transaction History
+						<i class="bi bi-receipt me-2"></i> Transactions
 					</a>
-					<a class="nav-link text-white rounded-3" href="departmentmanager-aiadvisory.jsp">
+					<a class="nav-link text-white rounded-3" href="aiadvisory.jsp?role=departmentmanager">
 						<i class="bi bi-robot me-2"></i> AI Advisory
 					</a>
-					<a class="nav-link text-white rounded-3" href="departmentmanager-settings.jsp">
+					<a class="nav-link text-white rounded-3" href="account-settings.jsp?role=departmentmanager">
 						<i class="bi bi-gear me-2"></i> Account Settings
 					</a>
 

@@ -163,7 +163,7 @@
 							</p>
 						</div>
 
-						<form action="staff.jsp" method="post">
+						<form action="dashboard.jsp?role=staff" method="post">
 
 							<div class="mb-3">
 								<label class="form-label fw-semibold small">Email Address</label>
