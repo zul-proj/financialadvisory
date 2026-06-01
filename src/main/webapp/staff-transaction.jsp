@@ -61,7 +61,7 @@
 						<i class="bi bi-gear me-2"></i> Account Settings
 					</a>
 
-					<a class="nav-link text-danger rounded-3 mt-4" href="index.jsp">
+					<a class="nav-link text-white bg-danger rounded-3 mt-4 shadow-sm fw-bold" href="index.jsp">
 						<i class="bi bi-box-arrow-right me-2"></i> <b>Logout</b>
 					</a>
 				</div>
