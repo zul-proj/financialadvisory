@@ -115,7 +115,6 @@
 							<h5 class="fw-bold mb-0">
 								<i class="bi bi-lightbulb me-2"></i> AI Advisory Suggestion
 							</h5>
-							<span class="badge text-bg-success rounded-pill">Active</span>
 						</div>
 
 						<div class="alert alert-success rounded-4 mb-3">
@@ -220,7 +219,6 @@
 									<h5 class="fw-bold mb-0">
 										<i class="bi bi-robot me-2"></i> Chatbot-Based Advisory
 									</h5>
-									<span class="badge text-bg-primary rounded-pill">AI Chatbot</span>
 								</div>
 
 								<div class="bg-light rounded-4 p-3 mb-3" style="min-height: 300px;">

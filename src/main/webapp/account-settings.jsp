@@ -169,7 +169,6 @@
 								</div>
 								<h5 class="fw-bold mb-1"><%= profileName %></h5>
 								<p class="text-secondary mb-3"><%= profileSubtitle %></p>
-								<span class="badge text-bg-success rounded-pill">Active Account</span>
 							</div>
 						</div>
 					</div>
@@ -182,7 +181,6 @@
 										<h5 class="fw-bold mb-0">
 											<i class="bi bi-person-lines-fill me-2"></i> Profile Details
 										</h5>
-										<span class="badge text-bg-primary rounded-pill"><%= profileBadge %></span>
 									</div>
 
 									<div class="row g-3">

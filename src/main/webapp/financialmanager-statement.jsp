@@ -67,7 +67,6 @@
 							<h5 class="fw-bold mb-0">
 								<i class="bi bi-funnel me-2"></i> Statement Period
 							</h5>
-							<span class="badge text-bg-primary rounded-pill">Report Setup</span>
 						</div>
 
 						<form action="#" method="post">
@@ -166,9 +165,6 @@
 									Statement for June 2026 generated from verified company transactions.
 								</p>
 							</div>
-							<span class="badge text-bg-success rounded-pill mt-2 mt-md-0">
-								Ready to Export
-							</span>
 						</div>
 
 						<div class="row g-4 mb-4">

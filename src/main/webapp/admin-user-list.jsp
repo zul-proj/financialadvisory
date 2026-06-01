@@ -93,7 +93,7 @@
 						</div>
 
 						<div class="d-flex justify-content-end mb-4">
-							<a class="btn btn-danger rounded-pill px-4" href="admin.jsp">
+							<a class="btn btn-danger rounded-pill px-4" href="admin-user-details.jsp?action=create">
 								<i class="bi bi-person-plus me-2"></i>Create New User
 							</a>
 						</div>
@@ -128,13 +128,7 @@
 										<td>Finance</td>
 										<td><span class="badge text-bg-success rounded-pill">Active</span></td>
 										<td class="text-center">
-											<button class="btn btn-sm btn-outline-primary rounded-pill"
-												data-bs-toggle="modal" data-bs-target="#editUserAssignmentModal"
-												data-current-role="Financial Manager"
-												data-current-department="Finance"
-												data-current-status="active">
-												<i class="bi bi-pencil-square"></i>
-											</button>
+											<a class="btn btn-sm btn-outline-primary rounded-pill" href="admin-user-details.jsp?action=edit&id=abu"><i class="bi bi-pencil-square"></i></a>
 										</td>
 									</tr>
 									<tr>
@@ -144,13 +138,7 @@
 										<td>Sales</td>
 										<td><span class="badge text-bg-success rounded-pill">Active</span></td>
 										<td class="text-center">
-											<button class="btn btn-sm btn-outline-primary rounded-pill"
-												data-bs-toggle="modal" data-bs-target="#editUserAssignmentModal"
-												data-current-role="Department Manager"
-												data-current-department="Sales"
-												data-current-status="active">
-												<i class="bi bi-pencil-square"></i>
-											</button>
+											<a class="btn btn-sm btn-outline-primary rounded-pill" href="admin-user-details.jsp?action=edit&id=sarah"><i class="bi bi-pencil-square"></i></a>
 										</td>
 									</tr>
 									<tr>
@@ -160,13 +148,7 @@
 										<td>Operations</td>
 										<td><span class="badge text-bg-success rounded-pill">Active</span></td>
 										<td class="text-center">
-											<button class="btn btn-sm btn-outline-primary rounded-pill"
-												data-bs-toggle="modal" data-bs-target="#editUserAssignmentModal"
-												data-current-role="Staff"
-												data-current-department="Operations"
-												data-current-status="active">
-												<i class="bi bi-pencil-square"></i>
-											</button>
+											<a class="btn btn-sm btn-outline-primary rounded-pill" href="admin-user-details.jsp?action=edit&id=siti"><i class="bi bi-pencil-square"></i></a>
 										</td>
 									</tr>
 								</tbody>
@@ -174,75 +156,14 @@
 						</div>
 					</div>
 				</section>
-
-				<div class="modal fade" id="editUserAssignmentModal" tabindex="-1"
-					aria-labelledby="editUserAssignmentModalLabel" aria-hidden="true">
-					<div class="modal-dialog modal-dialog-centered">
-						<div class="modal-content rounded-4 border-0">
-							<form action="#" method="post">
-								<div class="modal-header">
-									<h5 class="modal-title fw-bold" id="editUserAssignmentModalLabel">
-										Edit User Assignment
-									</h5>
-									<button type="button" class="btn-close" data-bs-dismiss="modal"
-										aria-label="Close"></button>
-								</div>
-								<div class="modal-body">
-									<div class="row g-3">
-										<div class="col-12">
-											<label class="form-label">User Role</label>
-											<select class="form-select rounded-3" name="role">
-												<option value="Financial Manager">Financial Manager</option>
-												<option value="Department Manager">Department Manager</option>
-												<option value="Staff">Staff</option>
-											</select>
-										</div>
-										<div class="col-12">
-											<label class="form-label">Department</label>
-											<select class="form-select rounded-3" name="department">
-												<option value="Finance">Finance</option>
-												<option value="Sales">Sales</option>
-												<option value="Operations">Operations</option>
-												<option value="Information Technology">Information Technology</option>
-											</select>
-										</div>
-										<div class="col-12">
-											<label class="form-label">Account Status</label>
-											<select class="form-select rounded-3" name="status">
-												<option value="active" selected>Active</option>
-												<option value="inactive">Inactive</option>
-											</select>
-										</div>
-									</div>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-outline-secondary rounded-pill"
-										data-bs-dismiss="modal">Cancel</button>
-									<button type="submit" class="btn btn-danger rounded-pill">
-										<i class="bi bi-save me-2"></i>Save Changes
-									</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
 			</main>
 		</div>
 	</div>
 
 	<jsp:include page="notification-widget.jsp" />
-
 	<jsp:include page="chatbot-widget.jsp" />
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-	<script>
-		document.getElementById("editUserAssignmentModal").addEventListener("show.bs.modal", function (event) {
-			const button = event.relatedTarget;
-			this.querySelector('[name="role"]').value = button.dataset.currentRole;
-			this.querySelector('[name="department"]').value = button.dataset.currentDepartment;
-			this.querySelector('[name="status"]').value = button.dataset.currentStatus;
-		});
-	</script>
 	<script src="js/chatbot-widget.js?v=2"></script>
 </body>
 </html>

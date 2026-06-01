@@ -77,7 +77,6 @@
 										</h5>
 										<p class="text-secondary mb-0">Submitted by Aiman Hakim on 14 May 2026.</p>
 									</div>
-									<span class="badge text-bg-warning rounded-pill mt-3 mt-md-0">Pending</span>
 								</div>
 
 								<div class="row g-3 mb-4">

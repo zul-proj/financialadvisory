@@ -95,7 +95,7 @@
 						</div>
 
 						<div class="d-flex justify-content-end mb-4">
-							<a class="btn btn-danger rounded-pill px-4" href="admin-create-department.jsp">
+							<a class="btn btn-danger rounded-pill px-4" href="admin-department-details.jsp?action=create">
 								<i class="bi bi-building-add me-2"></i>Create New Department
 							</a>
 						</div>
@@ -118,9 +118,7 @@
 										<td>Abu Bakar</td>
 										<td><span class="badge text-bg-success rounded-pill">Active</span></td>
 										<td class="text-center">
-											<button class="btn btn-sm btn-outline-primary rounded-pill">
-												<i class="bi bi-pencil-square"></i>
-											</button>
+											<a class="btn btn-sm btn-outline-primary rounded-pill" href="admin-department-details.jsp?action=edit&id=dpt-001"><i class="bi bi-pencil-square"></i></a>
 										</td>
 									</tr>
 									<tr>
@@ -129,9 +127,7 @@
 										<td>Sarah Ahmad</td>
 										<td><span class="badge text-bg-success rounded-pill">Active</span></td>
 										<td class="text-center">
-											<button class="btn btn-sm btn-outline-primary rounded-pill">
-												<i class="bi bi-pencil-square"></i>
-											</button>
+											<a class="btn btn-sm btn-outline-primary rounded-pill" href="admin-department-details.jsp?action=edit&id=dpt-002"><i class="bi bi-pencil-square"></i></a>
 										</td>
 									</tr>
 									<tr>
@@ -140,9 +136,7 @@
 										<td>Not Assigned</td>
 										<td><span class="badge text-bg-warning rounded-pill">Pending Department Manager</span></td>
 										<td class="text-center">
-											<button class="btn btn-sm btn-outline-primary rounded-pill">
-												<i class="bi bi-pencil-square"></i>
-											</button>
+											<a class="btn btn-sm btn-outline-primary rounded-pill" href="admin-department-details.jsp?action=edit&id=dpt-005"><i class="bi bi-pencil-square"></i></a>
 										</td>
 									</tr>
 									<tr>
@@ -151,9 +145,7 @@
 										<td>Not Assigned</td>
 										<td><span class="badge text-bg-warning rounded-pill">Pending Department Manager</span></td>
 										<td class="text-center">
-											<button class="btn btn-sm btn-outline-primary rounded-pill">
-												<i class="bi bi-pencil-square"></i>
-											</button>
+											<a class="btn btn-sm btn-outline-primary rounded-pill" href="admin-department-details.jsp?action=edit&id=dpt-006"><i class="bi bi-pencil-square"></i></a>
 										</td>
 									</tr>
 								</tbody>

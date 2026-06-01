@@ -176,7 +176,6 @@
 							<div class="card-body p-4">
 								<div class="d-flex justify-content-between align-items-center mb-3">
 									<h5 class="fw-bold mb-0">Cashflow Trend</h5>
-									<span class="badge text-bg-primary-subtle text-primary rounded-pill">Monthly</span>
 								</div>
 								<canvas id="cashflowChart" height="120"></canvas>
 							</div>
@@ -187,7 +186,6 @@
 							<div class="card-body p-4">
 								<div class="d-flex justify-content-between align-items-center mb-3">
 									<h5 class="fw-bold mb-0">Expense Categories</h5>
-									<span class="badge text-bg-primary-subtle text-primary rounded-pill">This Month</span>
 								</div>
 								<div class="d-flex justify-content-between py-3 border-bottom">
 									<span>Rent</span><strong>RM 4,000</strong>
@@ -247,7 +245,6 @@
 							<div class="card-body p-4">
 								<div class="d-flex justify-content-between align-items-center mb-3">
 									<h5 class="fw-bold mb-0">AI Financial Advisor</h5>
-									<span class="badge text-bg-primary rounded-pill">Suggestion</span>
 								</div>
 								<p class="text-secondary">
 									Your company currently has a positive cashflow. Consider reviewing fixed costs to improve future profitability.
@@ -273,7 +270,6 @@
 							<div class="card-body p-4">
 								<div class="d-flex justify-content-between align-items-center mb-3">
 									<h5 class="fw-bold mb-0"><i class="bi bi-graph-up me-2"></i> Department Budget Usage</h5>
-									<span class="badge text-bg-primary-subtle text-primary rounded-pill">Monthly</span>
 								</div>
 								<canvas id="departmentBudgetChart" height="120"></canvas>
 							</div>
@@ -311,7 +307,6 @@
 								<h5 class="fw-bold mb-1"><i class="bi bi-hourglass-split me-2"></i> Pending Verification</h5>
 								<p class="text-secondary mb-0">Review transactions submitted by department staff.</p>
 							</div>
-							<span class="badge text-bg-warning rounded-pill mt-3 mt-md-0">5 Pending</span>
 						</div>
 						<div class="table-responsive">
 							<table class="table table-hover align-middle">
@@ -339,7 +334,6 @@
 					<div class="card-body p-4">
 						<div class="d-flex justify-content-between align-items-center mb-3">
 							<h5 class="fw-bold mb-0"><i class="bi bi-graph-up me-2"></i> Company Financial Analytics</h5>
-							<span class="badge text-bg-primary rounded-pill">Monthly</span>
 						</div>
 						<canvas id="financialManagerChart" height="110"></canvas>
 					</div>
@@ -378,7 +372,6 @@
 								<h5 class="fw-bold mb-1"><i class="bi bi-file-earmark-bar-graph me-2"></i> Company Statement Preview</h5>
 								<p class="text-secondary mb-0">Statement for June 2026 generated from verified company transactions.</p>
 							</div>
-							<span class="badge text-bg-success rounded-pill mt-2 mt-md-0">Ready to Export</span>
 						</div>
 						<div class="table-responsive mb-4">
 							<table class="table table-hover align-middle">
