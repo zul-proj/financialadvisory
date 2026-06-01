@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
-<%
-	response.sendRedirect("aiadvisory.jsp?role=departmentmanager");
+<% 
+	response.sendRedirect("dashboard.jsp?role=departmentmanager");
 	return;
 %>
