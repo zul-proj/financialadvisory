@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%
-	response.sendRedirect("admin-user-details.jsp?action=create");
+	response.sendRedirect("admin-user-details.jsp");
 	return;
 %>
