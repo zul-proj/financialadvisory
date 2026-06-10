@@ -16,6 +16,50 @@
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 <link rel="stylesheet" href="css/chatbot-widget.css?v=2">
+<style>
+	.transaction-workspace {
+		max-width: 1180px;
+	}
+
+	.transaction-form-card {
+		border-radius: 8px;
+	}
+
+	.drop-zone {
+		border: 2px dashed #9ec5fe;
+		border-radius: 8px;
+		background: #f8fbff;
+		cursor: pointer;
+		min-height: 180px;
+		transition: border-color .15s ease, background-color .15s ease;
+	}
+
+	.drop-zone.drag-over {
+		border-color: #0d6efd;
+		background: #edf5ff;
+	}
+
+	.line-item-grid {
+		display: grid;
+		grid-template-columns: minmax(180px, 1fr) 120px 140px 140px 44px;
+		gap: .75rem;
+		align-items: center;
+	}
+
+	.attachment-row {
+		display: grid;
+		grid-template-columns: minmax(180px, 1fr) 150px 44px;
+		gap: .75rem;
+		align-items: center;
+	}
+
+	@media (max-width: 767.98px) {
+		.line-item-grid,
+		.attachment-row {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
 </head>
 <body class="bg-light">
 	<div class="container-fluid">
@@ -46,277 +90,326 @@
 			</aside>
 
 			<main class="col-12 col-lg-10 p-4">
-				<div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
-					<div>
-						<h1 class="fw-bold mb-1"><%= isCreate ? "Create Transaction" : "Transaction Details" %></h1>
-						<p class="text-secondary mb-0">View, create, or update transaction details before department verification.</p>
+				<div class="transaction-workspace mx-auto">
+					<div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+						<div>
+							<h1 class="fw-bold mb-1"><%= isCreate ? "Add New Transaction" : "Transaction Details" %></h1>
+							<p class="text-secondary mb-0">Record transaction information, item lines, and supporting attachments.</p>
+						</div>
+						<a class="btn btn-outline-secondary rounded-pill px-4" href="staff-transaction.jsp">
+							<i class="bi bi-arrow-left me-2"></i>Back to List
+						</a>
 					</div>
-					<a class="btn btn-outline-secondary rounded-pill px-4" href="staff-transaction.jsp">
-						<i class="bi bi-arrow-left me-2"></i>Back to List
-					</a>
-				</div>
 
-				<section class="card border-0 shadow-sm rounded-4 mb-4">
-					<div class="card-body p-4">
-							<div class="d-flex justify-content-between align-items-center mb-3">
-								<h5 class="fw-bold mb-0">
-									<i class="bi bi-receipt me-2"></i> Transaction Information
-								</h5>
-							</div>
+					<section class="card border-0 shadow-sm transaction-form-card">
+						<div class="card-body p-4">
+							<form action="#" method="post" enctype="multipart/form-data">
+								<div class="d-flex flex-wrap justify-content-between align-items-center gap-3 pb-3 mb-4 border-bottom">
+									<h5 class="fw-bold mb-0">
+										<i class="bi bi-receipt me-2"></i><%= isCreate ? "Add New Transaction" : "Edit Transaction" %>
+									</h5>
+									<button class="btn btn-outline-primary rounded-pill px-4" type="button"
+										data-bs-toggle="modal" data-bs-target="#extractUploadModal">
+										<i class="bi bi-file-earmark-arrow-up me-2"></i>Extract from PDF
+									</button>
+								</div>
 
-						<form action="#" method="post" enctype="multipart/form-data">
-							<div class="row g-3">
-								<div class="col-md-6">
-									<label class="form-label">Transaction Title</label>
-									<input type="text" class="form-control rounded-3" name="title"
-										value="<%= isCreate ? "" : "Office Rent" %>" placeholder="Example: Office Rent">
-								</div>
-								<div class="col-md-3">
-									<label class="form-label">Type</label>
-									<select class="form-select rounded-3" name="type">
-										<option <%= isCreate ? "selected" : "" %>>Income</option>
-										<option <%= isCreate ? "" : "selected" %>>Expense</option>
-									</select>
-								</div>
-								<div class="col-md-3">
-									<label class="form-label">Category</label>
-									<select class="form-select rounded-3" name="category">
-										<option>Sales</option>
-										<option selected>Rent</option>
-										<option>Utilities</option>
-										<option>Salary</option>
-										<option>Marketing</option>
-										<option>Supplies</option>
-										<option>Travel</option>
-										<option>Training</option>
-										<option>Others</option>
-									</select>
-								</div>
-								<div class="col-md-4">
-									<label class="form-label">Amount (RM)</label>
-									<input type="number" step="0.01" class="form-control rounded-3"
-										name="amount" value="<%= isCreate ? "" : "32471.00" %>" placeholder="0.00">
-								</div>
-								<div class="col-md-4">
-									<label class="form-label">Transaction Date</label>
-									<input type="date" class="form-control rounded-3"
-										name="transactionDate" value="<%= isCreate ? "" : "2026-01-08" %>">
-								</div>
-									<div class="col-md-4">
-										<label class="form-label">Payment Method</label>
-										<select class="form-select rounded-3" name="paymentMethod">
-											<option>Cash</option>
-											<option selected>Bank Transfer</option>
-											<option>Credit Card</option>
-											<option>Online Payment</option>
-											<option>Invoice</option>
+								<div class="row g-3 mb-4">
+									<div class="col-md-6">
+										<label class="form-label">Transaction Title</label>
+										<input type="text" class="form-control rounded-3" name="title"
+											value="<%= isCreate ? "ABC Supplier Sdn Bhd - INV-0001" : "Office Rent" %>" placeholder="Example: Office Rent">
+									</div>
+									<div class="col-md-3">
+										<label class="form-label">Type</label>
+										<select class="form-select rounded-3" name="type">
+											<option>Income</option>
+											<option selected>Expense</option>
 										</select>
 									</div>
-								<div class="col-md-6">
-									<label class="form-label">Reference Number</label>
-									<input type="text" class="form-control rounded-3" name="referenceNumber"
-										value="<%= isCreate ? "" : "RENT-2026-001" %>" placeholder="Invoice or payment reference">
+									<div class="col-md-3">
+										<label class="form-label">Category</label>
+										<select class="form-select rounded-3" name="category">
+											<option>Sales</option>
+											<option <%= isCreate ? "" : "selected" %>>Rent</option>
+											<option>Utilities</option>
+											<option>Salary</option>
+											<option>Marketing</option>
+											<option <%= isCreate ? "selected" : "" %>>Supplies</option>
+											<option>Travel</option>
+											<option>Training</option>
+											<option>Others</option>
+										</select>
+									</div>
+									<div class="col-md-4">
+										<label class="form-label">Amount (RM)</label>
+										<input type="number" step="0.01" class="form-control rounded-3"
+											name="amount" value="<%= isCreate ? "477.00" : "32471.00" %>" placeholder="0.00">
+									</div>
+									<div class="col-md-4">
+										<label class="form-label">Transaction Date</label>
+										<input type="date" class="form-control rounded-3"
+											name="transactionDate" value="<%= isCreate ? "2026-01-20" : "2026-01-08" %>">
+									</div>
+									<div class="col-md-4">
+										<label class="form-label">Source</label>
+										<input type="text" class="form-control rounded-3"
+											name="source" value="<%= isCreate ? "Invoice" : "Bank Transfer" %>">
+									</div>
+									<div class="col-md-6">
+										<label class="form-label">Invoice / Reference Number</label>
+										<input type="text" class="form-control rounded-3" name="referenceNumber"
+											value="<%= isCreate ? "INV-0001" : "RENT-2026-001" %>" placeholder="Invoice or payment reference">
+									</div>
+									<div class="col-md-6">
+										<label class="form-label">Vendor / Payee Name</label>
+										<input type="text" class="form-control rounded-3" name="vendorName"
+											value="<%= isCreate ? "ABC Supplier Sdn Bhd" : "City Office Properties" %>" placeholder="Vendor, customer, or payee">
+									</div>
+									<div class="col-12">
+										<label class="form-label">Reason / Description</label>
+										<textarea class="form-control rounded-3" rows="4" name="description"
+											placeholder="Explain transaction purpose"><%= isCreate ? "Office supplies purchased for company operations. Auto extracted from uploaded invoice." : "Monthly office rental payment for January 2026." %></textarea>
+									</div>
 								</div>
-								<div class="col-md-6">
-									<label class="form-label">Attachment Upload</label>
-									<input type="file" class="form-control rounded-3" name="attachment">
+
+								<div class="border rounded-3 p-3 mb-4">
+									<div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+										<div>
+											<h6 class="fw-bold mb-1">
+												<i class="bi bi-list-check me-2"></i>Editable Item List
+											</h6>
+											<p class="text-secondary small mb-0">Review and edit transaction line items before submitting.</p>
+										</div>
+									</div>
+
+									<div class="line-item-grid text-secondary small fw-semibold mb-2 d-none d-md-grid">
+										<span>Item / Description</span>
+										<span>Quantity</span>
+										<span>Unit Price</span>
+										<span>Total</span>
+										<span></span>
+									</div>
+
+									<div id="lineItems" class="vstack gap-2">
+										<div class="line-item-grid line-item-row">
+											<input type="text" class="form-control rounded-3" name="itemDescription" value="Office Supplies">
+											<input type="number" class="form-control rounded-3 item-qty" name="itemQuantity" value="3" min="0" step="1">
+											<input type="number" class="form-control rounded-3 item-price" name="itemUnitPrice" value="150.00" min="0" step="0.01">
+											<input type="number" class="form-control rounded-3 item-total fw-bold" name="itemTotal" value="450.00" min="0" step="0.01">
+											<button type="button" class="btn btn-outline-danger rounded-circle remove-row" aria-label="Delete item">
+												<i class="bi bi-trash"></i>
+											</button>
+										</div>
+										<div class="line-item-grid line-item-row">
+											<input type="text" class="form-control rounded-3" name="itemDescription" value="Service Tax">
+											<input type="number" class="form-control rounded-3 item-qty" name="itemQuantity" value="1" min="0" step="1">
+											<input type="number" class="form-control rounded-3 item-price" name="itemUnitPrice" value="27.00" min="0" step="0.01">
+											<input type="number" class="form-control rounded-3 item-total fw-bold" name="itemTotal" value="27.00" min="0" step="0.01">
+											<button type="button" class="btn btn-outline-danger rounded-circle remove-row" aria-label="Delete item">
+												<i class="bi bi-trash"></i>
+											</button>
+										</div>
+									</div>
+
+									<div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mt-3">
+										<button type="button" class="btn btn-outline-primary btn-sm rounded-pill px-3" id="addItemBtn">
+											<i class="bi bi-plus-circle me-2"></i>Add Item
+										</button>
+										<div class="d-flex align-items-center gap-3">
+											<span class="fw-bold">Grand Total</span>
+											<input type="number" class="form-control rounded-3 fw-bold text-danger" id="grandTotal"
+												name="grandTotal" value="477.00" readonly style="max-width: 160px;">
+										</div>
+									</div>
 								</div>
-								<div class="col-12">
-									<label class="form-label">Description / Reason</label>
-									<textarea class="form-control rounded-3" rows="4" name="description"
-										placeholder="Explain transaction purpose"><%= isCreate ? "" : "Monthly office rental payment for January 2026." %></textarea>
+
+								<div class="border rounded-3 p-3 mb-4">
+									<div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+										<h6 class="fw-bold mb-0">
+											<i class="bi bi-paperclip me-2"></i>Attachment List
+										</h6>
+										<button type="button" class="btn btn-outline-primary btn-sm rounded-pill px-3"
+											data-bs-toggle="modal" data-bs-target="#attachmentUploadModal">
+											<i class="bi bi-upload me-2"></i>Upload Attachment
+										</button>
+									</div>
+
+									<div id="attachmentList" class="vstack gap-2">
+										<div class="attachment-row border-bottom pb-2">
+											<div>
+												<i class="bi bi-file-earmark-pdf text-danger me-2"></i>
+												<span class="fw-semibold">INV-0001.pdf</span>
+											</div>
+											<span class="text-secondary small">Invoice PDF</span>
+											<button type="button" class="btn btn-outline-danger rounded-circle remove-attachment" aria-label="Delete attachment">
+												<i class="bi bi-trash"></i>
+											</button>
+										</div>
+										<div class="attachment-row border-bottom pb-2">
+											<div>
+												<i class="bi bi-file-earmark-image text-primary me-2"></i>
+												<span class="fw-semibold">delivery-order.png</span>
+											</div>
+											<span class="text-secondary small">Supporting File</span>
+											<button type="button" class="btn btn-outline-danger rounded-circle remove-attachment" aria-label="Delete attachment">
+												<i class="bi bi-trash"></i>
+											</button>
+										</div>
+									</div>
 								</div>
-								<div class="col-12 d-flex justify-content-end gap-2">
+
+								<div class="d-flex flex-wrap justify-content-end gap-2">
 									<a class="btn btn-outline-secondary rounded-pill px-4" href="staff-transaction.jsp">Cancel</a>
 									<button class="btn btn-primary rounded-pill px-4" type="submit">
 										<i class="bi bi-send-check me-2"></i><%= isEdit ? "Save Changes" : "Submit Transaction" %>
 									</button>
 								</div>
-							</div>
 							</form>
 						</div>
 					</section>
+				</div>
+			</main>
+		</div>
+	</div>
 
-					<section class="card border-0 shadow-sm rounded-4 mb-4">
-						<div class="card-body p-4">
-							<div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
-								<div>
-									<h5 class="fw-bold mb-1">
-										<i class="bi bi-file-earmark-arrow-up me-2"></i> Auto Extract from Invoice PDF
-									</h5>
-									<p class="text-secondary mb-0">
-										Upload invoice, detect keywords, auto-categorize, then save as income or expense.
-									</p>
-								</div>
-							</div>
-
-							<form action="#" method="post" enctype="multipart/form-data">
-								<div class="row g-3 align-items-end">
-									<div class="col-md-5">
-										<label class="form-label">Invoice PDF / Image</label>
-										<input type="file" class="form-control rounded-3"
-											name="invoiceFile" accept=".pdf,.jpg,.jpeg,.png">
-									</div>
-									<div class="col-md-3">
-										<label class="form-label">Document Type</label>
-										<select class="form-select rounded-3" name="documentType">
-											<option selected>Purchase Invoice</option>
-											<option>Sales Invoice</option>
-											<option>Receipt</option>
-											<option>Income Statement</option>
-										</select>
-									</div>
-									<div class="col-md-2">
-										<label class="form-label">Auto Category</label>
-										<select class="form-select rounded-3" name="autoCategory">
-											<option selected>Enabled</option>
-											<option>Manual Review</option>
-										</select>
-									</div>
-									<div class="col-md-2">
-										<button type="submit" class="btn btn-primary rounded-pill w-100">
-											<i class="bi bi-magic me-2"></i>Extract
-										</button>
-									</div>
-								</div>
-							</form>
-						</div>
-					</section>
-
-					<section class="row g-4">
-						<div class="col-lg-5">
-							<div class="card border-0 shadow-sm rounded-4 h-100">
-								<div class="card-body p-4">
-									<div class="d-flex justify-content-between align-items-center mb-3">
-										<h5 class="fw-bold mb-0">
-											<i class="bi bi-file-text me-2"></i> Extracted Invoice Details
-										</h5>
-									</div>
-
-									<div class="d-flex justify-content-between py-3 border-bottom">
-										<span class="text-secondary">Vendor / Source</span>
-										<strong>ABC Supplier Sdn Bhd</strong>
-									</div>
-									<div class="d-flex justify-content-between py-3 border-bottom">
-										<span class="text-secondary">Reference No.</span>
-										<strong>INV-0001</strong>
-									</div>
-									<div class="d-flex justify-content-between py-3 border-bottom">
-										<span class="text-secondary">Detected Keywords</span>
-										<strong>supplies, tax, invoice</strong>
-									</div>
-									<div class="d-flex justify-content-between py-3 border-bottom">
-										<span class="text-secondary">Auto Category</span>
-										<strong class="text-primary">Supplies</strong>
-									</div>
-									<div class="d-flex justify-content-between py-3">
-										<span class="text-secondary">Detected Total</span>
-										<strong class="text-danger">RM 477.00</strong>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-7">
-							<div class="card border-0 shadow-sm rounded-4 h-100">
-								<div class="card-body p-4">
-									<div class="d-flex justify-content-between align-items-center mb-3">
-										<h5 class="fw-bold mb-0">
-											<i class="bi bi-arrow-left-right me-2"></i> Save Extracted Transaction
-										</h5>
-									</div>
-
-									<form action="#" method="post">
-										<div class="row g-3">
-											<div class="col-md-6">
-												<label class="form-label">Transaction Title</label>
-												<input type="text" class="form-control rounded-3"
-													name="extractedTitle" value="ABC Supplier Sdn Bhd - INV-0001">
-											</div>
-											<div class="col-md-3">
-												<label class="form-label">Type</label>
-												<select class="form-select rounded-3" name="extractedType">
-													<option>Income</option>
-													<option selected>Expense</option>
-												</select>
-											</div>
-											<div class="col-md-3">
-												<label class="form-label">Category</label>
-												<select class="form-select rounded-3" name="extractedCategory">
-													<option>Sales</option>
-													<option>Rent</option>
-													<option>Utilities</option>
-													<option selected>Supplies</option>
-													<option>Marketing</option>
-													<option>Others</option>
-												</select>
-											</div>
-											<div class="col-md-4">
-												<label class="form-label">Amount (RM)</label>
-												<input type="number" step="0.01" class="form-control rounded-3"
-													name="extractedAmount" value="477.00">
-											</div>
-											<div class="col-md-4">
-												<label class="form-label">Transaction Date</label>
-												<input type="date" class="form-control rounded-3"
-													name="extractedDate" value="2026-01-20">
-											</div>
-											<div class="col-md-4">
-												<label class="form-label">Source</label>
-												<input type="text" class="form-control rounded-3"
-													name="source" value="Invoice OCR" readonly>
-											</div>
-											<div class="col-12">
-												<label class="form-label">Extracted Line Items</label>
-												<div class="table-responsive border rounded-4">
-													<table class="table table-sm align-middle mb-0">
-														<thead>
-															<tr>
-																<th>Item / Description</th>
-																<th class="text-center">Quantity</th>
-																<th class="text-end">Unit Price</th>
-																<th class="text-end">Total</th>
-															</tr>
-														</thead>
-														<tbody>
-															<tr>
-																<td>Office Supplies</td>
-																<td class="text-center">3</td>
-																<td class="text-end">RM 150.00</td>
-																<td class="text-end fw-bold">RM 450.00</td>
-															</tr>
-															<tr>
-																<td>Service Tax</td>
-																<td class="text-center">1</td>
-																<td class="text-end">RM 27.00</td>
-																<td class="text-end fw-bold">RM 27.00</td>
-															</tr>
-														</tbody>
-													</table>
-												</div>
-											</div>
-											<div class="col-12 d-flex justify-content-end gap-2">
-												<button type="reset" class="btn btn-outline-secondary rounded-pill px-4">
-													Reset
-												</button>
-												<button type="submit" class="btn btn-primary rounded-pill px-4">
-													<i class="bi bi-save me-2"></i>Save to Transaction
-												</button>
-											</div>
-										</div>
-									</form>
-								</div>
-							</div>
-						</div>
-					</section>
-				</main>
+	<div class="modal fade" id="extractUploadModal" tabindex="-1" aria-labelledby="extractUploadModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content border-0 shadow">
+				<div class="modal-header">
+					<h5 class="modal-title fw-bold" id="extractUploadModalLabel">Extract Transaction from PDF</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<label class="drop-zone d-flex flex-column justify-content-center align-items-center text-center p-4 w-100">
+						<i class="bi bi-cloud-arrow-up fs-1 text-primary mb-2"></i>
+						<span class="fw-bold">Upload invoice PDF or image</span>
+						<span class="text-secondary small">Drag and drop file here, or click to browse</span>
+						<span class="selected-file text-primary small mt-2"></span>
+						<input class="d-none upload-input" type="file" accept=".pdf,.jpg,.jpeg,.png">
+					</label>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
+					<button type="button" class="btn btn-primary rounded-pill px-4" data-bs-dismiss="modal">Confirm</button>
+				</div>
 			</div>
 		</div>
+	</div>
+
+	<div class="modal fade" id="attachmentUploadModal" tabindex="-1" aria-labelledby="attachmentUploadModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content border-0 shadow">
+				<div class="modal-header">
+					<h5 class="modal-title fw-bold" id="attachmentUploadModalLabel">Upload Attachment</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<label class="drop-zone d-flex flex-column justify-content-center align-items-center text-center p-4 w-100">
+						<i class="bi bi-paperclip fs-1 text-primary mb-2"></i>
+						<span class="fw-bold">Upload supporting attachment</span>
+						<span class="text-secondary small">Drag and drop file here, or click to browse</span>
+						<span class="selected-file text-primary small mt-2"></span>
+						<input class="d-none upload-input" type="file" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx">
+					</label>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
+					<button type="button" class="btn btn-primary rounded-pill px-4" data-bs-dismiss="modal">Confirm</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<jsp:include page="notification-widget.jsp" />
 	<jsp:include page="chatbot-widget.jsp" />
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="js/chatbot-widget.js?v=2"></script>
+	<script>
+		const lineItems = document.getElementById("lineItems");
+		const grandTotal = document.getElementById("grandTotal");
+
+		function updateLineTotal(row) {
+			const qty = Number(row.querySelector(".item-qty").value) || 0;
+			const price = Number(row.querySelector(".item-price").value) || 0;
+			row.querySelector(".item-total").value = (qty * price).toFixed(2);
+			updateGrandTotal();
+		}
+
+		function updateGrandTotal() {
+			const total = [...document.querySelectorAll(".item-total")]
+				.reduce((sum, input) => sum + (Number(input.value) || 0), 0);
+			grandTotal.value = total.toFixed(2);
+		}
+
+		document.getElementById("addItemBtn").addEventListener("click", () => {
+			const row = document.createElement("div");
+			row.className = "line-item-grid line-item-row";
+			row.innerHTML = `
+				<input type="text" class="form-control rounded-3" name="itemDescription" placeholder="Item description">
+				<input type="number" class="form-control rounded-3 item-qty" name="itemQuantity" value="1" min="0" step="1">
+				<input type="number" class="form-control rounded-3 item-price" name="itemUnitPrice" value="0.00" min="0" step="0.01">
+				<input type="number" class="form-control rounded-3 item-total fw-bold" name="itemTotal" value="0.00" min="0" step="0.01">
+				<button type="button" class="btn btn-outline-danger rounded-circle remove-row" aria-label="Delete item">
+					<i class="bi bi-trash"></i>
+				</button>`;
+			lineItems.appendChild(row);
+		});
+
+		lineItems.addEventListener("input", (event) => {
+			const row = event.target.closest(".line-item-row");
+			if (!row) {
+				return;
+			}
+			if (event.target.classList.contains("item-qty") || event.target.classList.contains("item-price")) {
+				updateLineTotal(row);
+			}
+			if (event.target.classList.contains("item-total")) {
+				updateGrandTotal();
+			}
+		});
+
+		lineItems.addEventListener("click", (event) => {
+			const button = event.target.closest(".remove-row");
+			if (!button) {
+				return;
+			}
+			button.closest(".line-item-row").remove();
+			updateGrandTotal();
+		});
+
+		document.getElementById("attachmentList").addEventListener("click", (event) => {
+			const button = event.target.closest(".remove-attachment");
+			if (button) {
+				button.closest(".attachment-row").remove();
+			}
+		});
+
+		document.querySelectorAll(".drop-zone").forEach((zone) => {
+			const input = zone.querySelector(".upload-input");
+			const selectedFile = zone.querySelector(".selected-file");
+
+			function setSelectedFile(files) {
+				selectedFile.textContent = files && files.length ? files[0].name : "";
+			}
+
+			zone.addEventListener("dragover", (event) => {
+				event.preventDefault();
+				zone.classList.add("drag-over");
+			});
+
+			zone.addEventListener("dragleave", () => zone.classList.remove("drag-over"));
+
+			zone.addEventListener("drop", (event) => {
+				event.preventDefault();
+				zone.classList.remove("drag-over");
+				input.files = event.dataTransfer.files;
+				setSelectedFile(input.files);
+			});
+
+			input.addEventListener("change", () => setSelectedFile(input.files));
+		});
+	</script>
 </body>
 </html>
