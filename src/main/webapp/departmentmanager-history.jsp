@@ -29,6 +29,9 @@
 					<a class="nav-link text-white rounded-3" href="departmentmanager-budget.jsp">
 						<i class="bi bi-wallet2 me-2"></i> Budget Management
 					</a>
+					<a class="nav-link text-white rounded-3" href="departmentmanager-category-list.jsp">
+						<i class="bi bi-tags me-2"></i> Category
+					</a>
 					<a class="nav-link active text-white rounded-3"
 						style="background-color: #312E81;" href="departmentmanager-history.jsp">
 						<i class="bi bi-receipt me-2"></i> Transactions
