@@ -1,6 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib uri="jakarta.tags.core" prefix="c"%>
 <%@ taglib uri="jakarta.tags.fmt" prefix="fmt"%>
+<%@ page import="transaction.TransactionDOA, transaction.TransactionModel" %>
+<%@ page import="java.util.ArrayList" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -182,20 +185,35 @@
 								</thead>
 
 									<tbody>
+										<%
+											TransactionDOA transactionDOA = new TransactionDOA();
+											ArrayList<TransactionModel> transactions = transactionDOA.getAllTransactions(); // Fetch transactions from database
+										
+											for (TransactionModel transaction : transactions) {
+										%>
 										<tr>
-											<td>2026-01-05</td>
-											<td>Product Sales</td>
+											<td><%= transaction.getDateTransaction() %></td>
+											<td><%= transaction.getName() %></td>
 											<td><span class="badge rounded-pill text-bg-success">Income</span></td>
-											<td>Sales</td>
-											<td>Bank Transfer</td>
-											<td class="text-end text-success fw-bold">RM 764,239.00</td>
+											<td><%= transaction.getCategoryId() %></td>
+											<td><%= transaction.getPaymentMethod() %></td>
+											<td class="text-end text-success fw-bold">RM <%= transaction.getTotalAmount() %></td>
+											<%if ("Approved".equalsIgnoreCase(transaction.getStatus())) { %>
 											<td><span class="badge rounded-pill text-bg-success">Approved</span></td>
+											<% } else if ("Rejected".equalsIgnoreCase(transaction.getStatus())) { %>
+											<td><span class="badge rounded-pill text-bg-danger">Rejected</span></td>
+											<% } else { %>
+											<td><span class="badge rounded-pill text-bg-warning">Pending Verification</span></td>
+											<% } %>
 											<td class="text-center">
 												<a class="btn btn-sm btn-outline-secondary rounded-pill" href="staff-transaction-details.jsp?id=sales-001"><i class="bi bi-eye"></i></a>
 												<a href="staff-transaction-details.jsp?action=edit&id=sales-001" class="btn btn-sm btn-outline-primary rounded-pill"><i class="bi bi-pencil-square"></i></a>
 												<a href="#" class="btn btn-sm btn-outline-danger rounded-pill"><i class="bi bi-trash"></i></a>
 											</td>
 										</tr>
+										<%
+											}
+										%>
 										<tr>
 											<td>2026-01-08</td>
 											<td>Office Rent</td>
