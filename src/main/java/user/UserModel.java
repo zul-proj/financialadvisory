@@ -1,13 +1,13 @@
 package user;
 
-public class User {
+public class UserModel {
 		private int userId;
 	private String name;
 	private String email;
 	private int roleId;
 	private int departmentId;
 
-	public User(int userId, String name, String email, int roleId, int departmentId) {
+	public UserModel(int userId, String name, String email, int roleId, int departmentId) {
 		this.userId = userId;
 		this.name = name;
 		this.email = email;

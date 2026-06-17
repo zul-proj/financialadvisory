@@ -1,6 +1,6 @@
 package helper;
 
-import user.User;
+import user.UserModel;
 
 public class RoleHelper {
 	
@@ -10,19 +10,19 @@ public class RoleHelper {
 	public static final int ROLE_STAFF = 4;
 	
 	
-	public static boolean IsAdmin(User user) {
+	public static boolean IsAdmin(UserModel user) {
 		return user != null && user.getRoleId() == ROLE_ADMIN;
 	}
 	
-	public static boolean IsFinancialManager(User user) {
+	public static boolean IsFinancialManager(UserModel user) {
 		return user != null && user.getRoleId() == ROLE_FINANCIAL_MANAGER;
 	}
 	
-	public static boolean IsDepartmentManager(User user) {
+	public static boolean IsDepartmentManager(UserModel user) {
 		return user != null && user.getRoleId() == ROLE_DEPARTMENT_MANAGER;
 	}
 	
-	public static boolean IsStaff(User user) {
+	public static boolean IsStaff(UserModel user) {
 		return user != null && user.getRoleId() == ROLE_STAFF;
 	}
 	

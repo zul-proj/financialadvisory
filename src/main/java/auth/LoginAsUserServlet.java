@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import user.User;
+import user.UserModel;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -46,7 +46,7 @@ public class LoginAsUserServlet extends HttpServlet {
                         int roleId = rs.getInt("roleId");
                         int departmentId = rs.getInt("departmentId");
                         
-                        User user = new User(userId, name, email, roleId, departmentId);
+                        UserModel user = new UserModel(userId, name, email, roleId, departmentId);
                         
                         request.getSession().setAttribute("user", user);
                         request.getSession().setAttribute("theme", RoleHelper.getTheme(user.getRoleId()));
