@@ -1,4 +1,4 @@
-package category_access;
+package model;
 
 public class CategoryAccessModel {
 	private int CategoryAccessId;

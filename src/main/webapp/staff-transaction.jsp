@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib uri="jakarta.tags.core" prefix="c"%>
 <%@ taglib uri="jakarta.tags.fmt" prefix="fmt"%>
-<%@ page import="transaction.TransactionDOA, transaction.TransactionModel" %>
+<%@ page import="dao.TransactionDOA,model.TransactionModel" %>
 <%@ page import="java.util.ArrayList" %>
 
 <!DOCTYPE html>

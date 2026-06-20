@@ -1,4 +1,4 @@
-package department;
+package model;
 
 public class DepartmentModel {
  private int departmentId;

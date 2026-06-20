@@ -1,4 +1,4 @@
-package transaction_item;
+package model;
 
 public class TransactionItemModel {
 	private int transactionItemId;

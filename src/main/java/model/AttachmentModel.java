@@ -1,4 +1,4 @@
-package attachment;
+package model;
 
 public class AttachmentModel {
 	private int attachmentId;

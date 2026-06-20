@@ -1,4 +1,4 @@
-package department_budget;
+package model;
 
 import java.util.Date;
 

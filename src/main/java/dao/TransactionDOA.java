@@ -1,11 +1,12 @@
-package transaction;
+package dao;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.*;
 
-import util.DBConnection;
+import connection.DBConnection;
+import model.TransactionModel;
 
 public class TransactionDOA {
 	
