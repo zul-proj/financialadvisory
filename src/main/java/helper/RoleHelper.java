@@ -1,6 +1,6 @@
 package helper;
 
-import user.UserModel;
+import model.UserModel;
 
 public class RoleHelper {
 	

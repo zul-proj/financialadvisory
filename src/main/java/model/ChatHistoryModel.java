@@ -1,4 +1,4 @@
-package chat_history;
+package model;
 
 public class ChatHistoryModel {
 	private int chatHistoryId;
