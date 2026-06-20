@@ -1,4 +1,4 @@
-package chat_session;
+package model;
 
 import java.util.Date;
 

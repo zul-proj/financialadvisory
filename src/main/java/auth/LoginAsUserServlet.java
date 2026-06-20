@@ -1,20 +1,19 @@
 package auth;
 
-import util.DBConnection;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import user.UserModel;
+import model.UserModel;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import connection.DBConnection;
 import helper.RoleHelper;
 
 @WebServlet(name = "LoginAsUserServlet", urlPatterns = {"/loginAsUser"})
