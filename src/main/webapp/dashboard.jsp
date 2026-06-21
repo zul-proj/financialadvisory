@@ -1,20 +1,40 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ page import="model.UserModel" %> <%-- session to store user role --%>
+
 <%
-	String role = request.getParameter("role");
-	if (role == null || role.trim().isEmpty()) {
-		role = "staff";
+	UserModel user = (UserModel) session.getAttribute("user");
+	
+	if(user == null){
+		response.sendRedirect("login.jsp");
+	    return;
 	}
+	
+	int roleId = user.getRoleId();
+	String name = user.getName();
 
-	String roleName = "Staff";
-	String sidebarTitle = "Financial Advisory";
-	String sidebarIcon = "bi-wallet2";
-	String sidebarColor = "#0D6EFD";
-	String activeStyle = "background-color: #084298;";
-	String settingsHref = "account-settings.jsp?role=staff";
-	String advisoryHref = "aiadvisory.jsp?role=staff";
-	String subtitle = "View dashboard, manage transactions, and initiate AI advisory.";
+	String roleName = "";
+	String sidebarTitle = "";
+	String sidebarIcon = "";
+	String sidebarColor = "";
+	String activeStyle = "";
+	String settingsHref = "";
+	String advisoryHref = "";
+	String subtitle = "";
+	String role = "";
+	
+	if (roleId == 1) {
 
-	if ("departmentmanager".equals(role)) {
+		roleName = "Staff";
+		sidebarTitle = "Financial Advisory";
+		sidebarIcon = "bi-wallet2";
+		sidebarColor = "#0D6EFD";
+		activeStyle = "background-color: #084298;";
+		settingsHref = "account-settings.jsp?role=staff";
+		advisoryHref = "aiadvisory.jsp?role=staff";
+		subtitle = "View dashboard, manage transactions, and initiate AI advisory.";
+	
+	}else if (roleId == 3) {
+		
 		roleName = "Department Manager";
 		sidebarTitle = "Department Manager";
 		sidebarIcon = "bi-person-badge";
@@ -23,7 +43,9 @@
 		settingsHref = "account-settings.jsp?role=departmentmanager";
 		advisoryHref = "aiadvisory.jsp?role=departmentmanager";
 		subtitle = "Review department transactions, monitor budget usage, and view department analytics.";
-	} else if ("financialmanager".equals(role)) {
+		
+	} else if (roleId == 2) {
+		
 		roleName = "Financial Manager";
 		sidebarTitle = "Financial Manager";
 		sidebarIcon = "bi-briefcase";
@@ -32,9 +54,8 @@
 		settingsHref = "account-settings.jsp?role=financialmanager";
 		advisoryHref = "aiadvisory.jsp?role=financialmanager";
 		subtitle = "View dashboard, analyze company performance, and generate company statements.";
-	} else {
-		role = "staff";
-	}
+	} 
+	
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,17 +91,17 @@
 
 				<div class="nav flex-column nav-pills gap-2">
 					<a class="nav-link active text-white rounded-3"
-						style="<%= activeStyle %>" href="dashboard.jsp?role=<%= role %>">
+						style="<%= activeStyle %>" href="dashboard.jsp?role=<%= roleId %>">
 						<i class="bi bi-speedometer2 me-2"></i> Dashboard
 					</a>
 
-					<% if ("staff".equals(role)) { %>
+					<% if (roleId == 1) { %>
 					<a class="nav-link text-white rounded-3" href="staff-transaction.jsp">
 						<i class="bi bi-cash-coin me-2"></i> Transactions
 					</a>
 					<% } %>
 
-					<% if ("departmentmanager".equals(role)) { %>
+					<% if (roleId == 3) { %>
 					<a class="nav-link text-white rounded-3" href="departmentmanager-budget.jsp">
 						<i class="bi bi-wallet2 me-2"></i> Budget Management
 					</a>
@@ -121,7 +142,7 @@
 					</div>
 				</div>
 
-				<% if ("staff".equals(role)) { %>
+				<% if (roleId == 1) { %>
 				<section class="row g-4 mb-4">
 					<div class="col-md-6 col-xl-3">
 						<div class="card border-0 shadow-sm rounded-4 h-100">
@@ -259,7 +280,7 @@
 				</section>
 				<% } %>
 
-				<% if ("departmentmanager".equals(role)) { %>
+				<% if (roleId == 3) { %>
 				<section class="row g-4 mb-4">
 					<div class="col-md-6 col-xl-3"><div class="card border-0 shadow-sm rounded-4 h-100"><div class="card-body p-4"><p class="text-secondary mb-1">Department Budget</p><h3 class="fw-bold mb-2">RM 50,000.00</h3><small class="text-secondary">Monthly budget allocation</small></div></div></div>
 					<div class="col-md-6 col-xl-3"><div class="card border-0 shadow-sm rounded-4 h-100"><div class="card-body p-4"><p class="text-secondary mb-1">Used Budget</p><h3 class="fw-bold mb-2">RM 31,250.00</h3><small class="text-danger">62.5% used this month</small></div></div></div>
@@ -325,7 +346,7 @@
 				</section>
 				<% } %>
 
-				<% if ("financialmanager".equals(role)) { %>
+				<% if (roleId == 2) { %>
 				<section class="row g-4 mb-4">
 					<div class="col-md-6 col-xl-3"><div class="card border-0 shadow-sm rounded-4 h-100"><div class="card-body p-4"><p class="text-secondary mb-1">Total Revenue</p><h3 class="fw-bold mb-2">RM 67,676,767.00</h3><small class="text-success">Company income summary</small></div></div></div>
 					<div class="col-md-6 col-xl-3"><div class="card border-0 shadow-sm rounded-4 h-100"><div class="card-body p-4"><p class="text-secondary mb-1">Total Expenses</p><h3 class="fw-bold mb-2">RM 676,767.00</h3><small class="text-danger">Approved expenses</small></div></div></div>

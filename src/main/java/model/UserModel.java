@@ -3,10 +3,13 @@ package model;
 public class UserModel {
 		private int userId;
 	private String name;
+	private String password;
 	private String email;
 	private int roleId;
 	private int departmentId;
 
+	public UserModel() {}
+	
 	public UserModel(int userId, String name, String email, int roleId, int departmentId) {
 		this.userId = userId;
 		this.name = name;
@@ -31,6 +34,14 @@ public class UserModel {
 		this.name = name;
 	}
 
+	public String getPass() {
+		return password;
+	}
+	
+	public void setPass(String password) {
+		this.password = password;
+	}
+	
 	public String getEmail() {
 		return email;
 	}
