@@ -107,10 +107,23 @@
 		}
 	}
 </style>
+
 </head>
 
 <body>
+<body>
 
+<%
+String error = request.getParameter("error");
+
+if ("loginRequired".equals(error)) {
+%>
+<script>
+    alert("Please login first.");
+</script>
+<%
+}
+%>
 	<div class="container-fluid p-0">
 		<div class="row g-0 min-vh-100">
 
@@ -126,7 +139,7 @@
 					</div>
 
 					<h1 class="display-5 fw-bold mb-4">
-						Smart financial decisions start here. Zul cuba ubah (gituhub)
+						Smart financial decisions start here.
 					</h1>
 
 					<p class="fs-5 opacity-75 mb-5">
