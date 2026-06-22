@@ -3,12 +3,7 @@
 
 <%
 	UserModel user = (UserModel) session.getAttribute("user");
-	
-	if(user == null){
-		response.sendRedirect("login.jsp");
-	    return;
-	}
-	
+
 	int roleId = user.getRoleId();
 	String name = user.getName();
 
@@ -121,7 +116,7 @@
 						<i class="bi bi-gear me-2"></i> Account Settings
 					</a>
 
-					<a class="nav-link text-white bg-danger rounded-3 mt-4 shadow-sm fw-bold" href="index.jsp">
+					<a class="nav-link text-white bg-danger rounded-3 mt-4 shadow-sm fw-bold" href="logout">
 						<i class="bi bi-box-arrow-right me-2"></i> <b>Logout</b>
 					</a>
 				</div>
