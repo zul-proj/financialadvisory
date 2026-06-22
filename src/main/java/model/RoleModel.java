@@ -5,6 +5,9 @@ public class RoleModel {
 	private String roleName;
 	private String description;
 
+	
+	public RoleModel() {}
+
 	public RoleModel(int roleId, String roleName, String description) {
 		this.roleId = roleId;
 		this.roleName = roleName;
