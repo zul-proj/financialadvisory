@@ -23,11 +23,11 @@
 					<i class="bi bi-shield-lock me-2"></i> System Admin
 				</h4>
 				<div class="nav flex-column nav-pills gap-2">
-					<a class="nav-link active text-white rounded-3"
-						style="background-color: #ff2c2c;" href="admin-user-list.jsp">
+					<a class="nav-link text-white rounded-3" href="admin-user-list.jsp">
 						<i class="bi bi-people me-2"></i> User List
 					</a>
-					<a class="nav-link text-white rounded-3" href="admin-department-list.jsp">
+					<a class="nav-link active text-white rounded-3"
+						style="background-color: #ff2c2c;" href="admin-department-list.jsp">
 						<i class="bi bi-building me-2"></i> Department List
 					</a>
 					<a class="nav-link text-white rounded-3" href="account-settings.jsp?role=admin">
@@ -43,9 +43,9 @@
 			<main class="col-12 col-lg-10 p-4">
 				<div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
 					<div>
-						<h1 class="fw-bold mb-1">User List</h1>
+						<h1 class="fw-bold mb-1">Department List</h1>
 						<p class="text-secondary mb-0">
-							View and manage users created by the System Admin.
+							View departments created by the System Admin.
 						</p>
 					</div>
 
@@ -61,30 +61,32 @@
 					<div class="card-body p-4">
 						<div class="row g-3 mb-3">
 							<div class="col-md-5">
-								<label class="form-label">Search User</label>
+								<label class="form-label">Search Department</label>
 								<input type="text" class="form-control rounded-3"
-									placeholder="Search by name or email">
+									placeholder="Search by department code or name">
 							</div>
+
 							<div class="col-md-3">
-								<label class="form-label">Filter Role</label>
+								<label class="form-label">Filter Manager</label>
 								<select class="form-select rounded-3">
-									<option selected>All Roles</option>
-									<option>System Admin</option>
-									<option>Financial Manager</option>
-									<option>Department Manager</option>
-									<option>Staff</option>
+									<option selected>All Managers</option>
+									<option>Abu Bakar</option>
+									<option>Sarah Ahmad</option>
+									<option>Mohd Farhan</option>
+									<option>Not Assigned</option>
 								</select>
 							</div>
+
 							<div class="col-md-3">
-								<label class="form-label">Filter Department</label>
+								<label class="form-label">Filter Status</label>
 								<select class="form-select rounded-3">
-									<option selected>All Departments</option>
-									<option>Finance</option>
-									<option>Sales</option>
-									<option>Operations</option>
-									<option>Information Technology</option>
+									<option selected>All Status</option>
+									<option>Active</option>
+									<option>Inactive</option>
+									<option>Pending Department Manager</option>
 								</select>
 							</div>
+
 							<div class="col-md-1 d-flex align-items-end">
 								<button class="btn btn-danger w-100 rounded-pill">
 									<i class="bi bi-search"></i>
@@ -93,8 +95,8 @@
 						</div>
 
 						<div class="d-flex justify-content-end mb-4">
-							<a class="btn btn-danger rounded-pill px-4" href="admin-user-details.jsp?action=create">
-								<i class="bi bi-person-plus me-2"></i>Create New User
+							<a class="btn btn-danger rounded-pill px-4" href="admin-department-details.jsp?action=create">
+								<i class="bi bi-building-add me-2"></i>Create New Department
 							</a>
 						</div>
 
@@ -102,53 +104,48 @@
 							<table class="table table-hover align-middle mb-0">
 								<thead>
 									<tr>
-										<th>User</th>
-										<th>Email</th>
-										<th>Role</th>
-										<th>Department</th>
+										<th>Department Code</th>
+										<th>Department Name</th>
+										<th>Assigned Department Manager</th>
 										<th>Status</th>
 										<th class="text-center">Action</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
-										<td><strong>System Admin</strong></td>
-										<td>admin@example.com</td>
-										<td><span class="badge text-bg-danger rounded-pill">System Admin</span></td>
-										<td>Not Applicable</td>
-										<td><span class="badge text-bg-success rounded-pill">Active</span></td>
-										<td class="text-center">
-											<span class="text-secondary">Not Applicable</span>
-										</td>
-									</tr>
-									<tr>
-										<td><strong>Abu Bakar</strong></td>
-										<td>abu@example.com</td>
-										<td><span class="badge text-bg-primary rounded-pill">Financial Manager</span></td>
+										<td>DPT-001</td>
 										<td>Finance</td>
+										<td>Abu Bakar</td>
 										<td><span class="badge text-bg-success rounded-pill">Active</span></td>
 										<td class="text-center">
-											<a class="btn btn-sm btn-outline-primary rounded-pill" href="admin-user-details.jsp?action=edit&id=abu"><i class="bi bi-pencil-square"></i></a>
+											<a class="btn btn-sm btn-outline-primary rounded-pill" href="admin-department-details.jsp?action=edit&id=dpt-001"><i class="bi bi-pencil-square"></i></a>
 										</td>
 									</tr>
 									<tr>
-										<td><strong>Sarah Ahmad</strong></td>
-										<td>sarah@example.com</td>
-										<td><span class="badge text-bg-warning rounded-pill">Department Manager</span></td>
+										<td>DPT-002</td>
 										<td>Sales</td>
+										<td>Sarah Ahmad</td>
 										<td><span class="badge text-bg-success rounded-pill">Active</span></td>
 										<td class="text-center">
-											<a class="btn btn-sm btn-outline-primary rounded-pill" href="admin-user-details.jsp?action=edit&id=sarah"><i class="bi bi-pencil-square"></i></a>
+											<a class="btn btn-sm btn-outline-primary rounded-pill" href="admin-department-details.jsp?action=edit&id=dpt-002"><i class="bi bi-pencil-square"></i></a>
 										</td>
 									</tr>
 									<tr>
-										<td><strong>Siti Aminah</strong></td>
-										<td>siti@example.com</td>
-										<td><span class="badge text-bg-secondary rounded-pill">Staff</span></td>
+										<td>DPT-005</td>
 										<td>Operations</td>
-										<td><span class="badge text-bg-success rounded-pill">Active</span></td>
+										<td>Not Assigned</td>
+										<td><span class="badge text-bg-warning rounded-pill">Pending Department Manager</span></td>
 										<td class="text-center">
-											<a class="btn btn-sm btn-outline-primary rounded-pill" href="admin-user-details.jsp?action=edit&id=siti"><i class="bi bi-pencil-square"></i></a>
+											<a class="btn btn-sm btn-outline-primary rounded-pill" href="admin-department-details.jsp?action=edit&id=dpt-005"><i class="bi bi-pencil-square"></i></a>
+										</td>
+									</tr>
+									<tr>
+										<td>DPT-006</td>
+										<td>Information Technology</td>
+										<td>Not Assigned</td>
+										<td><span class="badge text-bg-warning rounded-pill">Pending Department Manager</span></td>
+										<td class="text-center">
+											<a class="btn btn-sm btn-outline-primary rounded-pill" href="admin-department-details.jsp?action=edit&id=dpt-006"><i class="bi bi-pencil-square"></i></a>
 										</td>
 									</tr>
 								</tbody>
@@ -160,8 +157,9 @@
 		</div>
 	</div>
 
-	<jsp:include page="notification-widget.jsp" />
-	<jsp:include page="chatbot-widget.jsp" />
+	<jsp:include page="/notification-widget.jsp" />
+
+	<jsp:include page="/chatbot-widget.jsp" />
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="js/chatbot-widget.js?v=2"></script>

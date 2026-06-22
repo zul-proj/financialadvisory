@@ -25,6 +25,7 @@ public class AuthFilter implements Filter {
 
         // allow public resources
         if (url.startsWith("/login.jsp") ||
+        	url.startsWith("/index.jsp") ||
             url.startsWith("/UserController") ||
             url.startsWith("/css/") ||
             url.startsWith("/js/") ||
