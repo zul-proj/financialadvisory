@@ -3,7 +3,12 @@
 
 <%
 	UserModel user = (UserModel) session.getAttribute("user");
-
+	
+	if(user == null){
+		response.sendRedirect("login.jsp");
+	    return;
+	}
+	
 	int roleId = user.getRoleId();
 	String name = user.getName();
 
