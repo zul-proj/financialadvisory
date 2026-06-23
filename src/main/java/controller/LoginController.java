@@ -57,7 +57,7 @@ public class LoginController extends HttpServlet {
             // System Admin page because only admin not sharing the same dashboard with other role
             if (roleId == 1) {
 
-                response.sendRedirect("admin/admin-user-list.jsp");
+            	response.sendRedirect("UserController?action=list");
                 return;
             }
 
