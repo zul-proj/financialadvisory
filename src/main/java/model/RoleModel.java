@@ -1,40 +1,40 @@
 package model;
 
 public class RoleModel {
-	private int roleId;
-	private String roleName;
-	private String description;
 
-	
-	public RoleModel() {}
+    private Integer roleId;
+    private String name;
+    private String description;
 
-	public RoleModel(int roleId, String roleName, String description) {
-		this.roleId = roleId;
-		this.roleName = roleName;
-		this.description = description;
-	}
+    public RoleModel() {}
 
-	public int getRoleId() {
-		return roleId;
-	}
-	
-	public void setRoleId(int roleId) {
-		this.roleId = roleId;
-	}
+    public RoleModel(Integer roleId, String name, String description) {
+        this.roleId = roleId;
+        this.name = name;
+        this.description = description;
+    }
 
-	public String getRoleName() {
-		return roleName;
-	}
-	
-	public void setRoleName(String roleName) {
-		this.roleName = roleName;
-	}
-	
-	public String getDescription() {
-		return description;
-	}
-	
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public Integer getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
