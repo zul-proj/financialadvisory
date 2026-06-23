@@ -4,44 +4,41 @@ import java.util.Date;
 
 public class TransactionModel {
 
-    private int transactionId;
+    private Integer transactionId;
     private String name;
     private String description;
     private String invoiceNo;
     private String payer;
     private String payee;
-    private int categoryId;
-    private int departmentId;
+    private Integer categoryId;
+    private Integer departmentId;
     private String transactionType;
     private String paymentMethod;
     private double totalAmount;
     private String currency;
     private Date dateTransaction;
     private String status;
-    private int createdBy;
-    private int verifiedBy;
+    private Integer createdBy;
+    private Integer verifiedBy;
 
-    // Public constructor
-    public TransactionModel() {
-    }
+    public TransactionModel() {}
 
-    // Full constructor
-    public TransactionModel(int transactionId,
+    public TransactionModel(Integer transactionId,
                             String name,
                             String description,
                             String invoiceNo,
                             String payer,
                             String payee,
-                            int categoryId,
-                            int departmentId,
+                            Integer categoryId,
+                            Integer departmentId,
                             String transactionType,
                             String paymentMethod,
                             double totalAmount,
                             String currency,
                             Date dateTransaction,
                             String status,
-                            int createdBy,
-                            int verifiedBy) {
+                            Integer createdBy,
+                            Integer verifiedBy) {
 
         this.transactionId = transactionId;
         this.name = name;
@@ -61,13 +58,11 @@ public class TransactionModel {
         this.verifiedBy = verifiedBy;
     }
 
-    // Getters and Setters
-
-    public int getTransactionId() {
+    public Integer getTransactionId() {
         return transactionId;
     }
 
-    public void setTransactionId(int transactionId) {
+    public void setTransactionId(Integer transactionId) {
         this.transactionId = transactionId;
     }
 
@@ -111,19 +106,19 @@ public class TransactionModel {
         this.payee = payee;
     }
 
-    public int getCategoryId() {
+    public Integer getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(int categoryId) {
+    public void setCategoryId(Integer categoryId) {
         this.categoryId = categoryId;
     }
 
-    public int getDepartmentId() {
+    public Integer getDepartmentId() {
         return departmentId;
     }
 
-    public void setDepartmentId(int departmentId) {
+    public void setDepartmentId(Integer departmentId) {
         this.departmentId = departmentId;
     }
 
@@ -166,28 +161,28 @@ public class TransactionModel {
     public void setDateTransaction(Date dateTransaction) {
         this.dateTransaction = dateTransaction;
     }
-    
+
     public String getStatus() {
-		return status;
-	}
-    
-    public void setStatus(String status) {
-    	this.status = status;
+        return status;
     }
 
-    public int getCreatedBy() {
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Integer getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(int createdBy) {
+    public void setCreatedBy(Integer createdBy) {
         this.createdBy = createdBy;
     }
 
-    public int getVerifiedBy() {
+    public Integer getVerifiedBy() {
         return verifiedBy;
     }
 
-    public void setVerifiedBy(int verifiedBy) {
+    public void setVerifiedBy(Integer verifiedBy) {
         this.verifiedBy = verifiedBy;
     }
 }
