@@ -40,12 +40,6 @@ public class LoginController extends HttpServlet {
         UserDAO dao = new UserDAO();
 
         UserModel user = dao.login(email, password);
-
-        //RoleDAO roleDAO = new RoleDAO();
-        
-        //List<Role> roleList = roleDAO.getAllRoles();
-        
-        
         
         if (user != null) {
 
