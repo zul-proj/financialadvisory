@@ -154,8 +154,6 @@
 											<option value="training">Training</option>
 											<option value="others">Others</option>
 										</select>
-										<input type="text" class="form-control form-control-sm rounded-3 mt-2 text-secondary" name="categoryId"
-											value="<%= isCreate ? "Category ID: 6" : "Category ID: 2" %>" readonly>
 									</div>
 									<div class="col-md-3">
 										<label class="form-label">Department</label>
@@ -164,8 +162,6 @@
 											<option value="2" selected>Finance</option>
 											<option value="3">HR</option>
 										</select>
-										<input type="text" class="form-control form-control-sm rounded-3 mt-2 text-secondary" name="departmentId"
-											value="Department ID: 2" readonly>
 									</div>
 									<div class="col-md-4">
 										<label class="form-label">Amount (RM)</label>
@@ -215,11 +211,11 @@
 									</div>
 									<div class="col-md-3">
 										<label class="form-label">Created By</label>
-										<input type="text" class="form-control rounded-3" name="createdBy" value="3" placeholder="User FK">
+										<input type="text" class="form-control rounded-3" name="createdBy" value="Aina Rahman" placeholder="Staff name">
 									</div>
 									<div class="col-md-3">
 										<label class="form-label">Verified By</label>
-										<input type="text" class="form-control rounded-3" name="verifiedBy" value="4" placeholder="Verifier FK">
+										<input type="text" class="form-control rounded-3" name="verifiedBy" value="Farid Hassan" placeholder="Department manager name">
 									</div>
 									<div class="col-12">
 										<label class="form-label">Reason / Description</label>

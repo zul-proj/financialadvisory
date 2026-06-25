@@ -201,16 +201,16 @@
 											<td>INV-0001</td>
 											<td>Finance Department</td>
 											<td>ABC Supplier Sdn Bhd</td>
-											<td>Finance <small class="d-block text-secondary">ID: 2</small></td>
+											<td>Finance</td>
 											<td><span class="badge rounded-pill text-bg-danger">Money Out</span></td>
 											<td>Expenses</td>
-											<td>Supplies <small class="d-block text-secondary">ID: 6</small></td>
+											<td>Supplies</td>
 											<td>Invoice</td>
 											<td>MYR</td>
 											<td class="text-end text-danger fw-bold">RM 477.00</td>
 											<td><span class="badge rounded-pill text-bg-warning">Pending Verification</span></td>
-											<td>3</td>
-											<td>4</td>
+											<td>Aina Rahman</td>
+											<td>Farid Hassan</td>
 											<td class="text-center">
 												<a class="btn btn-sm btn-outline-secondary rounded-pill" href="staff-transaction-details.jsp?id=TXN-0001"><i class="bi bi-eye"></i></a>
 												<a href="staff-transaction-details.jsp?action=edit&id=TXN-0001" class="btn btn-sm btn-outline-primary rounded-pill"><i class="bi bi-pencil-square"></i></a>
@@ -225,16 +225,16 @@
 											<td>SO-2026-001</td>
 											<td>Customer A</td>
 											<td>Finance Department</td>
-											<td>Finance <small class="d-block text-secondary">ID: 2</small></td>
+											<td>Finance</td>
 											<td><span class="badge rounded-pill text-bg-success">Money In</span></td>
 											<td>Revenue</td>
-											<td>Sales <small class="d-block text-secondary">ID: 1</small></td>
+											<td>Sales</td>
 											<td>Bank Transfer</td>
 											<td>MYR</td>
 											<td class="text-end text-success fw-bold">RM 764,239.00</td>
 											<td><span class="badge rounded-pill text-bg-success">Approved</span></td>
-											<td>3</td>
-											<td>4</td>
+											<td>Aina Rahman</td>
+											<td>Farid Hassan</td>
 											<td class="text-center">
 												<a class="btn btn-sm btn-outline-secondary rounded-pill" href="staff-transaction-details.jsp?id=TXN-0002"><i class="bi bi-eye"></i></a>
 												<a href="staff-transaction-details.jsp?action=edit&id=TXN-0002" class="btn btn-sm btn-outline-primary rounded-pill"><i class="bi bi-pencil-square"></i></a>
@@ -249,16 +249,16 @@
 											<td>BILL-INT-001</td>
 											<td>Finance Department</td>
 											<td>NetConnect Sdn Bhd</td>
-											<td>Finance <small class="d-block text-secondary">ID: 2</small></td>
+											<td>Finance</td>
 											<td><span class="badge rounded-pill text-bg-danger">Money Out</span></td>
 											<td>Expenses</td>
-											<td>Utilities <small class="d-block text-secondary">ID: 3</small></td>
+											<td>Utilities</td>
 											<td>Online Payment</td>
 											<td>MYR</td>
 											<td class="text-end text-danger fw-bold">RM 76,432.00</td>
 											<td><span class="badge rounded-pill text-bg-danger">Rejected</span></td>
-											<td>3</td>
-											<td>4</td>
+											<td>Aina Rahman</td>
+											<td>Farid Hassan</td>
 											<td class="text-center">
 												<a class="btn btn-sm btn-outline-secondary rounded-pill" href="staff-transaction-details.jsp?id=TXN-0003"><i class="bi bi-eye"></i></a>
 												<a href="staff-transaction-details.jsp?action=edit&id=TXN-0003" class="btn btn-sm btn-outline-primary rounded-pill"><i class="bi bi-pencil-square"></i></a>
