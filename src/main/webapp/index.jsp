@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Financial Advisory System</title>
+<title>AI Financial Advisory System</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Bootstrap CSS -->
@@ -61,7 +61,7 @@
 						<c:choose>
 							<c:when test="${not empty sessionScope.user}">
 								<a class="btn btn-primary rounded-pill px-4"
-									href="dashboard.jsp">
+									href="dashboard.jsp?role=staff">
 									Dashboard
 								</a>
 							</c:when>
@@ -159,33 +159,6 @@
 		</div>
 	</section>
 
-	<!-- About Section -->
-	<section class="py-5 bg-white" id="about">
-		<div class="container">
-			<div class="row justify-content-center text-center">
-				<div class="col-lg-8">
-
-					<span
-						class="badge rounded-pill text-bg-primary-subtle text-primary px-3 py-2 mb-3">
-						Why Our System?
-					</span>
-
-					<h2 class="fw-bold mb-3">
-						Built for companies that need better financial visibility
-					</h2>
-
-					<p class="text-secondary">
-						Many businesses still depend on spreadsheets or manual records,
-						which can cause errors, poor tracking, and delays in financial
-						decision-making. Financial Advisory System provides a cleaner way
-						to manage company cashflow in one system.
-					</p>
-
-				</div>
-			</div>
-		</div>
-	</section>
-
 	<!-- Features Section -->
 	<section class="py-5" id="features">
 		<div class="container">
@@ -251,6 +224,33 @@
 					</div>
 				</div>
 
+			</div>
+		</div>
+	</section>
+
+	<!-- About Section -->
+	<section class="py-5 bg-white" id="about">
+		<div class="container">
+			<div class="row justify-content-center text-center">
+				<div class="col-lg-8">
+
+					<span
+						class="badge rounded-pill text-bg-primary-subtle text-primary px-3 py-2 mb-3">
+						Why Our System?
+					</span>
+
+					<h2 class="fw-bold mb-3">
+						Built for companies that need better financial visibility
+					</h2>
+
+					<p class="text-secondary">
+						Many businesses still depend on spreadsheets or manual records,
+						which can cause errors, poor tracking, and delays in financial
+						decision-making. Financial Advisory System provides a cleaner way
+						to manage company cashflow in one system.
+					</p>
+
+				</div>
 			</div>
 		</div>
 	</section>
