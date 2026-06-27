@@ -1,6 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
-<%@ taglib uri="jakarta.tags.core" prefix="c"%>
-<%@ taglib uri="jakarta.tags.fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -58,21 +56,8 @@
 					</li>
 
 					<li class="nav-item">
-						<c:choose>
-							<c:when test="${not empty sessionScope.user}">
-								<a class="btn btn-primary rounded-pill px-4"
-									href="dashboard.jsp?role=staff">
-									Dashboard
-								</a>
-							</c:when>
-
-							<c:otherwise>
-								<a class="btn btn-outline-primary rounded-pill px-4"
-									href="login.jsp">
-									Login
-								</a>
-							</c:otherwise>
-						</c:choose>
+						<a class="btn btn-outline-primary rounded-pill px-4"
+							href="login.jsp">Preview System</a>
 					</li>
 				</ul>
 			</div>

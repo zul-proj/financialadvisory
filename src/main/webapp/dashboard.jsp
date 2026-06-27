@@ -1,74 +1,29 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
-<%@ page import="model.UserModel" %> <%-- session to store user role --%>
-
 <%
-	UserModel user = (UserModel) session.getAttribute("user");
-	
-	if(user == null){
-		response.sendRedirect("login.jsp");
-	    return;
-	}
-	
-	int roleId = user.getRoleId();
-	String name = user.getName();
+	String role = request.getParameter("role");
+	if (role == null || role.trim().isEmpty()) role = "staff";
 
-	String roleName = "";
-	String sidebarTitle = "";
-	String sidebarIcon = "";
-	String sidebarColor = "";
-	String activeStyle = "";
-	String settingsHref = "";
-	String advisoryHref = "";
-	String subtitle = "";
-	String role = "";
-	
-	if (roleId == 1) {
+	int roleId = 1;
+	String roleName = "Staff";
+	String subtitle = "View dashboard, manage transactions, and initiate AI advisory.";
 
-		roleName = "Staff";
-		sidebarTitle = "Financial Advisory";
-		sidebarIcon = "bi-wallet2";
-		sidebarColor = "#0D6EFD";
-		activeStyle = "background-color: #084298;";
-		settingsHref = "account-settings.jsp?role=staff";
-		advisoryHref = "aiadvisory.jsp?role=staff";
-		subtitle = "View dashboard, manage transactions, and initiate AI advisory.";
-	
-	}else if (roleId == 3) {
-		
+	if ("departmentmanager".equals(role)) {
+		roleId = 3;
 		roleName = "Department Manager";
-		sidebarTitle = "Department Manager";
-		sidebarIcon = "bi-person-badge";
-		sidebarColor = "#4338CA";
-		activeStyle = "background-color: #312E81;";
-		settingsHref = "account-settings.jsp?role=departmentmanager";
-		advisoryHref = "aiadvisory.jsp?role=departmentmanager";
 		subtitle = "Review department transactions, monitor budget usage, and view department analytics.";
-		
-	} else if (roleId == 2) {
-		
+	} else if ("financialmanager".equals(role)) {
+		roleId = 2;
 		roleName = "Financial Manager";
-		sidebarTitle = "Financial Manager";
-		sidebarIcon = "bi-briefcase";
-		sidebarColor = "#0F766E";
-		activeStyle = "background-color: #198754;";
-		settingsHref = "account-settings.jsp?role=financialmanager";
-		advisoryHref = "aiadvisory.jsp?role=financialmanager";
 		subtitle = "View dashboard, analyze company performance, and generate company statements.";
-	} 
-	
+	} else {
+		role = "staff";
+	}
+	String dashboardTitle = roleName + " Dashboard";
 %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>AI Financial Advisory System</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-<link rel="stylesheet" href="css/chatbot-widget.css?v=2">
+<jsp:include page="/includes/common-head.jsp" />
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
 	html {
@@ -83,64 +38,17 @@
 <body class="bg-light">
 	<div class="container-fluid">
 		<div class="row min-vh-100">
-			<aside class="col-12 col-lg-2 text-white p-4"
-				style="background-color: <%= sidebarColor %>;">
-				<h4 class="fw-bold mb-4">
-					<i class="bi <%= sidebarIcon %> me-2"></i> <%= sidebarTitle %>
-				</h4>
-
-				<div class="nav flex-column nav-pills gap-2">
-					<a class="nav-link active text-white rounded-3"
-						style="<%= activeStyle %>" href="dashboard.jsp?role=<%= roleId %>">
-						<i class="bi bi-speedometer2 me-2"></i> Dashboard
-					</a>
-
-					<% if (roleId == 1) { %>
-					<a class="nav-link text-white rounded-3" href="staff-transaction.jsp">
-						<i class="bi bi-cash-coin me-2"></i> Transactions
-					</a>
-					<% } %>
-
-					<% if (roleId == 3) { %>
-					<a class="nav-link text-white rounded-3" href="departmentmanager-budget.jsp">
-						<i class="bi bi-wallet2 me-2"></i> Budget Management
-					</a>
-					<a class="nav-link text-white rounded-3" href="departmentmanager-category-list.jsp">
-						<i class="bi bi-tags me-2"></i> Category
-					</a>
-					<a class="nav-link text-white rounded-3" href="departmentmanager-history.jsp">
-						<i class="bi bi-receipt me-2"></i> Transactions
-					</a>
-					<% } %>
-
-					<a class="nav-link text-white rounded-3" href="<%= advisoryHref %>">
-						<i class="bi bi-robot me-2"></i> AI Advisory
-					</a>
-
-					<a class="nav-link text-white rounded-3" href="<%= settingsHref %>">
-						<i class="bi bi-gear me-2"></i> Account Settings
-					</a>
-
-					<a class="nav-link text-white bg-danger rounded-3 mt-4 shadow-sm fw-bold" href="logout">
-						<i class="bi bi-box-arrow-right me-2"></i> <b>Logout</b>
-					</a>
-				</div>
-			</aside>
+			<jsp:include page="/includes/sidebar.jsp">
+				<jsp:param name="sidebarRole" value="<%= role %>" />
+				<jsp:param name="activeMenu" value="dashboard" />
+			</jsp:include>
 
 			<main class="col-12 col-lg-10 p-4">
-				<div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
-					<div>
-						<h1 class="fw-bold mb-1"><%= roleName %> Dashboard</h1>
-						<p class="text-secondary mb-0"><%= subtitle %></p>
-					</div>
-
-					<div class="card border-0 shadow-sm rounded-4 mt-3 mt-md-0 role-welcome-card">
-						<div class="card-body py-2 px-3">
-							<span class="text-secondary">Welcome, </span>
-							<strong><%= roleName %></strong>
-						</div>
-					</div>
-				</div>
+				<jsp:include page="/includes/page-header.jsp">
+					<jsp:param name="pageTitle" value="<%= dashboardTitle %>" />
+					<jsp:param name="pageSubtitle" value="<%= subtitle %>" />
+					<jsp:param name="pageRoleName" value="<%= roleName %>" />
+				</jsp:include>
 
 				<% if (roleId == 1) { %>
 				<section class="row g-4 mb-4">
@@ -273,7 +181,7 @@
 								<p class="text-secondary">
 									Your company currently has a positive cashflow. Consider reviewing fixed costs to improve future profitability.
 								</p>
-								<a href="<%= advisoryHref %>" class="btn btn-primary w-100 rounded-pill">Open Advisory Chatbot</a>
+								<a href="aiadvisory.jsp?role=<%= role %>" class="btn btn-primary w-100 rounded-pill">Open Advisory Chatbot</a>
 							</div>
 						</div>
 					</div>
@@ -451,14 +359,9 @@
 			</main>
 		</div>
 	</div>
-
-	<jsp:include page="notification-widget.jsp" />
-	<jsp:include page="chatbot-widget.jsp" />
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<jsp:include page="/includes/common-scripts.jsp" />
 	<script src="js/staff.js"></script>
 	<script src="js/financialmanager.js"></script>
-	<script src="js/chatbot-widget.js?v=2"></script>
 	<script>
 		const departmentBudgetChart = document.getElementById("departmentBudgetChart");
 		if (departmentBudgetChart) {
