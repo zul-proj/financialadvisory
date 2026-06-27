@@ -28,7 +28,7 @@
 						style="background-color: #ff2c2c;" href="<%= request.getContextPath() %>/admin/admin-user-list.jsp">
 						<i class="bi bi-people me-2"></i> User List
 					</a>
-					<a class="nav-link text-white rounded-3" href="<%= request.getContextPath() %>/admin/admin-department-list.jsp">
+					<a class="nav-link text-white rounded-3" href="<%= request.getContextPath() %>/DepartmentController?action=list">
 						<i class="bi bi-building me-2"></i> Department List
 					</a>
 					<a class="nav-link text-white rounded-3" href="<%= request.getContextPath() %>/account-settings.jsp?role=admin">
@@ -94,7 +94,7 @@
 						</div>
 
 						<div class="d-flex justify-content-end mb-4">
-							<a class="btn btn-danger rounded-pill px-4" href="admin-user-details.jsp?action=create">
+							<a class="btn btn-danger rounded-pill px-4" href="UserController?action=create">
 								<i class="bi bi-person-plus me-2"></i>Create New User
 							</a>
 						</div>

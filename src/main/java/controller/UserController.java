@@ -5,8 +5,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -43,8 +41,9 @@ public class UserController extends HttpServlet {
         		listUser(request, response);
         	}else if("view".equals(action)) {
         		viewUser(request, response);
+        	}else if("create".equals(action)) {
+        		showCreateForm(request, response);
         	}
-       
     	}catch(SQLException ex) {
 			throw new ServletException(ex);
 		}
@@ -73,7 +72,7 @@ public class UserController extends HttpServlet {
 	}
 	
 	 // this is a method to display details of a user (id)
-	public void viewUser(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+	private void viewUser(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
 		int idUser = Integer.parseInt(request.getParameter("id"));
 		//System.out.println("RAW ID PARAM = " + idUser);
 		
@@ -84,6 +83,14 @@ public class UserController extends HttpServlet {
 		request.setAttribute("roles", allRole);
 		request.setAttribute("depts", existingDept);
 		request.setAttribute("user", existingUser); 
+		
+		request.setAttribute("mode", "edit"); // to trigger the edit form
         request.getRequestDispatcher("admin/admin-user-details.jsp").forward(request, response);
+	}
+	
+	private void showCreateForm (HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+		request.setAttribute("mode", "create");
+		request.setAttribute("user", new UserModel());
+		request.getRequestDispatcher("admin/admin-user-details.jsp").forward(request, response);
 	}
 }

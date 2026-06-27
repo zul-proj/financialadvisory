@@ -9,6 +9,7 @@ import java.util.List;
 
 import connection.DBConnection;
 import model.DepartmentModel;
+import model.UserModel;
 
 public class DepartmentDAO {
 	private static Connection conn = null;
@@ -29,9 +30,11 @@ public class DepartmentDAO {
 			
 			while(rs.next()) {
 				DepartmentModel dept = new DepartmentModel();
+				
 				dept.setDepartmentId(rs.getInt("DEPARTMENTID"));
-
 				dept.setName(rs.getString("NAME"));
+				dept.setDescription(rs.getString("DESCRIPTION"));
+				
 				list.add(dept);
 			}
             rs.close();
@@ -43,4 +46,68 @@ public class DepartmentDAO {
 		return list;
 		
 	}
+	
+    public static DepartmentModel getDeptById(int id) throws SQLException{
+    	
+    	DepartmentModel d = null;
+        try {
+            conn = DBConnection.getConnection();
+
+            sql = "SELECT * FROM DEPARTMENT WHERE DEPARTMENTID = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                d = new DepartmentModel();
+                d.setDepartmentId(rs.getInt("DEPARTMENTID"));
+                d.setName(rs.getString("NAME"));
+                d.setDescription(rs.getString("DESCRIPTION"));
+            }
+            
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    	
+    	return d;
+    }
+    
+    public static void addDepartment(DepartmentModel data) throws SQLException{
+        try {
+            conn = DBConnection.getConnection();
+
+            sql = "INSERT INTO DEPARTMENT (NAME, DESCRIPTION) VALUES (?, ?)";
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, data.getName());
+            ps.setString(2, data.getDescription());
+            rs = ps.executeQuery();
+
+            
+            
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public static void deleteDept(int id) throws SQLException{
+        try {
+            conn = DBConnection.getConnection();
+
+            sql = "DELETE FROM DEPARTMENT WHERE DEPARTMENTID = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+
+            
+            
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
