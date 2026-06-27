@@ -11,7 +11,11 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
+import dao.DepartmentDAO;
+import dao.RoleDAO;
 import dao.UserDAO;
+import model.DepartmentModel;
+import model.RoleModel;
 import model.UserModel;
 
 /**
@@ -35,11 +39,12 @@ public class UserController extends HttpServlet {
     	String action = request.getParameter("action");
     	
     	try {
-
         	if("list".equals(action)) {
         		listUser(request, response);
+        	}else if("view".equals(action)) {
+        		viewUser(request, response);
         	}
-        	
+       
     	}catch(SQLException ex) {
 			throw new ServletException(ex);
 		}
@@ -60,15 +65,25 @@ public class UserController extends HttpServlet {
 	
 	
 	//This is a method to show all list of user
-	
 	 private void listUser(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
 
 	        List<UserModel> Userlist = UserDAO.getAllUsers();
-
 	        request.setAttribute("users", Userlist);
-
 	        request.getRequestDispatcher("admin/admin-user-list.jsp").forward(request, response);
 	}
 	
-	
+	 // this is a method to display details of a user (id)
+	public void viewUser(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+		int idUser = Integer.parseInt(request.getParameter("id"));
+		//System.out.println("RAW ID PARAM = " + idUser);
+		
+		UserModel existingUser = UserDAO.getUserById(idUser);
+		List <DepartmentModel> existingDept = DepartmentDAO.getAllDept();
+		List <RoleModel> allRole = RoleDAO.getAllRoles();
+		
+		request.setAttribute("roles", allRole);
+		request.setAttribute("depts", existingDept);
+		request.setAttribute("user", existingUser); 
+        request.getRequestDispatcher("admin/admin-user-details.jsp").forward(request, response);
+	}
 }

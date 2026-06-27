@@ -59,6 +59,38 @@ public class UserDAO {
         return user; //return Object
     }
 	
+    // this is for dashboard, that will get the user name and role
+    public static UserModel getUserById(int id) throws SQLException{
+    	
+    	UserModel u = null;
+        try {
+            Connection conn = DBConnection.getConnection();
+
+            String sql = "SELECT * FROM users WHERE USERID = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                u = new UserModel();
+                u.setUserId(rs.getInt("USERID"));
+                u.setName(rs.getString("NAME"));
+                u.setPassword(rs.getString("PASSWORD"));
+                u.setEmail(rs.getString("EMAIL"));
+                u.setRoleId(rs.getInt("ROLEID"));
+                u.setDepartmentId(rs.getInt("DEPARTMENTID"));
+            }
+            
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    	
+    	return u;
+    }
+    
+    
 	// this is for show user information
     public static List<UserModel> getAllUsers() throws SQLException {
 

@@ -166,7 +166,7 @@
 							
 							                        <c:otherwise>
 							                            <a class="btn btn-sm btn-outline-primary rounded-pill"
-							                               href="admin-user-details.jsp?action=edit&id=${user.userId}">
+							                               href="<%= request.getContextPath() %>/UserController?action=view&id=${user.userId}">
 							                                <i class="bi bi-pencil-square"></i>
 							                            </a>
 							                        </c:otherwise>
