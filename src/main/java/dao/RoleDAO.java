@@ -1,13 +1,12 @@
 package dao;
 
+import connection.DBConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-
 import model.RoleModel;
-import connection.DBConnection;
 
 public class RoleDAO {
 	private static Connection conn = null;
@@ -22,14 +21,14 @@ public class RoleDAO {
         try {
         	
         	conn = DBConnection.getConnection();
-        	sql = "SELECT roleid, rolename FROM role";
+        	sql = "SELECT roleid, name FROM role";
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();
 
             while (rs.next()) {
             	RoleModel r = new RoleModel();
                 r.setRoleId(rs.getInt("roleid"));
-                r.setName(rs.getString("rolename"));
+                r.setName(rs.getString("name"));
                 //r.setDescription(rs.getString("description"));
                 list.add(r);
             }

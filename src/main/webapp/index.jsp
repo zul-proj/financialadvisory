@@ -56,8 +56,26 @@
 					</li>
 
 					<li class="nav-item">
+<<<<<<< HEAD
 						<a class="btn btn-outline-primary rounded-pill px-4"
 							href="login.jsp">Preview System</a>
+=======
+						<c:choose>
+							<c:when test="${not empty sessionScope.user}">
+								<a class="btn btn-primary rounded-pill px-4"
+									href="dashboard.jsp?role=staff">
+									Dashboard
+								</a>
+							</c:when>
+
+							<c:otherwise>
+								<a class="btn btn-outline-primary rounded-pill px-4"
+									href="login.jsp">
+									Login
+								</a>
+							</c:otherwise>
+						</c:choose>
+>>>>>>> main
 					</li>
 				</ul>
 			</div>

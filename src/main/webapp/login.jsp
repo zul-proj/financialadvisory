@@ -111,6 +111,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
 	<div class="container-fluid p-0">
 		<div class="row g-0 min-vh-100">
 
@@ -118,6 +119,28 @@
 			<div class="col-lg-5 login-left d-flex align-items-center">
 				<div class="login-left-content text-white px-5 py-5">
 
+=======
+<body>
+
+<%
+String error = request.getParameter("error");
+
+if ("loginRequired".equals(error)) {
+%>
+<script>
+    alert("Please login first.");
+</script>
+<%
+}
+%>
+	<div class="container-fluid p-0">
+		<div class="row g-0 min-vh-100">
+
+			<!-- Left Branding Section -->
+			<div class="col-lg-5 login-left d-flex align-items-center">
+				<div class="login-left-content text-white px-5 py-5">
+
+>>>>>>> main
 					<div class="d-flex align-items-center gap-2 mb-5">
 						<i class="bi bi-folder2-open fs-3"></i>
 						<div class="fw-bold lh-sm">
@@ -159,6 +182,7 @@
 						<div class="mb-4">
 							<h2 class="fw-bold mb-1">Welcome back</h2>
 							<p class="text-secondary mb-0">
+<<<<<<< HEAD
 								Choose a role to preview the frontend
 							</p>
 						</div>
@@ -182,10 +206,27 @@
 										<option value="financialmanager">Financial Manager</option>
 										<option value="admin">System Admin</option>
 									</select>
+=======
+								Sign in to your account to continue
+							</p>
+						</div>
+
+						<form action="LoginController" method="post">
+
+							<div class="mb-3">
+								<label class="form-label fw-semibold small">Email Address</label>
+								<div class="input-group">
+									<span class="input-group-text bg-white">
+										<i class="bi bi-envelope text-secondary"></i>
+									</span>
+									<input type="email" class="form-control"
+										name="email" placeholder="you@company.com" required>
+>>>>>>> main
 								</div>
 							</div>
 
 							<div class="mb-3">
+<<<<<<< HEAD
 								<label class="form-label fw-semibold small">Email Address</label>
 								<div class="input-group">
 									<span class="input-group-text bg-white">
@@ -217,6 +258,28 @@
 								</label>
 							</div>
 
+=======
+								<label class="form-label fw-semibold small">Password</label>
+								<div class="input-group">
+									<span class="input-group-text bg-white">
+										<i class="bi bi-lock text-secondary"></i>
+									</span>
+									<input type="password" class="form-control"
+										name="password" placeholder="Enter your password" required>
+									<span class="input-group-text password-eye">
+										<i class="bi bi-eye text-secondary"></i>
+									</span>
+								</div>
+							</div>
+
+							<div class="form-check mb-4">
+								<input class="form-check-input" type="checkbox" id="rememberMe">
+								<label class="form-check-label text-secondary" for="rememberMe">
+									Remember me
+								</label>
+							</div>
+
+>>>>>>> main
 							<button type="submit"
 								class="btn btn-primary login-btn w-100 rounded-pill py-2 fw-semibold">
 								<i class="bi bi-box-arrow-in-right me-2"></i> Log In
