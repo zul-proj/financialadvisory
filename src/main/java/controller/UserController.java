@@ -15,7 +15,10 @@ import dao.UserDAO;
 import model.DepartmentModel;
 import model.RoleModel;
 import model.UserModel;
+import util.ErrorUtil;
 
+import dao.RoleDAO;
+import model.RoleModel;
 /**
  * Servlet implementation class UserController
  */

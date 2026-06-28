@@ -1,6 +1,5 @@
 package controller;
 
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -12,6 +11,8 @@ import java.io.IOException;
 
 import model.UserModel;
 import dao.UserDAO;
+import helper.RoleHelper;
+import util.ErrorUtil;
 
 /**
  * Servlet implementation class LoginController
@@ -49,6 +50,14 @@ public class LoginController extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("user", user); // only save that user information id, name rold id, etc
             session.setMaxInactiveInterval(60 * 30); // 30 minutes
+
+            
+            
+            session.setAttribute("isAdmin", RoleHelper.isAdmin(user));
+            session.setAttribute("isDepartmentManager", RoleHelper.isDepartmentManager(user));
+            session.setAttribute("isFinancialManager", RoleHelper.isFinancialManager(user));
+            session.setAttribute("isStaff", RoleHelper.isStaff(user));
+
             int roleId = user.getRoleId(); // to send the user login according to it role page
 
             // System Admin page because only admin not sharing the same dashboard with other role for now
@@ -63,6 +72,8 @@ public class LoginController extends HttpServlet {
 
         } else {
 
+            request.getSession().setAttribute("error",
+                    ErrorUtil.format("LoginController.java", "doPost", "Invalid email or password"));
             response.sendRedirect("login.jsp?error=1");
         }
 	}
