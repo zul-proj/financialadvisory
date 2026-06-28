@@ -1,6 +1,5 @@
 package controller;
 
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -12,6 +11,8 @@ import java.io.IOException;
 
 import model.UserModel;
 import dao.UserDAO;
+import helper.RoleHelper;
+import util.ErrorUtil;
 
 /**
  * Servlet implementation class LoginController
@@ -51,6 +52,11 @@ public class LoginController extends HttpServlet {
 
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
+            
+            session.setAttribute("isAdmin", RoleHelper.isAdmin(user));
+            session.setAttribute("isDepartmentManager", RoleHelper.isDepartmentManager(user));
+            session.setAttribute("isFinancialManager", RoleHelper.isFinancialManager(user));
+            session.setAttribute("isStaff", RoleHelper.isStaff(user));
 
             int roleId = user.getRoleId();
 
@@ -66,6 +72,8 @@ public class LoginController extends HttpServlet {
 
         } else {
 
+            request.getSession().setAttribute("error",
+                    ErrorUtil.format("LoginController.java", "doPost", "Invalid email or password"));
             response.sendRedirect("login.jsp?error=1");
         }
 	}
