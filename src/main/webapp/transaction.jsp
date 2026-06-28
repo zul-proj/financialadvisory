@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib uri="jakarta.tags.core" prefix="c"%>
 <%@ taglib uri="jakarta.tags.fmt" prefix="fmt"%>
+<%@ taglib uri="jakarta.tags.functions" prefix="fn"%>
 <%@ page import="dao.TransactionDAO,model.TransactionModel" %>
 <%@ page import="java.util.ArrayList" %>
 
@@ -109,7 +110,7 @@
 								<i class="bi bi-list-ul me-2"></i> Transaction List
 							</h5>
 							<div class="d-flex gap-2">
-									<a href="staff-transaction-details.jsp?id=0" class="btn btn-primary rounded-pill px-4">
+									<a href="TransactionController?action=create-details" class="btn btn-primary rounded-pill px-4">
 										<i class="bi bi-plus-circle me-2"></i>Create New
 									</a>
 									<a href="#" class="btn btn-outline-primary rounded-pill px-4">
@@ -134,35 +135,40 @@
 								</thead>
 
 									<tbody>
-										<%
-										TransactionDAO transactionDOA = new TransactionDAO();
-																			ArrayList<TransactionModel> transactions = transactionDOA.getAllTransactions(); // Fetch transactions from database
-																		
-																			for (TransactionModel transaction : transactions) {
-										%>
-										<tr>
-											<td><%= transaction.getDateTransaction() %></td>
-											<td><%= transaction.getName() %></td>
-											<td><span class="badge rounded-pill text-bg-success">Income</span></td>
-											<td><%= transaction.getCategoryId() %></td>
-											<td><%= transaction.getPaymentMethod() %></td>
-											<td class="text-end text-success fw-bold">RM <%= transaction.getTotalAmount() %></td>
-											<%if ("Approved".equalsIgnoreCase(transaction.getStatus())) { %>
-											<td><span class="badge rounded-pill text-bg-success">Approved</span></td>
-											<% } else if ("Rejected".equalsIgnoreCase(transaction.getStatus())) { %>
-											<td><span class="badge rounded-pill text-bg-danger">Rejected</span></td>
-											<% } else { %>
-											<td><span class="badge rounded-pill text-bg-warning">Pending Verification</span></td>
-											<% } %>
-											<td class="text-center">
-												<a class="btn btn-sm btn-outline-secondary rounded-pill" href="staff-transaction-details.jsp?id=sales-001"><i class="bi bi-eye"></i></a>
-												<a href="staff-transaction-details.jsp?action=edit&id=sales-001" class="btn btn-sm btn-outline-primary rounded-pill"><i class="bi bi-pencil-square"></i></a>
-												<a href="#" class="btn btn-sm btn-outline-danger rounded-pill"><i class="bi bi-trash"></i></a>
-											</td>
-										</tr>
-										<%
-											}
-										%>
+										<c:forEach var="transaction" items="${transactions_list}">
+											<tr>
+												<td>${transaction.dateTransaction}</td>
+												<td>${transaction.getName()}</td>
+												<td>${ empty transaction.transactionType ? 'N/A' : transaction.transactionType}</td>
+												<td>${ empty transaction.categoryName ? 'N/A' : transaction.categoryName}</td>
+												<td>${ empty transaction.paymentMethod ? 'N/A' : transaction.paymentMethod}</td>
+												<td class="text-end text-success fw-bold">RM ${transaction.totalAmount}</td>
+												
+												<c:choose>
+													<c:when test="${fn:toLowerCase(transaction.status) eq 'approved'}">
+                                                        <td><span class="badge rounded-pill text-bg-success">Approved</span></td>
+                                                    </c:when>
+                                                    <c:when test="${fn:toLowerCase(transaction.status) eq 'rejected'}">
+                                                        <td><span class="badge rounded-pill text-bg-danger">Rejected</span></td>
+                                                    </c:when>
+                                                    <c:when test="${fn:toLowerCase(transaction.status) eq 'pending'}">
+                                                        <td><span class="badge rounded-pill text-bg-warning">Pending Verification</span></td>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <td><span class="badge rounded-pill text-bg-secondary">Draft</span></td>
+                                                    </c:otherwise>
+												</c:choose>
+													
+												<td class="text-center">
+													<a class="btn btn-sm btn-outline-primary rounded-pill" href="TransactionController?action=view-details&transactionId=${transaction.transactionId}"><i class="bi bi-eye"></i></a>
+													<form action="TransactionController" method="post" style="display:inline;">
+														<input type="hidden" name="action" value="delete">
+														<input type="hidden" name="transactionId" value="${transaction.transactionId}">
+														<a href="#" class="btn btn-sm btn-outline-danger rounded-pill" onclick="if(confirm('Are you sure you want to delete this transaction?')) { this.closest('form').submit(); } return false;" name="action" value="delete"><i class="bi bi-trash"></i></a>
+													</form>
+												</td>
+											</tr>
+										</c:forEach>
 										<!-- <tr>
 											<td>2026-01-08</td>
 											<td>Office Rent</td>
@@ -172,8 +178,8 @@
 											<td class="text-end text-danger fw-bold">RM 32,471.00</td>
 											<td><span class="badge rounded-pill text-bg-warning">Pending Verification</span></td>
 											<td class="text-center">
-												<a class="btn btn-sm btn-outline-secondary rounded-pill" href="staff-transaction-details.jsp?id=rent-001"><i class="bi bi-eye"></i></a>
-												<a href="staff-transaction-details.jsp?action=edit&id=rent-001" class="btn btn-sm btn-outline-primary rounded-pill"><i class="bi bi-pencil-square"></i></a>
+												<a class="btn btn-sm btn-outline-secondary rounded-pill" href="transaction-details.jsp?id=rent-001"><i class="bi bi-eye"></i></a>
+												<a href="transaction-details.jsp?action=edit&id=rent-001" class="btn btn-sm btn-outline-primary rounded-pill"><i class="bi bi-pencil-square"></i></a>
 												<a href="#" class="btn btn-sm btn-outline-danger rounded-pill"><i class="bi bi-trash"></i></a>
 											</td>
 										</tr>
@@ -186,8 +192,8 @@
 											<td class="text-end text-danger fw-bold">RM 76,432.00</td>
 											<td><span class="badge rounded-pill text-bg-danger">Rejected</span></td>
 											<td class="text-center">
-												<a class="btn btn-sm btn-outline-secondary rounded-pill" href="staff-transaction-details.jsp?id=internet-001"><i class="bi bi-eye"></i></a>
-												<a href="staff-transaction-details.jsp?action=edit&id=internet-001" class="btn btn-sm btn-outline-primary rounded-pill"><i class="bi bi-pencil-square"></i></a>
+												<a class="btn btn-sm btn-outline-secondary rounded-pill" href="transaction-details.jsp?id=internet-001"><i class="bi bi-eye"></i></a>
+												<a href="transaction-details.jsp?action=edit&id=internet-001" class="btn btn-sm btn-outline-primary rounded-pill"><i class="bi bi-pencil-square"></i></a>
 												<a href="#" class="btn btn-sm btn-outline-danger rounded-pill"><i class="bi bi-trash"></i></a>
 											</td>
 										</tr>
@@ -200,8 +206,8 @@
 											<td class="text-end text-danger fw-bold">RM 46,832.00</td>
 											<td><span class="badge rounded-pill text-bg-warning">Pending Verification</span></td>
 											<td class="text-center">
-												<a class="btn btn-sm btn-outline-secondary rounded-pill" href="staff-transaction-details.jsp?id=marketing-001"><i class="bi bi-eye"></i></a>
-												<a href="staff-transaction-details.jsp?action=edit&id=marketing-001" class="btn btn-sm btn-outline-primary rounded-pill"><i class="bi bi-pencil-square"></i></a>
+												<a class="btn btn-sm btn-outline-secondary rounded-pill" href="transaction-details.jsp?id=marketing-001"><i class="bi bi-eye"></i></a>
+												<a href="transaction-details.jsp?action=edit&id=marketing-001" class="btn btn-sm btn-outline-primary rounded-pill"><i class="bi bi-pencil-square"></i></a>
 												<a href="#" class="btn btn-sm btn-outline-danger rounded-pill"><i class="bi bi-trash"></i></a>
 											</td>
 										</tr>
@@ -214,8 +220,8 @@
 											<td class="text-end text-danger fw-bold">RM 477.00</td>
 											<td><span class="badge rounded-pill text-bg-warning">Pending Verification</span></td>
 											<td class="text-center">
-												<a class="btn btn-sm btn-outline-secondary rounded-pill" href="staff-transaction-details.jsp?id=invoice-001"><i class="bi bi-eye"></i></a>
-												<a href="staff-transaction-details.jsp?action=edit&id=invoice-001" class="btn btn-sm btn-outline-primary rounded-pill"><i class="bi bi-pencil-square"></i></a>
+												<a class="btn btn-sm btn-outline-secondary rounded-pill" href="transaction-details.jsp?id=invoice-001"><i class="bi bi-eye"></i></a>
+												<a href="transaction-details.jsp?action=edit&id=invoice-001" class="btn btn-sm btn-outline-primary rounded-pill"><i class="bi bi-pencil-square"></i></a>
 												<a href="#" class="btn btn-sm btn-outline-danger rounded-pill"><i class="bi bi-trash"></i></a>
 											</td>
 										</tr> -->
