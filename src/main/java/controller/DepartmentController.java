@@ -56,9 +56,12 @@ public class DepartmentController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//int id = request.getParameter("id");
+		String id = request.getParameter("departmentId");
 		try {
-			addDept(request, response);
+			if(id == null) {
+				addDept(request, response);
+			}else
+				updateDept(request, response);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -77,7 +80,7 @@ public class DepartmentController extends HttpServlet {
 		
 		request.setAttribute("dept", existingDept);
 		
-		request.setAttribute("mode", "edit"); // to trigger the action button in jsp
+		request.setAttribute("mode", "update"); // to trigger the action button in jsp
 		request.getRequestDispatcher("admin/admin-department-details.jsp").forward(request, response);
 	}
 	
@@ -91,7 +94,7 @@ public class DepartmentController extends HttpServlet {
 	}
 
 	
-	public void addDept(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+	public void addDept (HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 		String deptName = request.getParameter("departmentName");
 		String desc = request.getParameter("description");
 		
@@ -101,6 +104,22 @@ public class DepartmentController extends HttpServlet {
 		deptData.setDescription(desc);
 		
 		DepartmentDAO.addDepartment(deptData);
+		//System.out.println("Booking added successfully.");
+        response.sendRedirect(request.getContextPath() + "/DepartmentController?action=list");
+	}
+	
+	public void updateDept(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+		int deptId = Integer.parseInt(request.getParameter("departmentCode"));
+		String deptName = request.getParameter("departmentName");
+		String desc = request.getParameter("description");
+		
+		DepartmentModel deptData = new DepartmentModel();
+		
+		deptData.setDepartmentId(deptId);
+		deptData.setName(deptName);
+		deptData.setDescription(desc);
+		
+		DepartmentDAO.updateDept(deptData);
 		//System.out.println("Booking added successfully.");
         response.sendRedirect(request.getContextPath() + "/DepartmentController?action=list");
 	}

@@ -25,13 +25,13 @@
 				</h4>
 				<div class="nav flex-column nav-pills gap-2">
 					<a class="nav-link active text-white rounded-3"
-						style="background-color: #ff2c2c;" href="<%= request.getContextPath() %>/admin/admin-user-list.jsp">
+						style="background-color: #ff2c2c;" href="<%= request.getContextPath() %>/UserController?action=list">
 						<i class="bi bi-people me-2"></i> User List
 					</a>
 					<a class="nav-link text-white rounded-3" href="<%= request.getContextPath() %>/DepartmentController?action=list">
 						<i class="bi bi-building me-2"></i> Department List
 					</a>
-					<a class="nav-link text-white rounded-3" href="<%= request.getContextPath() %>/account-settings.jsp?role=admin">
+					<a class="nav-link text-white rounded-3" href="<%= request.getContextPath() %>/UserController?action=profile">
 						<i class="bi bi-gear me-2"></i> Account Settings
 					</a>
 
@@ -107,7 +107,6 @@
 							            <th>Email</th>
 							            <th>Role</th>
 							            <th>Department</th>
-							            <th>Status</th>
 							            <th class="text-center">Action</th>
 							        </tr>
 							    </thead>
@@ -115,13 +114,9 @@
 							    <tbody>
 							
 							        <c:forEach var="user" items="${users}">
-							
 							            <tr>
-							
-							                <td><strong>${user.name}</strong></td>
-							
+							                <td>${user.name}</td>
 							                <td>${user.email}</td>
-							
 							                <td>
 							                    <c:choose>
 							                        <c:when test="${user.roleId == 1}">
@@ -152,28 +147,25 @@
 							                        </c:otherwise>
 							                    </c:choose>
 							                </td>
-							
-							                <td>
-							                    <span class="badge text-bg-success rounded-pill">Active</span>
-							                </td>
-							
 							                <td class="text-center">
 							
 							                    <c:choose>
 							                        <c:when test="${user.roleId == 1}">
 							                            <span class="text-secondary">Not Applicable</span>
 							                        </c:when>
-							
 							                        <c:otherwise>
 							                            <a class="btn btn-sm btn-outline-primary rounded-pill"
 							                               href="<%= request.getContextPath() %>/UserController?action=view&id=${user.userId}">
 							                                <i class="bi bi-pencil-square"></i>
 							                            </a>
+							                        <a class="btn btn-sm btn-outline-danger rounded-pill"
+					                                   href="UserController?action=delete&id=${user.userId}"
+					                                   onclick="return confirm('Delete this user?')">
+					                                    <i class="bi bi-trash"></i>
+					                                </a>
 							                        </c:otherwise>
 							                    </c:choose>
-							
 							                </td>
-							
 							            </tr>
 							
 							        </c:forEach>

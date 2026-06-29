@@ -116,7 +116,6 @@
 				
 				                    <thead>
 				                    <tr>
-				                        <th>ID</th>
 				                        <th>Department Name</th>
 				                        <th>Description</th>
 				                        <th class="text-center">Action</th>
@@ -126,9 +125,7 @@
 				                    <tbody>
 				
 					                    <c:forEach var="dept" items="${depts}">
-					
 					                        <tr>
-					                            <td>${dept.departmentId}</td>
 					                            <td>${dept.name}</td>
 					                            <td>${dept.description}</td>
 					

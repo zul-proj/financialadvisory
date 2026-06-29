@@ -100,7 +100,7 @@ public class UserDAO {
         try {
             Connection conn = DBConnection.getConnection();
 
-            String sql = "SELECT * FROM users";
+            String sql = "SELECT * FROM users WHERE ROLEID <> 1";
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ResultSet rs = ps.executeQuery();
@@ -123,5 +123,69 @@ public class UserDAO {
 
         return list;
     }
+    
+    // add new user
+    public static void addUser(UserModel data) throws SQLException{
+    	try {
+    		conn = DBConnection.getConnection();
+    		sql = "INSERT INTO USERS (NAME, EMAIL, PASSWORD, ROLEID, DEPARTMENTID) VALUES (?, ?, ?, ?, ?)";
+    		
+    		ps = conn.prepareStatement(sql);
+    	    ps.setString(1, data.getName());
+    	    ps.setString(2, data.getEmail());
+    	    ps.setString(3, data.getPassword());
+    	    ps.setInt(4, data.getRoleId());
+    	    ps.setInt(5, data.getDepartmentId());
+    	    
+    	    rs = ps.executeQuery();
+    	    
+    	    rs.close();
+    	    ps.close();   
+    	    
+    	}catch (SQLException e) {
+    		e.printStackTrace();
+    	}
+    }
 
+    // update a user
+    public static void updateUser(UserModel data) throws SQLException{
+    	try {
+    		conn = DBConnection.getConnection();
+    		sql = "UPDATE USERS SET NAME = ?, EMAIL = ?, PASSWORD = ?, ROLEID = ?, DEPARTMENTID = ? WHERE USERID = ?";
+    		ps = conn.prepareStatement(sql);
+    	    ps.setString(1, data.getName());
+    	    ps.setString(2, data.getEmail());
+    	    ps.setString(3, data.getPassword());
+    	    ps.setInt(4, data.getRoleId());
+    	    ps.setInt(5, data.getDepartmentId());
+    	    ps.setInt(6, data.getUserId());
+    		
+    	    rs = ps.executeQuery();
+    	    
+    	    rs.close();
+    	    ps.close();
+    	    
+    	}catch (SQLException e) {
+    		e.printStackTrace();
+    	}
+    }
+    
+    // delete a user
+    public static void deleteUser(int id) throws SQLException{
+        try {
+            conn = DBConnection.getConnection();
+
+            sql = "DELETE FROM USERS WHERE USERID = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+
+            
+            
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

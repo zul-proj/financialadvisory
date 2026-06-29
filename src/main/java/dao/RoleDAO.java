@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.RoleModel;
 import model.UserModel;
+import util.ErrorUtil;
 import connection.DBConnection;
 
 public class RoleDAO {

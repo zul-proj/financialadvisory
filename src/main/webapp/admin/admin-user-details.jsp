@@ -27,12 +27,12 @@
     <div class="nav flex-column nav-pills gap-2">
 
         <a class="nav-link text-white rounded-3"
-           href="admin-user-list.jsp">
+           href="UserController?action=list">
             <i class="bi bi-people me-2"></i> User List
         </a>
 
         <a class="nav-link text-white rounded-3"
-           href="admin-department-list.jsp">
+           href="DepartmentController?action=list">
             <i class="bi bi-building me-2"></i> Department List
         </a>
 
@@ -84,13 +84,12 @@
 
         <form action="UserController" method="post">
 
-            <!-- ACTION -->
-            <input type="hidden" name="action"
-                   value="${mode == 'create' ? 'insert' : 'update'}">
-
-            <!-- USER ID -->
-            <input type="hidden" name="userId"
-                   value="${user.userId}">
+            <!-- USER ID SEND IF MODE == UPDATE -->
+            <c:if test="${mode == 'update'}">
+			    <input type="hidden"
+			           name="userId"
+			           value="${user.userId}">
+			</c:if>
 
             <div class="row g-3">
 
@@ -166,14 +165,6 @@
                            placeholder="${mode == 'create'
                                 ? 'Set temporary password'
                                 : 'Leave blank to keep current password'}">
-                </div>
-
-                <!-- CONFIRM PASSWORD -->
-                <div class="col-md-6">
-                    <label class="form-label">Confirm Password</label>
-                    <input type="password" class="form-control rounded-3"
-                           name="confirmPassword"
-                           placeholder="Confirm password">
                 </div>
 
                 <!-- BUTTONS -->

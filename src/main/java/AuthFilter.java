@@ -63,9 +63,9 @@ public class AuthFilter implements Filter {
             return;
         }
 
-            res.sendRedirect(contextPath + "/admin/admin-user-list.jsp");
-            return;
-        }
+            //res.sendRedirect(contextPath + "/admin/admin-user-list.jsp");
+            //return;
+        //}
 
         // FINANCIAL MANAGER ONLY PAGES
         if (url.contains("financialmanager-") && roleId != 2) {

@@ -88,18 +88,22 @@
 						
 							<form action="DepartmentController" method="post">
 							
-							    <input type="hidden" name="departmentId"
-							           value="${dept.departmentId}" />
-							
+							    <!-- USER ID SEND IF MODE == UPDATE -->
+					            <c:if test="${mode == 'update'}">
+								    <input type="hidden"
+								           name="departmentId"
+								           value="${dept.departmentId}">
+								</c:if>
 							    <div class="row g-3">
 							
 							        <!-- Department Code -->
 							        <div class="col-md-4">
 							            <label class="form-label">Department Code</label>
 							            <input type="text"
-							                   class="form-control rounded-3"
-							                   name="departmentCode"
-							                   value="${dept.departmentId}">
+										       class="form-control rounded-3"
+										       name="departmentCode"
+										       value="${dept.departmentId}"
+										       ${mode == 'create' ? '' : 'readonly'}>
 							        </div>
 							
 							        <!-- Department Name -->

@@ -93,6 +93,26 @@ public class DepartmentDAO {
         }
     }
     
+    // update a department
+    public static void updateDept(DepartmentModel data) throws SQLException{
+    	try {
+            conn = DBConnection.getConnection();
+
+            sql = "UPDATE DEPARTMENT SET NAME=?, DESCRIPTION=? WHERE DEPARTMENTID=?";
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, data.getName());
+            ps.setString(2, data.getDescription());
+            ps.setInt(3, data.getDepartmentId());
+            rs = ps.executeQuery();
+
+            rs.close();
+            ps.close();
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
     public static void deleteDept(int id) throws SQLException{
         try {
             conn = DBConnection.getConnection();
